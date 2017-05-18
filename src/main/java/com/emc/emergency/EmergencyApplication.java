@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 
-
+@EnableAutoConfiguration
 @ComponentScan
 public class EmergencyApplication {
 

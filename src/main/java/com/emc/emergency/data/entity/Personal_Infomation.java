@@ -36,7 +36,7 @@ public class Personal_Infomation implements Serializable {
 	@Column(name="name_PI", nullable=true, length=20)	
 	private String name_PI;
 	
-	@Column(name="`sex _PI`", nullable=true, length=1)	
+	@Column(name="`sex_PI`", nullable=true, length=1)
 	private Boolean sex__PI;
 	
 	@Column(name="birthday", nullable=true)	
@@ -55,10 +55,10 @@ public class Personal_Infomation implements Serializable {
 	@Column(name="lat_PI", nullable=true)	
 	private Float lat_PI;
 	
-	@Column(name="`phone_PI int`", nullable=true, length=11)	
+	@Column(name="phone_PI", nullable=true, length=11)
 	private Integer phone_PI_int;
 	
-	@Column(name="`address_PI varchar`", nullable=true, length=50)	
+	@Column(name="`address_PI", nullable=true, length=50)
 	private String address_PI_varchar;
 	
 	@OneToMany(mappedBy="id_PI", targetEntity=com.emc.emergency.data.entity.Medical_Info.class)	
