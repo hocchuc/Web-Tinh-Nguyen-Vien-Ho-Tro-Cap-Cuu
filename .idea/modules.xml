@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu.iml" filepath="$PROJECT_DIR$/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu_main.iml" group="Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu_test.iml" group="Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu" />
     </modules>
   </component>
 </project>
