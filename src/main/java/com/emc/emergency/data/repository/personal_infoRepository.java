@@ -1,6 +1,6 @@
 package com.emc.emergency.data.repository;
 
-import com.emc.emergency.data.entity.Personal_Infomation;
+import com.emc.emergency.data.model.Personal_Infomation;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 

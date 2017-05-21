@@ -1,6 +1,6 @@
 package com.emc.emergency.data.repository;
 
-import com.emc.emergency.data.entity.User_Type;
+import com.emc.emergency.data.model.User_Type;
 import org.springframework.data.repository.CrudRepository;
 
 /**

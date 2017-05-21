@@ -1,6 +1,6 @@
 package com.emc.emergency.data.repository;
 
-import com.emc.emergency.data.entity.Medical_Info;
+import com.emc.emergency.data.model.Medical_Info;
 import org.springframework.data.repository.CrudRepository;
 
 /**

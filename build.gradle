@@ -25,7 +25,7 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
-	//compile('org.springframework.data:spring-data-rest-hal-browser')
+	compile('org.springframework.data:spring-data-rest-hal-browser')
 	//compile('org.springframework.boot:spring-boot-starter-hateoas')
 	//compile('org.springframework.boot:spring-boot-starter-mail')
 	//compile('org.springframework.boot:spring-boot-starter-mobile')
@@ -33,6 +33,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-websocket')
+// https://mvnrepository.com/artifact/com.google.code.gson/gson
+	compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
 	runtime('mysql:mysql-connector-java')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

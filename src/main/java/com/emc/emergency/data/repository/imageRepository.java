@@ -1,6 +1,6 @@
 package com.emc.emergency.data.repository;
 
-import com.emc.emergency.data.entity.Image;
+import com.emc.emergency.data.model.Image;
 import org.springframework.data.repository.CrudRepository;
 
 /**
