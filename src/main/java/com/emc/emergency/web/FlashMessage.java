@@ -28,4 +28,12 @@ public class FlashMessage {
     public static enum Status {
         SUCCESS, FAILURE
     }
+
+    @Override
+    public String toString() {
+        return "FlashMessage{" +
+                "message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

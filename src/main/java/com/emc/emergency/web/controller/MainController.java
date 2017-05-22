@@ -24,6 +24,7 @@ public class MainController {
     public String sign_in2() {
         return "mainpage/login";
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@Param("username")String username,@Param("password")String password) {
         FlashMessage flashMessage = new FlashMessage("login",FAILURE);

@@ -11,12 +11,17 @@ public class User_Type implements Serializable {
 	public User_Type() {
 	}
 
+	public User_Type(Long id_user_type, String name_user_type) {
+		this.id_user_type = id_user_type;
+		this.name_user_type = name_user_type;
+	}
+
 	@Column(name="id_user_type", nullable=false, length=20)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_user_type;
 
-	@Column(name="name_user_type", nullable=true, length=50)
+	@Column(name="name_user_type", nullable=false, length=50)
 	private String name_user_type;
 
 	@OneToMany(mappedBy="user_type")

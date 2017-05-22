@@ -2,6 +2,7 @@ package com.emc.emergency.data.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
@@ -9,6 +10,22 @@ import javax.persistence.*;
 @Table(name="Personal_Infomation")
 public class Personal_Infomation  {
 	public Personal_Infomation() {
+	}
+
+	public Personal_Infomation(Long id_PI, User id_user, String name_PI, Boolean sex__PI, Date birthday, Integer personal_id, String work_location, Float long_PI, Float lat_PI, Integer phone_PI, String address_PI, String email_PI, List<Medical_Info> medical_Info) {
+		this.id_PI = id_PI;
+		this.id_user = id_user;
+		this.name_PI = name_PI;
+		this.sex__PI = sex__PI;
+		this.birthday = birthday;
+		this.personal_id = personal_id;
+		this.work_location = work_location;
+		this.long_PI = long_PI;
+		this.lat_PI = lat_PI;
+		this.phone_PI = phone_PI;
+		this.address_PI = address_PI;
+		this.email_PI = email_PI;
+		this.medical_Info = medical_Info;
 	}
 
 	@Column(name="id_PI", nullable=false, length=20)

@@ -12,9 +12,12 @@ import java.util.List;
  */
 @RepositoryRestController
 public interface userRepository extends CrudRepository<User, Long> {
+
     List<User> findByUsername(@Param("username")String username);
 
     List<User> findByUsernameAndPassword(@Param("username")String username,@Param("password")String password);
+
+
 
 
 }

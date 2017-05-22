@@ -1,11 +1,12 @@
 
 package com.emc.emergency.data.model;
 
+import com.google.gson.annotations.Expose;
 import org.hibernate.FetchMode;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 import org.springframework.data.repository.cdi.Eager;
-
+import org.springframework.data.rest.core.annotation.RestResource;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -18,6 +19,13 @@ public class User  {
     public User() {
     }
 
+    public User(Long id_user, String username, User_Type user_type, String password) {
+        this.id_user = id_user;
+        this.username = username;
+        this.user_type = user_type;
+        this.password = password;
+    }
+
     @Column(name="id_user", nullable=false, length=20)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +36,7 @@ public class User  {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @Cascade(value = CascadeType.PERSIST)
+    @JoinColumn(nullable = false,referencedColumnName = "id_user_type",name = "id_user_type")
     private User_Type user_type;
 
     @OneToMany(mappedBy="id_user")
@@ -38,7 +47,7 @@ public class User  {
 
     @OneToMany(mappedBy="id_user")
     private List<Personal_Infomation> personal_Infomation = new ArrayList<>();
-
+    @RestResource(exported = false)
     @Column(name="password", nullable=false, length=50 )
     private String password;
 
