@@ -2,7 +2,13 @@
 package com.emc.emergency.data.model;
 
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 @Entity
 @Table(name="Medical_Info")
 public class Medical_Info  {
@@ -14,7 +20,9 @@ public class Medical_Info  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_MI;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
+	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(nullable = false,referencedColumnName = "id_PI",name = "id_PI")
 	private Personal_Infomation id_PI;
 
 	@Column(name="name_MI", nullable=true, length=50)

@@ -1,10 +1,15 @@
 package com.emc.emergency.data.model;
 
+import org.hibernate.annotations.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="Personal_Infomation")
@@ -33,7 +38,9 @@ public class Personal_Infomation  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_PI;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
+	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
 	private User id_user;
 
 	@Column(name="name_PI", nullable=true, length=20)
@@ -67,7 +74,8 @@ public class Personal_Infomation  {
 	@Column(name="email_PI", nullable=true, length=50)
 	private String email_PI;
 
-	@OneToMany(mappedBy="id_PI")
+	@OneToMany(mappedBy="id_PI", fetch = FetchType.LAZY)
+	@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
 	private List<Medical_Info> medical_Info = new ArrayList<>();
 
 	private void setId_PI(Long value) {

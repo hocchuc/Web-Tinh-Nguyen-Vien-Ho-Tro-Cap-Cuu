@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import org.hibernate.FetchMode;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.data.repository.cdi.Eager;
 import org.springframework.data.rest.core.annotation.RestResource;
 import javax.persistence.*;
@@ -30,23 +31,28 @@ public class User  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_user;
-
+    @Email
     @Column(name="username", nullable=false, length=50, unique = true)
     private String username;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @Cascade(value = CascadeType.PERSIST)
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(value = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(nullable = false,referencedColumnName = "id_user_type",name = "id_user_type")
     private User_Type user_type;
 
     @OneToMany(mappedBy="id_user")
+    @Cascade(value = CascadeType.ALL)
     private List<Accident> accident = new ArrayList<>();
 
     @OneToMany(mappedBy="id_user")
+    @Cascade(value = CascadeType.ALL)
     private List<Chat> chat = new ArrayList<>();
 
     @OneToMany(mappedBy="id_user")
+    @Cascade(value = CascadeType.ALL)
     private List<Personal_Infomation> personal_Infomation = new ArrayList<>();
+
     @RestResource(exported = false)
     @Column(name="password", nullable=false, length=50 )
     private String password;

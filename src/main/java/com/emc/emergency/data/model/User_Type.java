@@ -1,10 +1,16 @@
 
 package com.emc.emergency.data.model;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 @Entity
 @Table(name="User_Type")
 public class User_Type implements Serializable {
@@ -25,6 +31,7 @@ public class User_Type implements Serializable {
 	private String name_user_type;
 
 	@OneToMany(mappedBy="user_type")
+	@Cascade(value = CascadeType.ALL)
 	private List<User> users = new ArrayList<>();
 
 	private void setId_user_type(Long value) {

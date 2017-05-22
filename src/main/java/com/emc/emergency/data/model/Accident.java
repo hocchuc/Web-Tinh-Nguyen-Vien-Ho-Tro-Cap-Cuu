@@ -1,5 +1,6 @@
 package com.emc.emergency.data.model;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import java.io.Serializable;
@@ -20,7 +21,9 @@ public class Accident  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_AC;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
 	private User id_user;
 
 	@Column(name="description_AC", nullable=true, length=200)
@@ -39,10 +42,12 @@ public class Accident  {
 	@Column(name="status_AC", nullable=true, length=50)
 	private String status_AC;
 
-	@OneToMany(mappedBy="id_Acc")
+	@OneToMany(mappedBy="id_AC")
+	@Cascade(value = CascadeType.ALL)
 	private List<Chat> chat = new ArrayList<>();
 
-	@OneToMany(mappedBy="id_Acc")
+	@OneToMany(mappedBy="id_AC")
+	@Cascade(value = CascadeType.ALL)
 	private List<Image> image = new ArrayList<>();
 
 	private void setId_AC(Long value) {

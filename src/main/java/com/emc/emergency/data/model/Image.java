@@ -1,21 +1,27 @@
 package com.emc.emergency.data.model;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="Image")
 public class Image  {
 	public Image() {
 	}
-
 	@Column(name="id_image", nullable=false, length=20)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_image;
 
-	@ManyToOne
-	private Accident id_Acc;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(nullable = false,referencedColumnName = "id_AC",name = "id_AC")
+	private Accident id_AC;
 
 	@Column(name="link", nullable=true, length=50)
 	private String link;
@@ -40,12 +46,12 @@ public class Image  {
 		return link;
 	}
 
-	public void setId_Acc(Accident value) {
-		this.id_Acc = value;
+	public void setId_AC(Accident value) {
+		this.id_AC = value;
 	}
 
-	public Accident getId_Acc() {
-		return id_Acc;
+	public Accident getId_AC() {
+		return id_AC;
 	}
 
 	public String toString() {
