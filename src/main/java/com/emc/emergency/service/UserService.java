@@ -31,7 +31,10 @@ public class UserService {
         {   User_Type user_type = user_typeRepository.findOne(2l);
             User user = new User(null,username,user_type,password);
             userRepository.save(user);
+            return true;
+
         }
-        return true;
+        return false;
     }
+
 }
