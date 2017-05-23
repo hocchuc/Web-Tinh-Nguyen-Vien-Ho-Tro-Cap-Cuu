@@ -1,6 +1,7 @@
 
 package com.emc.emergency.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 import org.hibernate.FetchMode;
 import org.hibernate.annotations.*;
@@ -32,6 +33,7 @@ public class User   {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_user;
+
     @Email
     @Column(name="username", nullable=false, length=50, unique = true)
     private String username;
@@ -50,11 +52,12 @@ public class User   {
     @Cascade(value = CascadeType.ALL)
     private List<Chat> chat = new ArrayList<>();
 
-    @OneToMany(mappedBy="id_user")
+    @OneToOne(mappedBy="id_user")
     @Cascade(value = CascadeType.ALL)
-    private List<Personal_Infomation> personal_Infomation = new ArrayList<>();
+    private Personal_Infomation personal_Infomation;
 
     @RestResource(exported = false)
+    @JsonIgnore
     @Column(name="password", nullable=false, length=50 )
     private String password;
 
@@ -99,8 +102,28 @@ public class User   {
         return chat;
     }
 
-    public List<Personal_Infomation> getPersonal_Infomation() {
+    public User_Type getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(User_Type user_type) {
+        this.user_type = user_type;
+    }
+
+    public void setAccident(List<Accident> accident) {
+        this.accident = accident;
+    }
+
+    public void setChat(List<Chat> chat) {
+        this.chat = chat;
+    }
+
+    public Personal_Infomation getPersonal_Infomation() {
         return personal_Infomation;
+    }
+
+    public void setPersonal_Infomation(Personal_Infomation personal_Infomation) {
+        this.personal_Infomation = personal_Infomation;
     }
 
     @Override

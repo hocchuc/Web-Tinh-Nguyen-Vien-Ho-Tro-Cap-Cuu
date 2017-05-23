@@ -5,6 +5,7 @@ import org.hibernate.annotations.CascadeType;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -14,6 +15,18 @@ import javax.persistence.Table;
 @Table(name="Accident")
 public class Accident  {
 	public Accident() {
+	}
+
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC, List<Chat> chat, List<Image> image) {
+		this.id_AC = id_AC;
+		this.id_user = id_user;
+		this.description_AC = description_AC;
+		this.date_AC = date_AC;
+		this.long_AC = long_AC;
+		this.lat_AC = lat_AC;
+		this.status_AC = status_AC;
+		this.chat = chat;
+		this.image = image;
 	}
 
 	@Column(name="id_AC", nullable=false, length=20)
@@ -37,7 +50,7 @@ public class Accident  {
 	private Float long_AC;
 
 	@Column(name="lat_AC", nullable=true, length=10)
-	private Integer lat_AC;
+	private Float lat_AC;
 
 	@Column(name="status_AC", nullable=true, length=50)
 	private String status_AC;
@@ -90,11 +103,11 @@ public class Accident  {
 		setLat_AC(new Integer(value));
 	}
 
-	public void setLat_AC(Integer value) {
+	public void setLat_AC(Float value) {
 		this.lat_AC = value;
 	}
 
-	public Integer getLat_AC() {
+	public Float getLat_AC() {
 		return lat_AC;
 	}
 

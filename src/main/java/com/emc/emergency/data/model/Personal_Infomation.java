@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 @Entity
 @Table(name="Personal_Infomation")
@@ -38,7 +39,7 @@ public class Personal_Infomation  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_PI;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
 	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
 	private User id_user;
@@ -65,7 +66,7 @@ public class Personal_Infomation  {
 	@Column(name="lat_PI", nullable=true)
 	private Float lat_PI;
 
-	@Column(name="`phone_PI`", nullable=true, length=11)
+	@Column(name="`phone_PI`", nullable=true, length=15)
 	private Integer phone_PI;
 
 	@Column(name="address_PI", nullable=true, length=50)

@@ -17,9 +17,9 @@ import java.util.List;
 
 @Component
 public class DatabaseLoader implements ApplicationRunner {
-
+    @Autowired
     private final userRepository user;
-
+    @Autowired
     private final user_typeRepository user_type;
 
     @Autowired
