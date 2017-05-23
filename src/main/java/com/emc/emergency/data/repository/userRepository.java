@@ -1,7 +1,11 @@
 package com.emc.emergency.data.repository;
 
 import com.emc.emergency.data.model.User;
+import com.emc.emergency.data.model.User_Type;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 
@@ -16,6 +20,9 @@ public interface userRepository extends CrudRepository<User, Long> {
     List<User> findByUsername(@Param("username")String username);
 
     List<User> findByUsernameAndPassword(@Param("username")String username,@Param("password")String password);
+
+    List<User> findByUser_type(@Param("user_type")User_Type user_type);
+
 
 
 

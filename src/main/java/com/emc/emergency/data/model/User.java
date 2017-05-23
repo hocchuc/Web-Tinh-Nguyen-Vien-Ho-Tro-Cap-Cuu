@@ -11,12 +11,13 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="`User`")
-public class User  {
+public class User   {
     public User() {
     }
 
@@ -37,7 +38,7 @@ public class User  {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(value = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+    @Cascade(value = {CascadeType.SAVE_UPDATE})
     @JoinColumn(nullable = false,referencedColumnName = "id_user_type",name = "id_user_type")
     private User_Type user_type;
 
@@ -107,11 +108,7 @@ public class User  {
         return "User{" +
                 "id_user=" + id_user +
                 ", username='" + username + '\'' +
-                ", id_user_type=" + user_type +
-                ", accident=" + accident +
-                ", chat=" + chat +
-                ", personal_Infomation=" + personal_Infomation +
-                ", password='" + password + '\'' +
+                ", user_type=" + user_type +
                 '}';
     }
 }

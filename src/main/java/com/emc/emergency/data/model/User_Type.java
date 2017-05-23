@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="User_Type")
-public class User_Type implements Serializable {
+public class User_Type   {
 	public User_Type() {
 	}
 
@@ -30,7 +30,7 @@ public class User_Type implements Serializable {
 	@Column(name="name_user_type", nullable=false, length=50)
 	private String name_user_type;
 
-	@OneToMany(mappedBy="user_type")
+	@OneToMany(mappedBy="user_type",orphanRemoval=true,targetEntity = User.class)
 	@Cascade(value = CascadeType.ALL)
 	private List<User> users = new ArrayList<>();
 
