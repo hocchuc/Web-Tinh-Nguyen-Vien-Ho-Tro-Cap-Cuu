@@ -21,8 +21,9 @@ public class Medical_Info  {
 	private Long id_MI;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_PI",name = "id_PI")
+	/*@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(nullable = false,referencedColumnName = "id_PI",name = "id_PI")*/
+	@JoinColumn(name = "id_PI")
 	private Personal_Infomation id_PI;
 
 	@Column(name="name_MI", nullable=true, length=50)

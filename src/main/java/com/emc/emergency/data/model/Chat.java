@@ -28,13 +28,15 @@ public class Chat {
 	private Long id_chat;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_AC",name = "id_AC")
+/*	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(nullable = false,referencedColumnName = "id_AC",name = "id_AC")*/
+	@JoinColumn(name = "id_AC")
 	private Accident id_AC;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
+	/*@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")*/
+	@JoinColumn(name = "id_user")
 	private User id_user;
 
 	@Column(name="comment", nullable=true, length=50)

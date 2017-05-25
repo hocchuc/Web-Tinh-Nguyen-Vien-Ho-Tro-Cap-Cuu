@@ -30,9 +30,10 @@ public class User_Type   {
 	@Column(name="name_user_type", nullable=false, length=50)
 	private String name_user_type;
 
-	@OneToMany(mappedBy="user_type",orphanRemoval=true,targetEntity = User.class)
-	@Cascade(value = CascadeType.ALL)
-	private List<User> users = new ArrayList<>();
+	//@OneToMany(mappedBy="user_type",orphanRemoval=true,targetEntity = User.class)
+	//@Cascade(value = CascadeType.ALL)
+	@OneToMany(mappedBy="user_type")
+	private List<User> users ;//= new ArrayList<>();
 
 	private void setId_user_type(Long value) {
 		this.id_user_type = value;

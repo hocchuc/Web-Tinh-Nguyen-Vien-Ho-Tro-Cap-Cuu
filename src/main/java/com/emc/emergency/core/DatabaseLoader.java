@@ -17,9 +17,9 @@ import java.util.List;
 
 @Component
 public class DatabaseLoader implements ApplicationRunner {
-    @Autowired
+
     private final userRepository user;
-    @Autowired
+
     private final user_typeRepository user_type;
 
     @Autowired
@@ -46,6 +46,8 @@ public class DatabaseLoader implements ApplicationRunner {
         user.save(user3);
         user2.setId_user_type(volunteer);
         user.save(user2);
+
+
 
 
     }

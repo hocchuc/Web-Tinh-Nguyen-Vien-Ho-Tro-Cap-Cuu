@@ -2,6 +2,7 @@ package com.emc.emergency.data.model;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,8 +36,9 @@ public class Accident  {
 	private Long id_AC;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
+	//@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	//@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
+	@JoinColumn(name = "id_user")
 	private User id_user;
 
 	@Column(name="description_AC", nullable=true, length=200)
@@ -44,6 +46,7 @@ public class Accident  {
 
 	@Column(name="date_AC", nullable=true)
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private java.util.Date date_AC;
 
 	@Column(name="long_AC", nullable=true)
@@ -97,10 +100,6 @@ public class Accident  {
 
 	public Float getLong_AC() {
 		return long_AC;
-	}
-
-	public void setLat_AC(int value) {
-		setLat_AC(new Integer(value));
 	}
 
 	public void setLat_AC(Float value) {

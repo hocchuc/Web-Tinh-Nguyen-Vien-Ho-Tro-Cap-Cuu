@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.List;
+
 import static com.emc.emergency.web.FlashMessage.Status.*;
 import static com.emc.emergency.web.FlashMessage.Type_Mess.*;
 
@@ -15,9 +18,10 @@ import static com.emc.emergency.web.FlashMessage.Type_Mess.*;
  * Created by hocan on 20-May-17.
  */
 @RestController
-public class Rest_Controller {
+public class RestUserController {
     @Autowired
     UserService userService;
+
     @RequestMapping(value = "/api/login", method = RequestMethod.POST)
     @ResponseBody
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -34,6 +38,8 @@ public class Rest_Controller {
         if(userService.Register(username,password)) flashMessage.setStatus(SUCCESS);
         return flashMessage.toString();
     }
+
+
 
 
 

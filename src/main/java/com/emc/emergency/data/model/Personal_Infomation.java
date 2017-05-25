@@ -1,6 +1,7 @@
 package com.emc.emergency.data.model;
 
 import org.hibernate.annotations.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -40,8 +41,9 @@ public class Personal_Infomation  {
 	private Long id_PI;
 
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
-	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	//@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
+	//@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(name = "id_user")
 	private User id_user;
 
 	@Column(name="name_PI", nullable=true, length=20)
@@ -52,6 +54,7 @@ public class Personal_Infomation  {
 
 	@Column(name="birthday", nullable=true)
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private java.util.Date birthday;
 
 	@Column(name="personal_id", nullable=true, unique=true, length=15)

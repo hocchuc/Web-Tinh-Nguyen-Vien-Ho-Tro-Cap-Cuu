@@ -25,18 +25,18 @@ public class AccidentService {
     chatRepository chatRepository;
     @Autowired
     imageRepository imageRepository;
-    public boolean CreateAccident(Long id_AC, Long id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC, List<Long> chatlist, List<Long> imagelist) {
+    public boolean CreateAccident(Long id_AC, Long id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC) {
         User user = null;
         List<Chat> chats = null;
         List<Image> images = null;
         try {
             user = userRepository.findOne(id_user);
             if(user==null) return false;
-            chats = new ArrayList<>();
+            /*chats = new ArrayList<>();
             images = new ArrayList<>();
             chats = (List<Chat>) chatRepository.findAll(chatlist);
-            images = (List<Image>) imageRepository.findAll(imagelist);
-            Accident accident = new Accident(null, user, description_AC,  date_AC, long_AC, lat_AC, status_AC, chats, images);
+            images = (List<Image>) imageRepository.findAll(imagelist);*/
+            Accident accident = new Accident(null, user, description_AC,  date_AC, long_AC, lat_AC, status_AC, null, null);
             accidentRepository.save(accident);
         } catch (Exception e) {
             e.printStackTrace();

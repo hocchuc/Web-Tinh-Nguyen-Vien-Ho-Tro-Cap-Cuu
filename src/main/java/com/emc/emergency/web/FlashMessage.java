@@ -40,7 +40,7 @@ public class FlashMessage {
         SUCCESS, FAILURE
     }
     public static enum Type_Mess {
-        SYSTEM, LOGIN, REGISTER
+        SYSTEM, LOGIN, REGISTER,CREATED
     }
 
     @Override

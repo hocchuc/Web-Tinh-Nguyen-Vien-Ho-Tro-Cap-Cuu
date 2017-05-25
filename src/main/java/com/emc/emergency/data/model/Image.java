@@ -19,8 +19,9 @@ public class Image  {
 	private Long id_image;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_AC",name = "id_AC")
+	/*@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@JoinColumn(nullable = false,referencedColumnName = "id_AC",name = "id_AC")*/
+	@JoinColumn(name = "id_AC")
 	private Accident id_AC;
 
 	@Column(name="link", nullable=true, length=50)

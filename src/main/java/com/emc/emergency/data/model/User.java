@@ -1,12 +1,14 @@
 
 package com.emc.emergency.data.model;
 
+import com.emc.emergency.data.repository.user_typeRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 import org.hibernate.FetchMode;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Email;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.cdi.Eager;
 import org.springframework.data.rest.core.annotation.RestResource;
 import javax.persistence.*;
@@ -19,9 +21,17 @@ import java.util.List;
 @Entity
 @Table(name="`User`")
 public class User   {
+/*    @Autowired
+    user_typeRepository user_typeRepository;*/
     public User() {
     }
+/*    public User(Long id_user,Long id_user_type, String username, String password) {
 
+        this.id_user = id_user;
+        this.username = username;
+        this.user_type = user_typeRepository.findOne(id_user_type);
+        this.password = password;
+    }*/
     public User(Long id_user, String username, User_Type user_type, String password) {
         this.id_user = id_user;
         this.username = username;
@@ -39,25 +49,25 @@ public class User   {
     private String username;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(value = {CascadeType.SAVE_UPDATE})
-    @JoinColumn(nullable = false,referencedColumnName = "id_user_type",name = "id_user_type")
+    /*@ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(value = {CascadeType.SAVE_UPDATE})*/
+    @ManyToOne
+    @JoinColumn(name = "id_user_type")
     private User_Type user_type;
 
     @OneToMany(mappedBy="id_user")
-    @Cascade(value = CascadeType.ALL)
+    //@Cascade(value = CascadeType.ALL)
     private List<Accident> accident = new ArrayList<>();
 
     @OneToMany(mappedBy="id_user")
-    @Cascade(value = CascadeType.ALL)
+   // @Cascade(value = CascadeType.ALL)
     private List<Chat> chat = new ArrayList<>();
 
     @OneToOne(mappedBy="id_user")
-    @Cascade(value = CascadeType.ALL)
+   // @Cascade(value = CascadeType.ALL)
     private Personal_Infomation personal_Infomation;
-
+    //@JsonIgnore
     @RestResource(exported = false)
-    @JsonIgnore
     @Column(name="password", nullable=false, length=50 )
     private String password;
 
