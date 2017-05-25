@@ -19,21 +19,7 @@ public class Personal_Infomation  {
 	public Personal_Infomation() {
 	}
 
-	public Personal_Infomation(Long id_PI, User id_user, String name_PI, Boolean sex__PI, Date birthday, Integer personal_id, String work_location, Float long_PI, Float lat_PI, Integer phone_PI, String address_PI, String email_PI, List<Medical_Info> medical_Info) {
-		this.id_PI = id_PI;
-		this.id_user = id_user;
-		this.name_PI = name_PI;
-		this.sex__PI = sex__PI;
-		this.birthday = birthday;
-		this.personal_id = personal_id;
-		this.work_location = work_location;
-		this.long_PI = long_PI;
-		this.lat_PI = lat_PI;
-		this.phone_PI = phone_PI;
-		this.address_PI = address_PI;
-		this.email_PI = email_PI;
-		this.medical_Info = medical_Info;
-	}
+
 
 	@Column(name="id_PI", nullable=false, length=20)
 	@Id
@@ -58,7 +44,7 @@ public class Personal_Infomation  {
 	private java.util.Date birthday;
 
 	@Column(name="personal_id", nullable=true, unique=true, length=15)
-	private Integer personal_id;
+	private Long personal_id;
 
 	@Column(name="work_location", nullable=true, length=100)
 	private String work_location;
@@ -70,7 +56,7 @@ public class Personal_Infomation  {
 	private Float lat_PI;
 
 	@Column(name="`phone_PI`", nullable=true, length=15)
-	private Integer phone_PI;
+	private Long phone_PI;
 
 	@Column(name="address_PI", nullable=true, length=50)
 	private String address_PI;
@@ -79,7 +65,7 @@ public class Personal_Infomation  {
 	private String email_PI;
 
 	@OneToMany(mappedBy="id_PI", fetch = FetchType.LAZY)
-	@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
+	//@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
 	private List<Medical_Info> medical_Info = new ArrayList<>();
 
 	private void setId_PI(Long value) {
@@ -118,16 +104,32 @@ public class Personal_Infomation  {
 		return birthday;
 	}
 
-	public void setPersonal_id(int value) {
-		setPersonal_id(new Integer(value));
+	public User getId_user() {
+		return id_user;
 	}
 
-	public void setPersonal_id(Integer value) {
-		this.personal_id = value;
+	public void setId_user(User id_user) {
+		this.id_user = id_user;
 	}
 
-	public Integer getPersonal_id() {
+	public Long getPersonal_id() {
 		return personal_id;
+	}
+
+	public void setPersonal_id(Long personal_id) {
+		this.personal_id = personal_id;
+	}
+
+	public Long getPhone_PI() {
+		return phone_PI;
+	}
+
+	public void setPhone_PI(Long phone_PI) {
+		this.phone_PI = phone_PI;
+	}
+
+	public void setMedical_Info(List<Medical_Info> medical_Info) {
+		this.medical_Info = medical_Info;
 	}
 
 	public void setWork_location(String value) {
@@ -166,13 +168,6 @@ public class Personal_Infomation  {
 		setPhone_PI_int(new Integer(value));
 	}
 
-	public void setPhone_PI(Integer value) {
-		this.phone_PI = value;
-	}
-
-	public Integer getPhone_PI() {
-		return phone_PI;
-	}
 
 	public void setAddress_PI_varchar(String value) {
 		this.address_PI= value;
@@ -193,7 +188,6 @@ public class Personal_Infomation  {
 	public List<Medical_Info> getMedical_Info() {
 		return medical_Info;
 	}
-
 
 	public String toString() {
 		return String.valueOf(getId_PI());
