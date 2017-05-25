@@ -19,8 +19,9 @@
         <property name="hibernate.implicit_naming_strategy">org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl</property>
 
         <!-- Update the database schema (structure) on startup -->
-        <property name="hbm2ddl.auto">update</property>
-
+        <property name="hbm2ddl.auto">Create</property>
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
     </session-factory>
 
 </hibernate-configuration>
