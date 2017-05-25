@@ -18,10 +18,10 @@ public class Personal_InfomationService {
     @Autowired
     personal_infoRepository personal_infoRepository;
 
-    public boolean create_personal_Info(Long id_PI, User id_user, String name_PI, Boolean sex__PI, Date birthday, Integer personal_id, String work_location, Float long_PI, Float lat_PI, Integer phone_PI, String address_PI, String email_PI, List<Medical_Info> medical_Info) {
+    public boolean create_personal_Info(Long id_PI, User id_user, String name_PI, Boolean sex__PI, Date birthday, Long personal_id, String work_location, Float long_PI, Float lat_PI, Long phone_PI, String address_PI, String email_PI, List<Medical_Info> medical_Info) {
 
         try {
-            Personal_Infomation personal_infomation = new Personal_Infomation(null, id_user,  name_PI,  sex__PI,  birthday,  personal_id,  work_location,  long_PI,  lat_PI,  phone_PI,  address_PI,  email_PI,  medical_Info) ;
+            Personal_Infomation personal_infomation = new Personal_Infomation( name_PI,  sex__PI,  birthday,  personal_id,  work_location,  long_PI,  lat_PI,  phone_PI,  address_PI,  email_PI) ;
             personal_infoRepository.save(personal_infomation);
         } catch (Exception e) {
             e.printStackTrace();

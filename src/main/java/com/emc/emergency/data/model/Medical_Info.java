@@ -20,7 +20,7 @@ public class Medical_Info  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_MI;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	/*@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
 	@JoinColumn(nullable = false,referencedColumnName = "id_PI",name = "id_PI")*/
 	@JoinColumn(name = "id_PI")
@@ -80,9 +80,15 @@ public class Medical_Info  {
 		return id_PI;
 	}
 
+	@Override
 	public String toString() {
-		return String.valueOf(getId_MI());
+		return "Medical_Info{" +
+				"id_MI=" + id_MI +
+				", id_PI=" + id_PI +
+				", name_MI='" + name_MI + '\'' +
+				", type_MI=" + type_MI +
+				", description='" + description + '\'' +
+				'}';
 	}
-
 }
 

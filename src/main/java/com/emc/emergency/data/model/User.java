@@ -25,13 +25,7 @@ public class User   {
     user_typeRepository user_typeRepository;*/
     public User() {
     }
-/*    public User(Long id_user,Long id_user_type, String username, String password) {
 
-        this.id_user = id_user;
-        this.username = username;
-        this.user_type = user_typeRepository.findOne(id_user_type);
-        this.password = password;
-    }*/
     public User(Long id_user, String username, User_Type user_type, String password) {
         this.id_user = id_user;
         this.username = username;

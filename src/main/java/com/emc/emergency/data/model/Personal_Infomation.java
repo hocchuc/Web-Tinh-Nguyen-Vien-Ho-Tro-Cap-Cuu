@@ -15,11 +15,23 @@ import javax.validation.Valid;
 
 @Entity
 @Table(name="Personal_Infomation")
-public class Personal_Infomation  {
+public class Personal_Infomation implements Serializable  {
 	public Personal_Infomation() {
 	}
 
+	public Personal_Infomation( String name_PI, Boolean sex__PI, Date birthday, Long personal_id, String work_location, Float long_PI, Float lat_PI, Long phone_PI, String address_PI, String email_PI) {
 
+		this.name_PI = name_PI;
+		this.sex__PI = sex__PI;
+		this.birthday = birthday;
+		this.personal_id = personal_id;
+		this.work_location = work_location;
+		this.long_PI = long_PI;
+		this.lat_PI = lat_PI;
+		this.phone_PI = phone_PI;
+		this.address_PI = address_PI;
+		this.email_PI = email_PI;
+	}
 
 	@Column(name="id_PI", nullable=false, length=20)
 	@Id
@@ -39,7 +51,7 @@ public class Personal_Infomation  {
 	private Boolean sex__PI;
 
 	@Column(name="birthday", nullable=true)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private java.util.Date birthday;
 
@@ -64,9 +76,12 @@ public class Personal_Infomation  {
 	@Column(name="email_PI", nullable=true, length=50)
 	private String email_PI;
 
-	@OneToMany(mappedBy="id_PI", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="id_PI")
 	//@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
 	private List<Medical_Info> medical_Info = new ArrayList<>();
+
+	public Personal_Infomation(String name_pi, Boolean sex__pi, Date birthday, Long personal_id, String work_location, Float long_pi, Float lat_pi, Long phone_pi, String address_pi, String email_pi, List<Medical_Info> medical_info) {
+	}
 
 	private void setId_PI(Long value) {
 		this.id_PI = value;
@@ -189,10 +204,6 @@ public class Personal_Infomation  {
 		return medical_Info;
 	}
 
-	public String toString() {
-		return String.valueOf(getId_PI());
-	}
-
 	public String getAddress_PI() {
 		return address_PI;
 	}
@@ -207,5 +218,24 @@ public class Personal_Infomation  {
 
 	public void setEmail_PI(String email_PI) {
 		this.email_PI = email_PI;
+	}
+
+	@Override
+	public String toString() {
+		return "Personal_Infomation{" +
+				"id_PI=" + id_PI +
+				", id_user=" + id_user +
+				", name_PI='" + name_PI + '\'' +
+				", sex__PI=" + sex__PI +
+				", birthday=" + birthday +
+				", personal_id=" + personal_id +
+				", work_location='" + work_location + '\'' +
+				", long_PI=" + long_PI +
+				", lat_PI=" + lat_PI +
+				", phone_PI=" + phone_PI +
+				", address_PI='" + address_PI + '\'' +
+				", email_PI='" + email_PI + '\'' +
+				", medical_Info=" + medical_Info +
+				'}';
 	}
 }
