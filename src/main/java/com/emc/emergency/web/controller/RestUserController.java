@@ -36,10 +36,10 @@ public class RestUserController {
     @RequestMapping(value = "/api/register", method = RequestMethod.POST)
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public String Register (@RequestBody User user) {
+    public FlashMessage Register (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(REGISTER,"register",FAILURE);
         if(userService.Register(user.getUsername(),user.getPassword())) flashMessage.setStatus(SUCCESS);
-        return flashMessage.toString();
+        return flashMessage;
     }
 
 
