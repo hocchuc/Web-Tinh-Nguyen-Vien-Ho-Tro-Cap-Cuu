@@ -1,3 +1,4 @@
+/*
 package com.emc.emergency.config;
 
 import com.google.gson.Gson;
@@ -38,4 +39,4 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
-}
+}*/

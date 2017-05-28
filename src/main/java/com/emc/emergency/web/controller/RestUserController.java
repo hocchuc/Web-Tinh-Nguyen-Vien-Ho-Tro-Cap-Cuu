@@ -1,15 +1,19 @@
 package com.emc.emergency.web.controller;
 
+import com.emc.emergency.data.model.User;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 import static com.emc.emergency.web.FlashMessage.Status.*;
 import static com.emc.emergency.web.FlashMessage.Type_Mess.*;
@@ -22,13 +26,12 @@ public class RestUserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/api/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/login", method = RequestMethod.POST,consumes = MediaType.ALL_VALUE,produces = "application/json")
     @ResponseBody
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public String Login (@RequestParam("username")String username, @RequestParam("password")String password) {
+    public FlashMessage Login (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(LOGIN,"login",FAILURE);
-        if(userService.Login(username,password)) flashMessage.setStatus(SUCCESS);
-        return flashMessage.toString();
+        if(userService.Login(user.getUsername(),user.getPassword())) flashMessage.setStatus(SUCCESS);
+        return flashMessage;
     }
     @RequestMapping(value = "/api/register", method = RequestMethod.POST)
     @ResponseBody
@@ -38,6 +41,7 @@ public class RestUserController {
         if(userService.Register(username,password)) flashMessage.setStatus(SUCCESS);
         return flashMessage.toString();
     }
+
 
 
 

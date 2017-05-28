@@ -61,7 +61,7 @@ public class User   {
    // @Cascade(value = CascadeType.ALL)
     private Personal_Infomation personal_Infomation;
     //@JsonIgnore
-    @RestResource(exported = false)
+    //@RestResource(exported = false)
     @Column(name="password", nullable=false, length=50 )
     private String password;
 

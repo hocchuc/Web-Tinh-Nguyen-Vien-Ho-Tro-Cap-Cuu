@@ -39,16 +39,9 @@ public class FlashMessage {
     public static enum Status {
         SUCCESS, FAILURE
     }
-    public static enum Type_Mess {
-        SYSTEM, LOGIN, REGISTER,CREATED
-    }
 
-    @Override
-    public String toString() {
-        return "FlashMessage{" +
-                "type=" + type +
-                ", message='" + message + '\'' +
-                ", status=" + status +
-                '}';
+    public static enum Type_Mess {
+        SYSTEM, LOGIN, REGISTER, CREATED
     }
 }
+
