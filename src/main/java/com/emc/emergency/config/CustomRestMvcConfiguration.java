@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
+import org.springframework.http.MediaType;
 
 @Configuration
 class CustomRestMvcConfiguration {
@@ -17,6 +18,9 @@ class CustomRestMvcConfiguration {
       @Override
       public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.setBasePath("/api");
+        config.setDefaultMediaType(MediaType.APPLICATION_JSON_UTF8);
+        config.setReturnBodyForPutAndPost(true);
+
       }
     };
   }
