@@ -11,6 +11,7 @@ import com.emc.emergency.data.repository.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by hocan on 23-May-17.
@@ -43,5 +44,10 @@ public class AccidentService {
             return false;
         }
         return true;
+    }
+
+    public List<Accident> GetAccident() {
+        List<Accident> accidents =  accidentRepository.findAll();
+        return accidents;
     }
 }

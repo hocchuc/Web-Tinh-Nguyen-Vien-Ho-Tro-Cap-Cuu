@@ -36,8 +36,6 @@ public class Accident  {
 	private Long id_AC;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	//@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	//@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
 	@JoinColumn(name = "id_user")
 	private User id_user;
 
