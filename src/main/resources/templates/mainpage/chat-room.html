@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <title>Android, Firebase Chat App </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <link
+            href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700'
+            rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
+    <link href="style.css" type="text/css" rel='stylesheet' />
+    <script type="text/javascript" src="main.js"></script>
+    <style type="text/css">
+html,
+body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background: #fff;
+
+}
+.margin {
+  margin: 0 !important;
+}
+</style>
+</head>
+<body>
+<div class="body_container">
+
+    <div id="header">
+        <h1>Android Firebase Chat Application</h1>
+        <p class='online_count'>
+            <b>23</b> people online right now
+        </p>
+    </div>
+
+    <div id="prompt_name_container" class="box_shadow">
+        <p>Enter your name</p>
+        <form id="form_submit" method="post">
+            <input type="text" id="input_name" /> <input type="submit"
+                                                         value="JOIN" id="btn_join">
+        </form>
+    </div>
+
+    <div id="message_container" class="box_shadow">
+
+        <ul id="messages">
+        </ul>
+
+
+        <div id="input_message_container">
+            <form id="form_send_message" method="post" action="#">
+                <input type="text" id="input_message"
+                       placeholder="Type your message here..." /> <input type="submit"
+                                                                         id="btn_send" onclick="send();" value="Send" />
+                <div class="clear"></div>
+            </form>
+        </div>
+        <div>
+
+            <input type="button" onclick="closeSocket();"
+                   value="Leave Chat Room" id="btn_close" />
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+<!-- ================================================
+   Scripts
+   ================================================ -->
+<script type="text/javascript">
+      $(document).ready(function() {
+      Materialize.updateTextFields();
+      });
+      </script>
+
+<!-- jQuery Library -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--materialize js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+</html>

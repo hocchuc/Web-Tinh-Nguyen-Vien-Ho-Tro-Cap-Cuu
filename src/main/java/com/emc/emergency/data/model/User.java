@@ -1,11 +1,20 @@
 
 package com.emc.emergency.data.model;
 
+import com.emc.emergency.data.repository.user_typeRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
+import org.hibernate.FetchMode;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Email;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.cdi.Eager;
+import org.springframework.data.rest.core.annotation.RestResource;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,24 +26,11 @@ public class User   {
     public User() {
     }
 
-    public User(Long id_user, String username , User_Type user_type, String password) {
+    public User(Long id_user, String username, User_Type user_type, String password) {
         this.id_user = id_user;
         this.username = username;
-
         this.user_type = user_type;
         this.password = password;
-    }
-
-    public User(Long id_user, String username, String avatar, String token, User_Type user_type, Personal_Infomation personal_Infomation, String password, Double long_PI, Double lat_PI) {
-        this.id_user = id_user;
-        this.username = username;
-        Avatar = avatar;
-        this.token = token;
-        this.user_type = user_type;
-        this.personal_Infomation = personal_Infomation;
-        this.password = password;
-        this.long_PI = long_PI;
-        this.lat_PI = lat_PI;
     }
 
     @Column(name="id_user", nullable=false, length=20)
@@ -46,10 +42,7 @@ public class User   {
     @Column(name="username", nullable=false, length=50, unique = true)
     private String username;
 
-    @Column(name="avatar", nullable=true)
-    private String Avatar;
-    @Column(name="token", nullable=true)
-    private String token;
+
     /*@ManyToOne(fetch = FetchType.EAGER)
     @Cascade(value = {CascadeType.SAVE_UPDATE})*/
     @ManyToOne
@@ -71,26 +64,16 @@ public class User   {
     //@RestResource(exported = false)
     @Column(name="password", nullable=false, length=50 )
     private String password;
-    @Column(name="long_PI", nullable=true)
-    private Double long_PI;
+    @Column(name="token", nullable=true, length=200 )
+    private String token;
 
-    @Column(name="lat_PI", nullable=true)
-    private Double lat_PI;
+    public String getToken() {
 
-    public Double getLong_PI() {
-        return long_PI;
+        return token;
     }
 
-    public void setLong_PI(Double long_PI) {
-        this.long_PI = long_PI;
-    }
-
-    public Double getLat_PI() {
-        return lat_PI;
-    }
-
-    public void setLat_PI(Double lat_PI) {
-        this.lat_PI = lat_PI;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     private void setId_user(Long value) {
@@ -101,13 +84,6 @@ public class User   {
         return id_user;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 
     public void setUsername(String value) {
         this.username = value;
@@ -163,14 +139,6 @@ public class User   {
 
     public void setPersonal_Infomation(Personal_Infomation personal_Infomation) {
         this.personal_Infomation = personal_Infomation;
-    }
-
-    public String getAvatar() {
-        return Avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        Avatar = avatar;
     }
 
     @Override
