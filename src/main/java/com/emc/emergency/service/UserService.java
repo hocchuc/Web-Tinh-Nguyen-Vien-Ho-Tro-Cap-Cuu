@@ -1,6 +1,5 @@
 package com.emc.emergency.service;
 
-import com.emc.emergency.data.model.Chat;
 import com.emc.emergency.data.model.User;
 import com.emc.emergency.data.model.User_Type;
 import com.emc.emergency.data.repository.*;
