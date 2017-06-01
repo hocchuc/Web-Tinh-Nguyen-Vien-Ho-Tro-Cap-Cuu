@@ -30,6 +30,7 @@ public class Accident  {
 		this.image = image;
 	}
 
+
 	@Column(name="id_AC", nullable=false, length=20)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
