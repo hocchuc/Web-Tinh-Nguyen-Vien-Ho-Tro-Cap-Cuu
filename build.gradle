@@ -34,9 +34,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-websocket')
 // https://mvnrepository.com/artifact/com.google.code.gson/gson
-/*
+
 	compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
-*/
+
 	runtime('mysql:mysql-connector-java')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')

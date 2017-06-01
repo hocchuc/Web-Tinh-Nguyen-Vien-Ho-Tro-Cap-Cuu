@@ -3,7 +3,6 @@ package com.emc.emergency.data.model;
 
 import com.emc.emergency.data.repository.user_typeRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.gson.annotations.Expose;
 import org.hibernate.FetchMode;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
