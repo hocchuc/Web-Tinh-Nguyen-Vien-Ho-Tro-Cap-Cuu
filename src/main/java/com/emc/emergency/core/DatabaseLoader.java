@@ -60,8 +60,14 @@ public class DatabaseLoader implements ApplicationRunner {
         accident.save(accident1);
         Accident accident2 = new Accident(null,"Té xe vì bị bò đá",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7153"),Float.parseFloat("106.638"),"active","Số 3 Nguyễn Thị Minh Khai Quận 1 Hồ Chí Minh");
         accident.save(accident2);
-        Accident accident3 = new Accident(null,"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7153"),Float.parseFloat("106.638"),"active","Số 123 Âu Cơ Tân Binh Hồ Chí Minh");
+        Accident accident3 = new Accident(null,"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"active","Số 123 Âu Cơ Tân Binh Hồ Chí Minh");
         accident.save(accident3);
+        Accident accident4 = new Accident(null,"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7133"),Float.parseFloat("106.690"),"active","Số 4353 Âu Cơ Tân Binh Hồ Chí Minh");
+        accident.save(accident4);
+        Accident accident5 = new Accident(null,user.findOne(12L),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7123"),Float.parseFloat("106.613"),"active",null,null,"Số 454 Âu Cơ Tân Binh Hồ Chí Minh");
+        accident.save(accident5);
+        Accident accident6 = new Accident(null,user.findOne(12L),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7142"),Float.parseFloat("106.644"),"active",null,null,"Số 433 Âu Cơ Tân Binh Hồ Chí Minh");
+        accident.save(accident6);
 
         Chat chat1 = new Chat(null,accident.findOne(2l),user.findOne(2L),"Chuyện gì thế ?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:20 PM"));
         chat.save(chat1);
