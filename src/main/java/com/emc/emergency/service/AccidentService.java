@@ -37,8 +37,8 @@ public class AccidentService {
             images = new ArrayList<>();
             chats = (List<Chat>) chatRepository.findAll(chatlist);
             images = (List<Image>) imageRepository.findAll(imagelist);*/
-            Accident accident = new Accident(null, user, description_AC,  date_AC, long_AC, lat_AC, status_AC, null, null);
-            accidentRepository.save(accident);
+      /*      Accident accident = new Accident(null, user, description_AC,  date_AC, long_AC, lat_AC, status_AC, null, null);*/
+            //accidentRepository.save(accident);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

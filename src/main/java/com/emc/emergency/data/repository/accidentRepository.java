@@ -8,4 +8,6 @@ import java.util.List;
 public interface  accidentRepository extends CrudRepository<Accident, Long> {
     @Override
     List<Accident> findAll();
+
+
 }
