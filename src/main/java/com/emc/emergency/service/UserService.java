@@ -37,7 +37,7 @@ public class UserService {
         List<User> userList= userRepository.findByUsername(username);
         if(userList.isEmpty())
         {   User_Type user_type = user_typeRepository.findOne(2l);
-            User user = new User(null,username, token, user_type,password);
+            User user = new User(null,username, user_type,password);
             userRepository.save(user);
             return true;
 
