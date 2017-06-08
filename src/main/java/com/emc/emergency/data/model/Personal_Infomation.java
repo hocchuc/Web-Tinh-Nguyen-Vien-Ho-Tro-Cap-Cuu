@@ -24,11 +24,10 @@ public class Personal_Infomation implements Serializable  {
 								Date birthday,
 								Long personal_id,
 								String work_location,
-								Float long_PI,
-								Float lat_PI,
-								Long phone_PI,
+								String phone_PI,
 								String address_PI,
-								String email_PI) {
+								String email_PI,
+                                User id_user) {
 
 		this.name_PI = name_PI;
 		this.sex__PI = sex__PI;
@@ -38,6 +37,7 @@ public class Personal_Infomation implements Serializable  {
 		this.phone_PI = phone_PI;
 		this.address_PI = address_PI;
 		this.email_PI = email_PI;
+		this.id_user=id_user;
 	}
 
 	@Column(name="id_PI", nullable=false, length=20)
@@ -65,7 +65,7 @@ public class Personal_Infomation implements Serializable  {
 	private String work_location;
 
 	@Column(name="`phone_PI`", nullable=true, length=15)
-	private Long phone_PI;
+	private String phone_PI;
 
 	@Column(name="address_PI", nullable=true, length=50)
 	private String address_PI;
@@ -137,13 +137,6 @@ public class Personal_Infomation implements Serializable  {
 		this.personal_id = personal_id;
 	}
 
-	public Long getPhone_PI() {
-		return phone_PI;
-	}
-
-	public void setPhone_PI(Long phone_PI) {
-		this.phone_PI = phone_PI;
-	}
 
 	public void setMedical_Info(List<Medical_Info> medical_Info) {
 		this.medical_Info = medical_Info;
@@ -157,16 +150,9 @@ public class Personal_Infomation implements Serializable  {
 		return work_location;
 	}
 
-	public void setLong_PI(float value) {
-		setLong_PI(new Float(value));
+	public void setPhone_PI(String phone_PI) {
+		this.phone_PI = phone_PI;
 	}
-
-
-	public void setLat_PI(float value) {
-		setLat_PI(new Float(value));
-	}
-
-
 
 	public void setPhone_PI_int(int value) {
 		setPhone_PI_int(new Integer(value));
