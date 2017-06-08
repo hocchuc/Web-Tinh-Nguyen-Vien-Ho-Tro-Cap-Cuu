@@ -37,21 +37,21 @@ public class DatabaseLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        User_Type admin = new User_Type(0l,"admin");
-        User_Type volunteer = new User_Type(1l,"volunteer");
-        User_Type user_normal = new User_Type(2l,"user");
+        User_Type admin = new User_Type(null,"admin");
+        User_Type volunteer = new User_Type(null,"volunteer");
+        User_Type user_normal = new User_Type(null,"user");
         user_type.save(admin);
         user_type.save(volunteer);
         user_type.save(user_normal);
 
-        User user1 = new User(1l,"hocanhchuc@gmail.com", null,null,user_type.findOne(1l),null,"123",10.712746, 106.614751);
-        User user2 = new User(2l,"trancaotri@gmail.com", null,null,user_type.findOne(0l),null,"123",10.777437, 106.630484);
-        User user3 = new User(3l,"nguyenhuunghia@gmail.com", null,null,user_type.findOne(2l),null,"123",10.780040, 106.629250);
-        user.save(user1);
-        user.save(user2);
-        user.save(user3);
-        user2.setId_user_type(volunteer);
-        user.save(user2);
+//        User user1 = new User(null,"hocanhchuc@gmail.com", null,null,user_type.findOne(1l),null,"123",10.712746, 106.614751);
+//        User user2 = new User(null,"trancaotri@gmail.com", null,null,user_type.findOne(0l),null,"123",10.777437, 106.630484);
+//        User user3 = new User(null,"nguyenhuunghia@gmail.com", null,null,user_type.findOne(2l),null,"123",10.780040, 106.629250);
+//        user.save(user1);
+//        user.save(user2);
+//        user.save(user3);
+////        user2.setId_user_type(volunteer);
+//        user.save(user2);
 
         Accident accident1 = new Accident(null,"Gãy chân ở Tân Phú",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Float.parseFloat("10.7973"),Float.parseFloat("106.649"),"active","Số 2 Lô L chung cư Bàu cát 3 Tân Phú Hồ Chí Minh");
         accident.save(accident1);
