@@ -28,10 +28,10 @@ public class User   {
     public User(Long id_user, String username , User_Type user_type, String password) {
         this.id_user = id_user;
         this.username = username;
-
         this.user_type = user_type;
         this.password = password;
     }
+
 
     @Column(name="id_user", nullable=false, length=20)
     @Id
@@ -67,6 +67,7 @@ public class User   {
     //@RestResource(exported = false)
     @Column(name="password", nullable=false, length=50 )
     private String password;
+
     @Column(name="long_PI", nullable=true)
     private Float long_PI;
 
