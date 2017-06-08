@@ -24,7 +24,7 @@ public class Chat {
 
 	@Column(name="id_chat", nullable=false, length=20)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_chat;
 
 	@ManyToOne(fetch = FetchType.EAGER)

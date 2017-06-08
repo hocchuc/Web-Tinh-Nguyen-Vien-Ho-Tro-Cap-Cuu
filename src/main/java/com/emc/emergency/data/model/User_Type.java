@@ -24,7 +24,7 @@ public class User_Type   {
 
 	@Column(name="id_user_type", nullable=false, length=20)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_user_type;
 
 	@Column(name="name_user_type", nullable=false, length=50)

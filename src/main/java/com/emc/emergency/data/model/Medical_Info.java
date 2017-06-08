@@ -17,7 +17,7 @@ public class Medical_Info  {
 
 	@Column(name="id_MI", nullable=false, length=20)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_MI;
 	/**	@param id_MI null de no tu tao
 	 *	@param type_MI 1 la thuoc, 2 la benh, 3 la di ung
