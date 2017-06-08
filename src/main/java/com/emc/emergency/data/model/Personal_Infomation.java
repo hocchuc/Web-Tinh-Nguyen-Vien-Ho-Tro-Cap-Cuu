@@ -155,15 +155,6 @@ public class Personal_Infomation implements Serializable  {
 		setPhone_PI_int(new Integer(value));
 	}
 
-
-	public void setAddress_PI_varchar(String value) {
-		this.address_PI= value;
-	}
-
-	public String getAddress_PI_varchar() {
-		return address_PI;
-	}
-
 	public void setUser_id_user(User value) {
 		this.id_user = value;
 	}
