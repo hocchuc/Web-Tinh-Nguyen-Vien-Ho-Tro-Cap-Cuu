@@ -15,7 +15,7 @@ public class Image  {
 	}
 	@Column(name="id_image", nullable=false, length=20)
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id_image;
 
 	@ManyToOne(fetch = FetchType.EAGER)

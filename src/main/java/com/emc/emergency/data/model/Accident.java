@@ -43,7 +43,7 @@ public class Accident  {
 
 	@Column(name="id_AC", nullable=false, length=20)
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id_AC;
 
 	@ManyToOne(fetch = FetchType.EAGER)

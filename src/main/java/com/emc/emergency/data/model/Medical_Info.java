@@ -17,12 +17,21 @@ public class Medical_Info  {
 
 	@Column(name="id_MI", nullable=false, length=20)
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id_MI;
+	/**	@param id_MI null de no tu tao
+	 *	@param type_MI 1 la thuoc, 2 la benh, 3 la di ung
+	 *	@param id_PI dung findone;
+	 */
+	public Medical_Info(Long id_MI, Personal_Infomation id_PI, String name_MI, Integer type_MI, String description) {
+		this.id_MI = id_MI;
+		this.id_PI = id_PI;
+		this.name_MI = name_MI;
+		this.type_MI = type_MI;
+		this.description = description;
+	}
 
 	@ManyToOne
-	/*@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_PI",name = "id_PI")*/
 	@JoinColumn(name = "id_PI")
 	private Personal_Infomation id_PI;
 

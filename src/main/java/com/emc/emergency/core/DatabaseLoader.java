@@ -8,6 +8,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hocan on 23-May-17.
@@ -37,6 +39,21 @@ public class DatabaseLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        Personal_Infomation p1 = new Personal_Infomation("Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),null,"Từ Dữ",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"0909999999","Phu Tho Hoa","chucanhhoc@gmail.com");
+        personal_infoRepository.save(p1);
+        Medical_Info m1 = new Medical_Info(null,personal_infoRepository.findOne(1l),"panadol",1,"thuoc dau dau");
+        Medical_Info m1_2 = new Medical_Info(null,personal_infoRepository.findOne(1l),"Dau dau",2,"dau dau");
+        medical_infoRepository.save(m1);
+        medical_infoRepository.save(m1_2);
+
+        Personal_Infomation p2 = new Personal_Infomation("Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),null,"115",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"0909999119","Thach Lam","trancaotri@gmail.com");
+        personal_infoRepository.save(p2);
+        Medical_Info m2 = new Medical_Info(null,personal_infoRepository.findOne(2l),"bioka",1,"thuoc chua ung thu");
+        Medical_Info m2_2 = new Medical_Info(null,personal_infoRepository.findOne(2l),"Ung Thu",2,"ung thu giai doan 1");
+
+        medical_infoRepository.save(m2);
+        medical_infoRepository.save(m2_2);
+
         User_Type admin = new User_Type(null,"admin");
         User_Type volunteer = new User_Type(null,"volunteer");
         User_Type user_normal = new User_Type(null,"user");
@@ -44,14 +61,14 @@ public class DatabaseLoader implements ApplicationRunner {
         user_type.save(volunteer);
         user_type.save(user_normal);
 
-        User user1 = new User(null,"hocanhchuc@gmail.com", null,null,user_type.findOne(1l),null,"123",10.712746, 106.614751);
-        User user2 = new User(null,"trancaotri@gmail.com", null,null,user_type.findOne(0l),null,"123",10.777437, 106.630484);
+        User user1 = new User(null,"hocanhchuc@gmail.com", null,null,user_type.findOne(1l),personal_infoRepository.findOne(1l),"123",10.712746, 106.614751);
+        User user2 = new User(null,"trancaotri@gmail.com", null,null,user_type.findOne(0l),personal_infoRepository.findOne(1l),"123",10.777437, 106.630484);
         User user3 = new User(null,"nguyenhuunghia@gmail.com", null,null,user_type.findOne(2l),null,"123",10.780040, 106.629250);
         user.save(user1);
         user.save(user2);
         user.save(user3);
-        user2.setId_user_type(volunteer);
-        user.save(user2);
+//        user2.setId_user_type(volunteer);
+//        user.save(user2);
 //        User user1 = new User(null,"hocanhchuc@gmail.com", user_type.findOne(1l),"123");
 //        User user2 = new User(null,"trancaotri@gmail.com", user_type.findOne(1l),"123");
 //        User user3 = new User(null,"nguyenhuunghia@gmail.com", user_type.findOne(2l),"123");
@@ -78,7 +95,11 @@ public class DatabaseLoader implements ApplicationRunner {
         Chat chat1 = new Chat(null,accident.findOne(2l),user.findOne(2L),"Chuyện gì thế ?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:20 PM"));
         chat.save(chat1);
 
-       // Personal_Infomation p1 = new Personal_Infomation("Trần Văn Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),null,"Từ Dữ",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),0908888988L,"");
+//        ArrayList<Medical_Info> list_mi1 = new ArrayList<Medical_Info>();
+//        list_mi1.add(m1);
+//        list_mi1.add(m1_2);
+
+
 
 
 
