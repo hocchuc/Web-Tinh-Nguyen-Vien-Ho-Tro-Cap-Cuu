@@ -26,8 +26,7 @@ public class Personal_Infomation implements Serializable  {
 								String work_location,
 								String phone_PI,
 								String address_PI,
-								String email_PI,
-                                User id_user) {
+								String email_PI) {
 
 		this.name_PI = name_PI;
 		this.sex__PI = sex__PI;
@@ -37,7 +36,6 @@ public class Personal_Infomation implements Serializable  {
 		this.phone_PI = phone_PI;
 		this.address_PI = address_PI;
 		this.email_PI = email_PI;
-		this.id_user=id_user;
 	}
 
 	@Column(name="id_PI", nullable=false, length=20)
