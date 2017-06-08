@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by hocan on 23-May-17.
  */
-@Component
+//@Component
 public class DatabaseLoader implements ApplicationRunner {
 
     private final userRepository user;
@@ -37,16 +37,16 @@ public class DatabaseLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        User_Type admin = new User_Type(null,"admin");
-        User_Type volunteer = new User_Type(null,"volunteer");
-        User_Type user_normal = new User_Type(null,"user");
+        User_Type admin = new User_Type(0l,"admin");
+        User_Type volunteer = new User_Type(1l,"volunteer");
+        User_Type user_normal = new User_Type(2l,"user");
         user_type.save(admin);
         user_type.save(volunteer);
         user_type.save(user_normal);
 
-        User user1 = new User(null,"hocanhchuc@gmail.com", user_type.findOne(1l),"123");
-        User user2 = new User(null,"trancaotri@gmail.com", user_type.findOne(1l),"123");
-        User user3 = new User(null,"nguyenhuunghia@gmail.com", user_type.findOne(2l),"123");
+        User user1 = new User(1l,"hocanhchuc@gmail.com", null,null,user_type.findOne(1l),null,"123",10.712746, 106.614751);
+        User user2 = new User(2l,"trancaotri@gmail.com", null,null,user_type.findOne(0l),null,"123",10.777437, 106.630484);
+        User user3 = new User(3l,"nguyenhuunghia@gmail.com", null,null,user_type.findOne(2l),null,"123",10.780040, 106.629250);
         user.save(user1);
         user.save(user2);
         user.save(user3);
