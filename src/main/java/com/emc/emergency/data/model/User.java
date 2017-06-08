@@ -34,7 +34,7 @@ public class User   {
 
     @Column(name="id_user", nullable=false, length=20)
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_user;
 
     @Email

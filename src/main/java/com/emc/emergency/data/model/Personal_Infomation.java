@@ -42,7 +42,7 @@ public class Personal_Infomation implements Serializable  {
 
 	@Column(name="id_PI", nullable=false, length=20)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_PI;
 
 
