@@ -34,8 +34,8 @@ public class UserService {
     }
 
     public Boolean Register(String username,String password ) {
-        List<User> userList= userRepository.findByUsername(username);
-        if(userList.isEmpty())
+        User userList= userRepository.findByUsername(username);
+        if(userList!=null)
         {   User_Type user_type = user_typeRepository.findOne(2l);
             User user = new User(null,username, user_type,password);
             userRepository.save(user);

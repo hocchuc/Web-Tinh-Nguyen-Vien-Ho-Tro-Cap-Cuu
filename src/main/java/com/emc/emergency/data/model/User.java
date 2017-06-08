@@ -67,6 +67,27 @@ public class User   {
     //@RestResource(exported = false)
     @Column(name="password", nullable=false, length=50 )
     private String password;
+    @Column(name="long_PI", nullable=true)
+    private Float long_PI;
+
+    @Column(name="lat_PI", nullable=true)
+    private Float lat_PI;
+
+    public Float getLong_PI() {
+        return long_PI;
+    }
+
+    public void setLong_PI(Float long_PI) {
+        this.long_PI = long_PI;
+    }
+
+    public Float getLat_PI() {
+        return lat_PI;
+    }
+
+    public void setLat_PI(Float lat_PI) {
+        this.lat_PI = lat_PI;
+    }
 
     private void setId_user(Long value) {
         this.id_user = value;

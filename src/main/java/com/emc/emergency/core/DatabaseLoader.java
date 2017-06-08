@@ -69,6 +69,8 @@ public class DatabaseLoader implements ApplicationRunner {
         Chat chat1 = new Chat(null,accident.findOne(2l),user.findOne(2L),"Chuyện gì thế ?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:20 PM"));
         chat.save(chat1);
 
+       // Personal_Infomation p1 = new Personal_Infomation("Trần Văn Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),null,"Từ Dữ",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),0908888988L,"");
+
 
 
     }

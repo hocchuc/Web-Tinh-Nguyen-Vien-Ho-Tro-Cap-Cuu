@@ -1,6 +1,7 @@
 package com.emc.emergency.web.controller;
 
 import com.emc.emergency.data.model.User;
+import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,17 @@ import static com.emc.emergency.web.FlashMessage.Type_Mess.*;
 public class RestUserController {
     @Autowired
     UserService userService;
+    @Autowired
+    userRepository userRepository;
 
     @RequestMapping(value = "/api/login", method = RequestMethod.POST,consumes = MediaType.ALL_VALUE,produces = "application/json")
     @ResponseBody
     public FlashMessage Login (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(LOGIN,"login",FAILURE);
-        if(userService.Login(user.getUsername(),user.getPassword())) flashMessage.setStatus(SUCCESS);
+        if(userService.Login(user.getUsername(),user.getPassword())) {
+            flashMessage.setStatus(SUCCESS);
+            flashMessage.setMessage((userRepository.findByUsername(user.getUsername()).getId_user())+"");
+        }
         return flashMessage;
     }
     @RequestMapping(value = "/api/register", method = RequestMethod.POST)

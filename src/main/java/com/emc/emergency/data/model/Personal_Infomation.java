@@ -19,15 +19,22 @@ public class Personal_Infomation implements Serializable  {
 	public Personal_Infomation() {
 	}
 
-	public Personal_Infomation( String name_PI, Boolean sex__PI, Date birthday, Long personal_id, String work_location, Float long_PI, Float lat_PI, Long phone_PI, String address_PI, String email_PI) {
+	public Personal_Infomation( String name_PI,
+								Boolean sex__PI,
+								Date birthday,
+								Long personal_id,
+								String work_location,
+								Float long_PI,
+								Float lat_PI,
+								Long phone_PI,
+								String address_PI,
+								String email_PI) {
 
 		this.name_PI = name_PI;
 		this.sex__PI = sex__PI;
 		this.birthday = birthday;
 		this.personal_id = personal_id;
 		this.work_location = work_location;
-		this.long_PI = long_PI;
-		this.lat_PI = lat_PI;
 		this.phone_PI = phone_PI;
 		this.address_PI = address_PI;
 		this.email_PI = email_PI;
@@ -56,12 +63,6 @@ public class Personal_Infomation implements Serializable  {
 
 	@Column(name="work_location", nullable=true, length=100)
 	private String work_location;
-
-	@Column(name="long_PI", nullable=true)
-	private Float long_PI;
-
-	@Column(name="lat_PI", nullable=true)
-	private Float lat_PI;
 
 	@Column(name="`phone_PI`", nullable=true, length=15)
 	private Long phone_PI;
@@ -160,25 +161,12 @@ public class Personal_Infomation implements Serializable  {
 		setLong_PI(new Float(value));
 	}
 
-	public void setLong_PI(Float value) {
-		this.long_PI = value;
-	}
-
-	public Float getLong_PI() {
-		return long_PI;
-	}
 
 	public void setLat_PI(float value) {
 		setLat_PI(new Float(value));
 	}
 
-	public void setLat_PI(Float value) {
-		this.lat_PI = value;
-	}
 
-	public Float getLat_PI() {
-		return lat_PI;
-	}
 
 	public void setPhone_PI_int(int value) {
 		setPhone_PI_int(new Integer(value));
@@ -231,8 +219,6 @@ public class Personal_Infomation implements Serializable  {
 				", birthday=" + birthday +
 				", personal_id=" + personal_id +
 				", work_location='" + work_location + '\'' +
-				", long_PI=" + long_PI +
-				", lat_PI=" + lat_PI +
 				", phone_PI=" + phone_PI +
 				", address_PI='" + address_PI + '\'' +
 				", email_PI='" + email_PI + '\'' +
