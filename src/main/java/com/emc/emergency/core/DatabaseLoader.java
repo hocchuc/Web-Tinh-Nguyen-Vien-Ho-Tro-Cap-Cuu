@@ -44,6 +44,14 @@ public class DatabaseLoader implements ApplicationRunner {
         user_type.save(volunteer);
         user_type.save(user_normal);
 
+//        User user1 = new User(null,"hocanhchuc@gmail.com", null,null,user_type.findOne(1l),null,"123",10.712746, 106.614751);
+//        User user2 = new User(null,"trancaotri@gmail.com", null,null,user_type.findOne(0l),null,"123",10.777437, 106.630484);
+//        User user3 = new User(null,"nguyenhuunghia@gmail.com", null,null,user_type.findOne(2l),null,"123",10.780040, 106.629250);
+//        user.save(user1);
+//        user.save(user2);
+//        user.save(user3);
+////        user2.setId_user_type(volunteer);
+//        user.save(user2);
         User user1 = new User(null,"hocanhchuc@gmail.com", user_type.findOne(1l),"123");
         User user2 = new User(null,"trancaotri@gmail.com", user_type.findOne(1l),"123");
         User user3 = new User(null,"nguyenhuunghia@gmail.com", user_type.findOne(2l),"123");

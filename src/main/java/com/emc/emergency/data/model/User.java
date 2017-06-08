@@ -1,11 +1,6 @@
 
 package com.emc.emergency.data.model;
 
-import com.emc.emergency.data.repository.user_typeRepository;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.FetchMode;
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.cdi.Eager;
@@ -13,7 +8,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +26,17 @@ public class User   {
         this.password = password;
     }
 
+    public User(Long id_user, String username, String avatar, String token, User_Type user_type, Personal_Infomation personal_Infomation, String password, Double long_PI, Double lat_PI) {
+        this.id_user = id_user;
+        this.username = username;
+        Avatar = avatar;
+        this.token = token;
+        this.user_type = user_type;
+        this.personal_Infomation = personal_Infomation;
+        this.password = password;
+        this.long_PI = long_PI;
+        this.lat_PI = lat_PI;
+    }
 
     @Column(name="id_user", nullable=false, length=20)
     @Id
@@ -67,26 +72,25 @@ public class User   {
     //@RestResource(exported = false)
     @Column(name="password", nullable=false, length=50 )
     private String password;
-
     @Column(name="long_PI", nullable=true)
-    private Float long_PI;
+    private Double long_PI;
 
     @Column(name="lat_PI", nullable=true)
-    private Float lat_PI;
+    private Double lat_PI;
 
-    public Float getLong_PI() {
+    public Double getLong_PI() {
         return long_PI;
     }
 
-    public void setLong_PI(Float long_PI) {
+    public void setLong_PI(Double long_PI) {
         this.long_PI = long_PI;
     }
 
-    public Float getLat_PI() {
+    public Double getLat_PI() {
         return lat_PI;
     }
 
-    public void setLat_PI(Float lat_PI) {
+    public void setLat_PI(Double lat_PI) {
         this.lat_PI = lat_PI;
     }
 
