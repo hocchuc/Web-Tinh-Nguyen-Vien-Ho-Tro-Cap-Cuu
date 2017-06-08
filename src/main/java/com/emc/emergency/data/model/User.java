@@ -20,8 +20,7 @@ import java.util.List;
 @Entity
 @Table(name="`User`")
 public class User   {
-/*    @Autowired
-    user_typeRepository user_typeRepository;*/
+
     public User() {
     }
 
@@ -35,7 +34,7 @@ public class User   {
 
     @Column(name="id_user", nullable=false, length=20)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id_user;
 
     @Email
