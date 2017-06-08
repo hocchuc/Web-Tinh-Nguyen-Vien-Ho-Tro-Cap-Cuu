@@ -82,9 +82,6 @@ public class Personal_Infomation implements Serializable  {
 	//@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
 	private List<Medical_Info> medical_Info = new ArrayList<>();
 
-	public Personal_Infomation(String name_pi, Boolean sex__pi, Date birthday, Long personal_id, String work_location, Float long_pi, Float lat_pi, Long phone_pi, String address_pi, String email_pi, List<Medical_Info> medical_info) {
-	}
-
 	private void setId_PI(Long value) {
 		this.id_PI = value;
 	}
