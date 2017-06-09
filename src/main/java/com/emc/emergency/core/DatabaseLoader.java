@@ -69,17 +69,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         medical_infoRepository.save(m2);
         medical_infoRepository.save(m2_2);
-//        user2.setId_user_type(volunteer);
-//        user.save(user2);
-//        User user1 = new User(null,"hocanhchuc@gmail.com", user_type.findOne(1l),"123");
-//        User user2 = new User(null,"trancaotri@gmail.com", user_type.findOne(1l),"123");
-//        User user3 = new User(null,"nguyenhuunghia@gmail.com", user_type.findOne(2l),"123");
-//
-//        user.save(user1);
-//        user.save(user2);
-//        user.save(user3);
-//        user2.setId_user_type(volunteer);
-//        user.save(user2);
+
 
         Accident accident1 = new Accident(null,"Gãy chân ở Tân Phú",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Float.parseFloat("10.7973"),Float.parseFloat("106.649"),"active","Số 2 Lô L chung cư Bàu cát 3 Tân Phú Hồ Chí Minh");
         accident.save(accident1);
