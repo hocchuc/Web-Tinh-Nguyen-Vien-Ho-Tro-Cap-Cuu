@@ -1,8 +1,6 @@
 package com.emc.emergency.config;
 
-import com.emc.emergency.data.model.Accident;
-import com.emc.emergency.data.model.Chat;
-import com.emc.emergency.data.model.User;
+import com.emc.emergency.data.model.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -24,8 +22,13 @@ class CustomRestMvcConfiguration {
         config.exposeIdsFor(Accident.class);
         config.exposeIdsFor(User.class);
         config.exposeIdsFor(Chat.class);
-        config.setReturnBodyForPutAndPost(true);
+        config.exposeIdsFor(Personal_Infomation.class);
+        config.exposeIdsFor(Medical_Info.class);
+        config.exposeIdsFor(User_Type.class);
+        config.exposeIdsFor(Image.class);
 
+
+        config.setReturnBodyForPutAndPost(true);
       }
     };
   }
