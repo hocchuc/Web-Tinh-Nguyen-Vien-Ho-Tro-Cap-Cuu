@@ -19,7 +19,8 @@ public class Personal_Infomation implements Serializable  {
 	public Personal_Infomation() {
 	}
 
-	public Personal_Infomation( String name_PI,
+	public Personal_Infomation( User id_user,
+								String name_PI,
 								Boolean sex__PI,
 								Date birthday,
 								Long personal_id,
@@ -29,7 +30,7 @@ public class Personal_Infomation implements Serializable  {
 								String phone_PI,
 								String address_PI,
 								String email_PI) {
-
+		this.id_user = id_user;
 		this.name_PI = name_PI;
 		this.sex__PI = sex__PI;
 		this.birthday = birthday;
@@ -54,7 +55,7 @@ public class Personal_Infomation implements Serializable  {
 	private Boolean sex__PI;
 
 	@Column(name="birthday", nullable=true)
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private java.util.Date birthday;
 

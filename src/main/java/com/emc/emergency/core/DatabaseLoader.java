@@ -39,20 +39,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Personal_Infomation p1 = new Personal_Infomation("Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),null,"Từ Dữ",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"0909999999","Phu Tho Hoa","chucanhhoc@gmail.com");
-        personal_infoRepository.save(p1);
-        Medical_Info m1 = new Medical_Info(null,personal_infoRepository.findOne(2l),"panadol",1,"thuoc dau dau");
-        Medical_Info m1_2 = new Medical_Info(null,personal_infoRepository.findOne(2l),"Dau dau",2,"dau dau");
-        medical_infoRepository.save(m1);
-        medical_infoRepository.save(m1_2);
 
-        Personal_Infomation p2 = new Personal_Infomation("Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),null,"115",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"0909999119","Thach Lam","trancaotri@gmail.com");
-        personal_infoRepository.save(p2);
-        Medical_Info m2 = new Medical_Info(null,personal_infoRepository.findOne(12l),"bioka",1,"thuoc chua ung thu");
-        Medical_Info m2_2 = new Medical_Info(null,personal_infoRepository.findOne(12l),"Ung Thu",2,"ung thu giai doan 1");
-
-        medical_infoRepository.save(m2);
-        medical_infoRepository.save(m2_2);
 
         User_Type admin = new User_Type(null,"admin");
         User_Type volunteer = new User_Type(null,"volunteer");
@@ -61,12 +48,27 @@ public class DatabaseLoader implements ApplicationRunner {
         user_type.save(volunteer);
         user_type.save(user_normal);
 
-        User user1 = new User(null,"hocanhchuc@gmail.com", null,null,user_type.findOne(2l),personal_infoRepository.findOne(2l),"123",10.712746, 106.614751);
-        User user2 = new User(null,"trancaotri@gmail.com", null,null,user_type.findOne(2l),personal_infoRepository.findOne(12l),"123",10.777437, 106.630484);
+        User user1 = new User(null,"hocanhchuc@gmail.com", null,null,user_type.findOne(2l),null,"123",10.712746, 106.614751);
+        User user2 = new User(null,"trancaotri@gmail.com", null,null,user_type.findOne(2l),null,"123",10.777437, 106.630484);
         User user3 = new User(null,"nguyenhuunghia@gmail.com", null,null,user_type.findOne(12l),null,"123",10.780040, 106.629250);
         user.save(user1);
         user.save(user2);
         user.save(user3);
+
+        Personal_Infomation p1 = new Personal_Infomation(user.findOne(2L),"Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),null,"Từ Dữ",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"0909999999","Phu Tho Hoa","chucanhhoc@gmail.com");
+        personal_infoRepository.save(p1);
+        Medical_Info m1 = new Medical_Info(null,personal_infoRepository.findOne(2l),"panadol",1,"thuoc dau dau");
+        Medical_Info m1_2 = new Medical_Info(null,personal_infoRepository.findOne(2l),"Dau dau",2,"dau dau");
+        medical_infoRepository.save(m1);
+        medical_infoRepository.save(m1_2);
+
+        Personal_Infomation p2 = new Personal_Infomation(user.findOne(12L),"Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),null,"115",Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"0909999119","Thach Lam","trancaotri@gmail.com");
+        personal_infoRepository.save(p2);
+        Medical_Info m2 = new Medical_Info(null,personal_infoRepository.findOne(12l),"bioka",1,"thuoc chua ung thu");
+        Medical_Info m2_2 = new Medical_Info(null,personal_infoRepository.findOne(12l),"Ung Thu",2,"ung thu giai doan 1");
+
+        medical_infoRepository.save(m2);
+        medical_infoRepository.save(m2_2);
 //        user2.setId_user_type(volunteer);
 //        user.save(user2);
 //        User user1 = new User(null,"hocanhchuc@gmail.com", user_type.findOne(1l),"123");
