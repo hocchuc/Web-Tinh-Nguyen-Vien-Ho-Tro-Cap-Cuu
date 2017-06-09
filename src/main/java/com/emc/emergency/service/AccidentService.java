@@ -26,6 +26,7 @@ public class AccidentService {
     chatRepository chatRepository;
     @Autowired
     imageRepository imageRepository;
+
     public boolean CreateAccident(Long id_AC, Long id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC) {
         User user = null;
         List<Chat> chats = null;
