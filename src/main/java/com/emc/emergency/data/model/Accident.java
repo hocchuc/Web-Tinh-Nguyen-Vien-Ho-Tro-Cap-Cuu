@@ -18,18 +18,17 @@ public class Accident  {
 	public Accident() {
 	}
 
-	public Accident(Long id_AC, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC, String address) {
+	public Accident(Long id_AC, String description_AC, Date date_AC, Float lat_AC , Float long_AC,String status_AC, String adress) {
 		this.id_AC = id_AC;
 		this.description_AC = description_AC;
 		this.date_AC = date_AC;
 		this.long_AC = long_AC;
 		this.lat_AC = lat_AC;
 		this.status_AC = status_AC;
-		this.Address = address;
-
+		Adress = adress;
 	}
 
-	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC, List<Chat> chat, List<Image> image, String address) {
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Float lat_AC , Float long_AC, String status_AC, List<Chat> chat, List<Image> image, String adress) {
 		this.id_AC = id_AC;
 		this.id_user = id_user;
 		this.description_AC = description_AC;
@@ -39,7 +38,7 @@ public class Accident  {
 		this.status_AC = status_AC;
 		this.chat = chat;
 		this.image = image;
-		this.Address = address;
+		Adress = adress;
 	}
 
 	@Column(name="id_AC", nullable=false, length=20)
@@ -77,7 +76,7 @@ public class Accident  {
 	private List<Image> image = new ArrayList<>();
 
 	@Column(name="addess", nullable=true)
-	private String Address;
+	private String Adress;
 
 	private void setId_AC(Long value) {
 		this.id_AC = value;
@@ -151,11 +150,11 @@ public class Accident  {
 		return String.valueOf(getId_AC());
 	}
 
-	public String getAddress() {
-		return Address;
+	public String getAdress() {
+		return Adress;
 	}
 
-	public void setAddress(String address) {
-		Address = address;
+	public void setAdress(String adress) {
+		Adress = adress;
 	}
 }
