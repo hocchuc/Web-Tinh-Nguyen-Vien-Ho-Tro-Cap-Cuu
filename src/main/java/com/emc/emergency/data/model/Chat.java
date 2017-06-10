@@ -1,6 +1,7 @@
 package com.emc.emergency.data.model;
 
 import org.hibernate.annotations.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.persistence.CascadeType;
@@ -43,7 +44,8 @@ public class Chat {
 	private String comment;
 
 	@Column(name="date_chat", nullable=true)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy 'at' hh:mm:ss a")
 	private java.util.Date date_chat;
 
 	private void setId_chat(Long value) {

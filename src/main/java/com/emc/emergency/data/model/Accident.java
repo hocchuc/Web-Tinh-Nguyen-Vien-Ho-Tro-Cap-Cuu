@@ -18,7 +18,7 @@ public class Accident  {
 	public Accident() {
 	}
 
-	public Accident(Long id_AC, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC, String adress) {
+	public Accident(Long id_AC, String description_AC, Date date_AC, Float lat_AC , Float long_AC,String status_AC, String adress) {
 		this.id_AC = id_AC;
 		this.description_AC = description_AC;
 		this.date_AC = date_AC;
@@ -28,7 +28,7 @@ public class Accident  {
 		Adress = adress;
 	}
 
-	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC, List<Chat> chat, List<Image> image, String adress) {
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Float lat_AC , Float long_AC, String status_AC, List<Chat> chat, List<Image> image, String adress) {
 		this.id_AC = id_AC;
 		this.id_user = id_user;
 		this.description_AC = description_AC;
