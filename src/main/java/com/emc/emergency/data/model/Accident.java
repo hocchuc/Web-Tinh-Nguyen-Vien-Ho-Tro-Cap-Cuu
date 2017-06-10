@@ -55,7 +55,7 @@ public class Accident  {
 	private String description_AC;
 
 	@Column(name="date_AC", nullable=true)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy 'at' hh:mm:ss a")
 	private Date date_AC;
 
