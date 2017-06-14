@@ -70,6 +70,17 @@ public class User   {
 
     @Column(name="password", nullable=false, length=50 )
     private String password;
+    @Column(name="token", nullable=true, length=200 )
+    private String token;
+
+    public String getToken() {
+
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     @Column(name="long_PI", nullable=true)
     private Double long_PI;
