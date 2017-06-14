@@ -1,5 +1,7 @@
 package com.emc.emergency.config;
 
+import com.emc.emergency.data.EventListener.AccidentEventHandler;
+import com.emc.emergency.data.model.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -31,5 +33,9 @@ class CustomRestMvcConfiguration {
 
       }
     };
+  }
+  @Bean
+  AccidentEventHandler accidentEventHandler() {
+    return new AccidentEventHandler();
   }
 }

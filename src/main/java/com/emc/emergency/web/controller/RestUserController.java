@@ -64,6 +64,25 @@ public class RestUserController {
         return flashMessage;
     }
 
+    @RequestMapping(value = "/api/postLocation", method = RequestMethod.POST,
+            consumes = MediaType.ALL_VALUE,produces = "application/json")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public FlashMessage postLocation (@RequestParam(value="lat") String lat,
+                                      @RequestParam(value="lon") String lon,
+                                      @RequestParam(value="id_user") Long id_user) {
+        FlashMessage flashMessage = new FlashMessage(TOKEN,"refreshToken",FAILURE);
+        User user = userRepository.findOne(Long.valueOf(id_user));
+        if(user!=null){
+            user.setLat_PI(Double.valueOf(lat));
+            user.setLong_PI(Double.valueOf(lon));
+            userRepository.save(user);
+            flashMessage.setStatus(SUCCESS);
+        }
+        return flashMessage;
+    }
+
+
 
 
 

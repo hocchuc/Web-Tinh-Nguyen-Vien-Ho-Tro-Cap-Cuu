@@ -52,9 +52,6 @@ public class User   {
     @Column(name="avatar", nullable=true)
     private String Avatar;
 
-    @Column(name="token", nullable=true)
-    private String token;
-
     @ManyToOne
     @JoinColumn(name = "id_user_type")
     private User_Type user_type;
@@ -73,14 +70,6 @@ public class User   {
     @Column(name="token", nullable=true, length=200 )
     private String token;
 
-    public String getToken() {
-
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 
     @Column(name="long_PI", nullable=true)
     private Double long_PI;
