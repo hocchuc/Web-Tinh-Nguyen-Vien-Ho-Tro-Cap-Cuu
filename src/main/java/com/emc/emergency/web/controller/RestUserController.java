@@ -35,6 +35,13 @@ public class RestUserController {
     public FlashMessage Login (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(LOGIN,"login",FAILURE);
         if(userService.Login(user.getUsername(),user.getPassword())) {
+            User user1 = userRepository.findByUsername(user.getUsername());
+            if(user1 !=null) {
+                user1.setLat_PI(user.getLat_PI());
+                user1.setLong_PI(user.getLong_PI());
+                userRepository.save(user1);
+            }
+
             flashMessage.setStatus(SUCCESS);
             flashMessage.setMessage((userRepository.findByUsername(user.getUsername()).getId_user())+"");
         }

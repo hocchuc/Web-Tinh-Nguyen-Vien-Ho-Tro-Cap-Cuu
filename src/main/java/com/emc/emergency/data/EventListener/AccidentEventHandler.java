@@ -10,6 +10,7 @@ import com.emc.emergency.service.FCMService;
 import com.emc.emergency.util.Util;
 import com.emc.emergency.web.controller.FCMController;
 import com.emc.emergency.xmpp.CcsClient;
+import com.google.firebase.internal.Log;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 import org.slf4j.Logger;
@@ -33,6 +34,8 @@ import static javax.xml.bind.JAXBIntrospector.getValue;
  */
 @RepositoryEventHandler(Accident.class)
 public class AccidentEventHandler {
+    String TAG = "AccidentEventHandler";
+
     @Autowired
     accidentRepository accidentRepository;
 
@@ -65,14 +68,15 @@ public class AccidentEventHandler {
         for (User user : userList) {
             if(user.getLong_PI()!=null&&user.getLat_PI()!=null&&user.getToken()!=null){
                 DecimalFormat decimalFormat = new DecimalFormat("#");
-
-                if(Util.distFrom(
+                Log.d(TAG,user.toString());
+                Float distance = Util.distFrom(
                         Float.valueOf(decimalFormat.format(user.getLat_PI())),
                         Float.valueOf(decimalFormat.format(user.getLong_PI())),
-                accident.getLat_AC(),
-                accident.getLong_AC()) >1000.0) {
+                        accident.getLat_AC(),
+                        accident.getLong_AC());
+                Log.d(TAG,"distance :"+distance);
+                if(distance < 3000.0) {
                     StateResponse response = new StateResponse();
-
                     try {
                         String messageId = Util.getUniqueMessageId();
                         Map<String, String> dataPayload = new HashMap<String, String>();
@@ -84,6 +88,7 @@ public class AccidentEventHandler {
                         response.setCode(Util.OK_CODE);
                         response.setMessage(Util.OK_MESSAGE);
                         logger.debug(Util.OK_LABEL + message);
+                        Log.d(TAG,"response :"+response.toString());
                     } catch (Exception e) {
                         response.setCode(Util.SERVER_ERROR_CODE);
                         response.setMessage(e.getMessage());
