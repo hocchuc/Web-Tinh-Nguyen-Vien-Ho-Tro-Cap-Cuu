@@ -29,7 +29,8 @@ public class RestUserController {
     @Autowired
     userRepository userRepository;
 
-    @RequestMapping(value = "/api/login", method = RequestMethod.POST,consumes = MediaType.ALL_VALUE,produces = "application/json")
+    @RequestMapping(value = "/api/login", method = RequestMethod.POST,
+            consumes = MediaType.ALL_VALUE,produces = "application/json")
     @ResponseBody
     public FlashMessage Login (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(LOGIN,"login",FAILURE);
@@ -45,6 +46,21 @@ public class RestUserController {
     public FlashMessage Register (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(REGISTER,"register",FAILURE);
         if(userService.Register(user.getUsername(),user.getPassword())) flashMessage.setStatus(SUCCESS);
+        return flashMessage;
+    }
+    @RequestMapping(value = "/api/refreshToken", method = RequestMethod.POST,
+            consumes = MediaType.ALL_VALUE,produces = "application/json")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public FlashMessage refreshToken (@RequestParam(value="token") String token,
+                                      @RequestParam(value="id_user") Long id_user) {
+        FlashMessage flashMessage = new FlashMessage(TOKEN,"refreshToken",FAILURE);
+        User user = userRepository.findOne(Long.valueOf(id_user));
+        if(user!=null){
+            user.setToken(token);
+            userRepository.save(user);
+            flashMessage.setStatus(SUCCESS);
+        }
         return flashMessage;
     }
 

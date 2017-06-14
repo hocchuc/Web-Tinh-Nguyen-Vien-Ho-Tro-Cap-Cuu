@@ -27,7 +27,6 @@ class CustomRestMvcConfiguration {
         config.exposeIdsFor(User_Type.class);
         config.exposeIdsFor(Image.class);
 
-
         config.setReturnBodyForPutAndPost(true);
       }
     };

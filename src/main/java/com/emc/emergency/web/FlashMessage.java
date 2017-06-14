@@ -41,7 +41,7 @@ public class FlashMessage {
     }
 
     public static enum Type_Mess {
-        SYSTEM, LOGIN, REGISTER, CREATED
+        SYSTEM, LOGIN, REGISTER, CREATED, TOKEN
     }
 }
 
