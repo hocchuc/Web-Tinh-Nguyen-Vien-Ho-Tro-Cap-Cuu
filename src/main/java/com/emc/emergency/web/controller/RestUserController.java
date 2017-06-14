@@ -35,13 +35,6 @@ public class RestUserController {
     public FlashMessage Login (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(LOGIN,"login",FAILURE);
         if(userService.Login(user.getUsername(),user.getPassword())) {
-            User user1 = userRepository.findByUsername(user.getUsername());
-            if(user1 !=null) {
-                user1.setLat_PI(user.getLat_PI());
-                user1.setLong_PI(user.getLong_PI());
-                userRepository.save(user1);
-            }
-
             flashMessage.setStatus(SUCCESS);
             flashMessage.setMessage((userRepository.findByUsername(user.getUsername()).getId_user())+"");
         }
@@ -52,26 +45,7 @@ public class RestUserController {
     @ResponseStatus(HttpStatus.CREATED)
     public FlashMessage Register (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(REGISTER,"register",FAILURE);
-        if(userService.Register(user.getUsername(),user.getPassword())) {
-            flashMessage.setStatus(SUCCESS);
-            flashMessage.setMessage(userRepository.findByUsername(user.getUsername()).getId_user()+"");
-
-        }
-        return flashMessage;
-    }
-    @RequestMapping(value = "/api/refreshToken", method = RequestMethod.POST,
-            consumes = MediaType.ALL_VALUE,produces = "application/json")
-    @ResponseBody
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public FlashMessage refreshToken (@RequestParam(value="token") String token,
-                                      @RequestParam(value="id_user") Long id_user) {
-        FlashMessage flashMessage = new FlashMessage(TOKEN,"refreshToken",FAILURE);
-        User user = userRepository.findOne(Long.valueOf(id_user));
-        if(user!=null){
-            user.setToken(token);
-            userRepository.save(user);
-            flashMessage.setStatus(SUCCESS);
-        }
+        if(userService.Register(user.getUsername(),user.getPassword())) flashMessage.setStatus(SUCCESS);
         return flashMessage;
     }
     @RequestMapping(value = "/api/refreshToken", method = RequestMethod.POST,
@@ -107,5 +81,11 @@ public class RestUserController {
         }
         return flashMessage;
     }
+
+
+
+
+
+
 
 }
