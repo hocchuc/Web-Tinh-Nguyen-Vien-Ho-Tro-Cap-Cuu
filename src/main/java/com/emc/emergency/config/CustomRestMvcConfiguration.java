@@ -20,7 +20,6 @@ class CustomRestMvcConfiguration {
       @Override
       public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.setBasePath("/api");
-        config.setDefaultMediaType(MediaType.APPLICATION_JSON_UTF8);
         config.setReturnBodyForPutAndPost(true);
 
         config.exposeIdsFor(Accident.class);
