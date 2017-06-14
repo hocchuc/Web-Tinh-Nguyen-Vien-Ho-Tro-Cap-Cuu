@@ -18,12 +18,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="`User`")
+@Table(name="User")
 public class User   {
 
     public User() {
     }
-
+    public User(Long id_user, String username ) {
+        this.id_user = id_user;
+        this.username = username;
+    }
     public User(Long id_user, String username , User_Type user_type, String password) {
         this.id_user = id_user;
         this.username = username;
@@ -43,27 +46,23 @@ public class User   {
 
     @Column(name="avatar", nullable=true)
     private String Avatar;
+
     @Column(name="token", nullable=true)
     private String token;
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(value = {CascadeType.SAVE_UPDATE})*/
+
     @ManyToOne
     @JoinColumn(name = "id_user_type")
     private User_Type user_type;
 
     @OneToMany(mappedBy="id_user")
-    //@Cascade(value = CascadeType.ALL)
     private List<Accident> accident = new ArrayList<>();
 
     @OneToMany(mappedBy="id_user")
-   // @Cascade(value = CascadeType.ALL)
     private List<Chat> chat = new ArrayList<>();
 
     @OneToOne(mappedBy="id_user")
-   // @Cascade(value = CascadeType.ALL)
     private Personal_Infomation personal_Infomation;
-    //@JsonIgnore
-    //@RestResource(exported = false)
+
     @Column(name="password", nullable=false, length=50 )
     private String password;
 

@@ -18,7 +18,7 @@ public class Image  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_image;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "id_AC")
 	private Accident id_AC;
 

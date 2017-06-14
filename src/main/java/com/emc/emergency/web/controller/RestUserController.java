@@ -74,6 +74,21 @@ public class RestUserController {
         }
         return flashMessage;
     }
+    @RequestMapping(value = "/api/refreshToken", method = RequestMethod.POST,
+            consumes = MediaType.ALL_VALUE,produces = "application/json")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public FlashMessage refreshToken (@RequestParam(value="token") String token,
+                                      @RequestParam(value="id_user") Long id_user) {
+        FlashMessage flashMessage = new FlashMessage(TOKEN,"refreshToken",FAILURE);
+        User user = userRepository.findOne(Long.valueOf(id_user));
+        if(user!=null){
+            user.setToken(token);
+            userRepository.save(user);
+            flashMessage.setStatus(SUCCESS);
+        }
+        return flashMessage;
+    }
 
     @RequestMapping(value = "/api/postLocation", method = RequestMethod.POST,
             consumes = MediaType.ALL_VALUE,produces = "application/json")

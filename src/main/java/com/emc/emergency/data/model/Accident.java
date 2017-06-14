@@ -46,7 +46,7 @@ public class Accident  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_AC;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "id_user")
 	private User id_user;
 
@@ -68,11 +68,9 @@ public class Accident  {
 	private String status_AC;
 
 	@OneToMany(mappedBy="id_AC")
-	@Cascade(value = CascadeType.ALL)
 	private List<Chat> chat = new ArrayList<>();
 
 	@OneToMany(mappedBy="id_AC")
-	@Cascade(value = CascadeType.ALL)
 	private List<Image> image = new ArrayList<>();
 
 	@Column(name="addess", nullable=true)
@@ -146,9 +144,6 @@ public class Accident  {
 		return image;
 	}
 
-	public String toString() {
-		return String.valueOf(getId_AC());
-	}
 
 	public String getAdress() {
 		return Adress;
@@ -156,5 +151,19 @@ public class Accident  {
 
 	public void setAdress(String adress) {
 		Adress = adress;
+	}
+
+	@Override
+	public String toString() {
+		return "Accident{" +
+				"id_AC=" + id_AC +
+				", id_user=" + id_user +
+				", description_AC='" + description_AC + '\'' +
+				", date_AC=" + date_AC +
+				", long_AC=" + long_AC +
+				", lat_AC=" + lat_AC +
+				", status_AC='" + status_AC + '\'' +
+				", Adress='" + Adress + '\'' +
+				'}';
 	}
 }

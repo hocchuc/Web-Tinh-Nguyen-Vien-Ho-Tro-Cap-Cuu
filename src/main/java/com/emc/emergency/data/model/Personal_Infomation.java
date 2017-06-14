@@ -73,14 +73,11 @@ public class Personal_Infomation implements Serializable  {
 
 	@Column(name="email_PI", nullable=true, length=50)
 	private String email_PI;
-	@OneToOne(fetch = FetchType.EAGER)
-	//@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")
-	//@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
+	@OneToOne
 	@JoinColumn(name = "id_user")
 	private User id_user;
 
 	@OneToMany(mappedBy="id_PI")
-	//@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
 	private List<Medical_Info> medical_Info = new ArrayList<>();
 
 	public Personal_Infomation(String name_pi, Boolean sex__pi, Date birthday, Long personal_id, String work_location, Float long_pi, Float lat_pi, Long phone_pi, String address_pi, String email_pi, List<Medical_Info> medical_info) {

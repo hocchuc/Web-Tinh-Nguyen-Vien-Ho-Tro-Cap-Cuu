@@ -28,15 +28,11 @@ public class Chat {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_chat;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-/*	@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_AC",name = "id_AC")*/
+	@ManyToOne
 	@JoinColumn(name = "id_AC")
 	private Accident id_AC;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	/*@Cascade(value = {org.hibernate.annotations.CascadeType.PERSIST, org.hibernate.annotations.CascadeType.REFRESH, org.hibernate.annotations.CascadeType.MERGE})
-	@JoinColumn(nullable = false,referencedColumnName = "id_user",name = "id_user")*/
+	@ManyToOne
 	@JoinColumn(name = "id_user")
 	private User id_user;
 
@@ -89,9 +85,15 @@ public class Chat {
 		return id_user;
 	}
 
+	@Override
 	public String toString() {
-		return String.valueOf(getId_chat());
+		return "Chat{" +
+				"id_chat=" + id_chat +
+				", id_AC=" + id_AC +
+				", id_user=" + id_user +
+				", comment='" + comment + '\'' +
+				", date_chat=" + date_chat +
+				'}';
 	}
-
 }
 
