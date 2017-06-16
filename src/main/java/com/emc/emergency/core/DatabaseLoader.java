@@ -80,10 +80,10 @@ public class DatabaseLoader implements ApplicationRunner {
         Medical_Info m2_2 = new Medical_Info(null,null,"Ung Thu",2,"ung thu giai doan 1");
         medical_infoRepository.save(m2_2);
 
-//        Chat chat1 = new Chat(null,accident.findOne(1l),user.findOne(1L),"Chuyện gì thế ?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:20 PM"));
-//        chat.save(chat1);
-//        Chat chat2 = new Chat(null,accident.findOne(2l),user.findOne(2L),"Chúng tôi sẽ đến trong thời gian sớm nhất?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:11:20 PM"));
-//        chat.save(chat2);
+        Chat chat1 = new Chat(null,accident.findOne(1l),user.findOne(1L),"Chuyện gì thế ?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:20 PM"));
+        chat.save(chat1);
+        Chat chat2 = new Chat(null,accident.findOne(2l),user.findOne(2L),"Chúng tôi sẽ đến trong thời gian sớm nhất?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:11:20 PM"));
+        chat.save(chat2);
 
 //        ArrayList<Medical_Info> list_mi1 = new ArrayList<Medical_Info>();
 //        list_mi1.add(m1);
