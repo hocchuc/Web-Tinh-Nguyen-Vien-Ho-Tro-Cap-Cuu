@@ -2,9 +2,7 @@
 package com.emc.emergency.data.model;
 
 import org.hibernate.validator.constraints.Email;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.cdi.Eager;
-import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;

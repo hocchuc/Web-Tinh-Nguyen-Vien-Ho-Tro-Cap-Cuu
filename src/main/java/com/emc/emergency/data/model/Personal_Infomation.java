@@ -16,19 +16,9 @@ import javax.validation.Valid;
 @Entity
 @Table(name="Personal_Infomation")
 public class Personal_Infomation implements Serializable  {
-	public Personal_Infomation() {
-	}
 
-	public Personal_Infomation( User id_user,
-								String name_PI,
-								Boolean sex__PI,
-								Date birthday,
-								Long personal_id,
-								String work_location,
-								String phone_PI,
-								String address_PI,
-								String email_PI) {
-		this.id_user = id_user;
+	public Personal_Infomation(Long id_PI, String name_PI, Boolean sex__PI, Date birthday, Long personal_id, String work_location, String phone_PI, String address_PI, String email_PI, User id_user) {
+		this.id_PI = id_PI;
 		this.name_PI = name_PI;
 		this.sex__PI = sex__PI;
 		this.birthday = birthday;
@@ -37,6 +27,7 @@ public class Personal_Infomation implements Serializable  {
 		this.phone_PI = phone_PI;
 		this.address_PI = address_PI;
 		this.email_PI = email_PI;
+		this.id_user = id_user;
 	}
 
 	@Column(name="id_PI", nullable=false, length=20)
@@ -170,16 +161,15 @@ public class Personal_Infomation implements Serializable  {
 	public String toString() {
 		return "Personal_Infomation{" +
 				"id_PI=" + id_PI +
-				", id_user=" + id_user +
 				", name_PI='" + name_PI + '\'' +
 				", sex__PI=" + sex__PI +
 				", birthday=" + birthday +
 				", personal_id=" + personal_id +
 				", work_location='" + work_location + '\'' +
-				", phone_PI=" + phone_PI +
+				", phone_PI='" + phone_PI + '\'' +
 				", address_PI='" + address_PI + '\'' +
 				", email_PI='" + email_PI + '\'' +
-				", medical_Info=" + medical_Info +
+				", id_user=" + id_user +
 				'}';
 	}
 }
