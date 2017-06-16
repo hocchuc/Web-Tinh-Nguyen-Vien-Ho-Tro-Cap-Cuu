@@ -28,6 +28,12 @@ public class User   {
 //        this.password = password;
 //    }
 
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public User(Long id_user, String username, String avatar, User_Type user_type, String password, String token, Double long_PI, Double lat_PI) {
         this.id_user = id_user;
         this.username = username;
