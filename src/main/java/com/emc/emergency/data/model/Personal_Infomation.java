@@ -16,6 +16,8 @@ import javax.validation.Valid;
 @Entity
 @Table(name="Personal_Infomation")
 public class Personal_Infomation implements Serializable  {
+	public Personal_Infomation() {
+	}
 
 	public Personal_Infomation(Long id_PI, String name_PI, Boolean sex__PI, Date birthday, Long personal_id, String work_location, String phone_PI, String address_PI, String email_PI, User id_user) {
 		this.id_PI = id_PI;
