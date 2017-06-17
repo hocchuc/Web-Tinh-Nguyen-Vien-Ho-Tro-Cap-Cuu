@@ -32,6 +32,13 @@ public class Personal_Infomation implements Serializable  {
 		this.id_user = id_user;
 	}
 
+	public Personal_Infomation(Long id_PI, String name_PI, String email_PI, User id_user) {
+		this.id_PI = id_PI;
+		this.name_PI = name_PI;
+		this.email_PI = email_PI;
+		this.id_user = id_user;
+	}
+
 	@Column(name="id_PI", nullable=false, length=20)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
