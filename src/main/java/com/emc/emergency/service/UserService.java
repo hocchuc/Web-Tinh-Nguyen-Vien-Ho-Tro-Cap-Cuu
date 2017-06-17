@@ -19,12 +19,12 @@ public class UserService {
     userRepository userRepository;
     @Autowired
     user_typeRepository user_typeRepository;
-    @Autowired
-     personal_infoRepository personal_infoRepository;
-    @Autowired
-    chatRepository chatRepository;
-    @Autowired
-    accidentRepository accidentRepository;
+//    @Autowired
+//     personal_infoRepository personal_infoRepository;
+//    @Autowired
+//    chatRepository chatRepository;
+//    @Autowired
+//    accidentRepository accidentRepository;
 
 
     public Boolean Login(String username,String password ) {
