@@ -57,7 +57,7 @@ public class Personal_Infomation implements Serializable  {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private java.util.Date birthday;
 
-	@Column(name="personal_id", nullable=true, unique=true, length=15)
+	@Column(name="personal_id", nullable=true, length=15)
 	private Long personal_id;
 
 	@Column(name="work_location", nullable=true, length=100)
