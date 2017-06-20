@@ -50,7 +50,13 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.igniterealtime.smack/smack-extensions
 	compile group: 'org.igniterealtime.smack', name: 'smack-extensions', version: '4.2.0'
 // https://mvnrepository.com/artifact/org.igniterealtime.smack/smack-java7
-	compile group: 'org.igniterealtime.smack', name: 'smack-java7', version: '4.2.0'
+	compile group: 'org.igniterealtime.smack', name: 'smack-java7', version:'4.2.0'
+	//okhttp for get data from google map api
+	compile 'com.squareup.okhttp3:okhttp:3.8.1'
+	//Okio is a library that complements java.io and java.nio to make it much easier to access, store, and process your data.
+	compile 'com.squareup.okio:okio:1.13.0'
+
+
 
 
 

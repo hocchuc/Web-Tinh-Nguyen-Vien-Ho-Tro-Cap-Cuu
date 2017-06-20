@@ -37,7 +37,8 @@ public class Util {
 	public static final String PAYLOAD_ATTRIBUTE_RECIPIENT = "recipient";
 	public static final String PAYLOAD_ATTRIBUTE_ACCOUNT = "account";
 	public static final String BACKEND_ACTION_ACCIDENT = "new_accident";
-
+	// open FPT API keu
+	public static final String OPEN_FPT_API_KEY = "b05ee21f52ec466eb4cf33e99553b219";
 	/**
 	 * Returns a random message id to uniquely identify a message
 	 */
