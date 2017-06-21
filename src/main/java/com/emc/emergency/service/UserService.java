@@ -19,12 +19,12 @@ public class UserService {
     userRepository userRepository;
     @Autowired
     user_typeRepository user_typeRepository;
-    @Autowired
-     personal_infoRepository personal_infoRepository;
-    @Autowired
-    chatRepository chatRepository;
-    @Autowired
-    accidentRepository accidentRepository;
+//    @Autowired
+//     personal_infoRepository personal_infoRepository;
+//    @Autowired
+//    chatRepository chatRepository;
+//    @Autowired
+//    accidentRepository accidentRepository;
 
 
     public Boolean Login(String username,String password ) {
@@ -35,9 +35,9 @@ public class UserService {
 
     public Boolean Register(String username,String password ) {
         User userList= userRepository.findByUsername(username);
-        if(userList!=null)
+        if(userList==null)
         {   User_Type user_type = user_typeRepository.findOne(2l);
-            User user = new User(null,username, user_type,password);
+            User user = new User(null,username,null,user_type,password,null,0.0,0.0);
             userRepository.save(user);
             return true;
 

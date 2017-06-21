@@ -2,9 +2,7 @@
 package com.emc.emergency.data.model;
 
 import org.hibernate.validator.constraints.Email;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.cdi.Eager;
-import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,28 +15,45 @@ public class User   {
 
     public User() {
     }
-    public User(Long id_user, String username ) {
-        this.id_user = id_user;
+//    public User(Long id_user, String username ) {
+//        this.id_user = id_user;
+//        this.username = username;
+//    }
+//    public User(Long id_user, String username , User_Type user_type, String password) {
+//        this.id_user = id_user;
+//        this.username = username;
+//        this.user_type = user_type;
+//        this.password = password;
+//    }
+
+
+    public User(String username, String password) {
         this.username = username;
-    }
-    public User(Long id_user, String username , User_Type user_type, String password) {
-        this.id_user = id_user;
-        this.username = username;
-        this.user_type = user_type;
         this.password = password;
     }
 
-    public User(Long id_user, String username, String avatar, String token, User_Type user_type, Personal_Infomation personal_Infomation, String password, Double long_PI, Double lat_PI) {
+    public User(Long id_user, String username, String avatar, User_Type user_type, String password, String token, Double long_PI, Double lat_PI) {
         this.id_user = id_user;
         this.username = username;
         Avatar = avatar;
-        this.token = token;
         this.user_type = user_type;
-        this.personal_Infomation = personal_Infomation;
         this.password = password;
+        this.token = token;
         this.long_PI = long_PI;
         this.lat_PI = lat_PI;
     }
+
+//    public User(Long id_user, String username, String avatar, String token, User_Type user_type, Personal_Infomation personal_Infomation, String password, Double long_PI, Double lat_PI) {
+//        this.id_user = id_user;
+//        this.username = username;
+//        Avatar = avatar;
+//        this.token = token;
+//        this.user_type = user_type;
+//        this.personal_Infomation = personal_Infomation;
+//        this.password = password;
+//        this.long_PI = long_PI;
+//        this.lat_PI = lat_PI;
+//    }
 
     @Column(name="id_user", nullable=false, length=20)
     @Id
