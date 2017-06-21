@@ -18,7 +18,7 @@ public class Accident  {
 	public Accident() {
 	}
 
-	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Float lat_AC , Float long_AC, String status_AC, List<Chat> chat, List<Image> image, String adress) {
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC , Double long_AC, String status_AC, List<Chat> chat, List<Image> image, String adress) {
 		this.id_AC = id_AC;
 		this.id_user = id_user;
 		this.description_AC = description_AC;
@@ -49,10 +49,10 @@ public class Accident  {
 	private Date date_AC;
 
 	@Column(name="long_AC", nullable=true)
-	private Float long_AC;
+	private Double long_AC;
 
 	@Column(name="lat_AC", nullable=true, length=10)
-	private Float lat_AC;
+	private Double lat_AC;
 
 	@Column(name="status_AC", nullable=true, length=50)
 	private String status_AC;
@@ -90,23 +90,21 @@ public class Accident  {
 		return date_AC;
 	}
 
-	public void setLong_AC(float value) {
-		setLong_AC(new Float(value));
-	}
 
-	public void setLong_AC(Float value) {
+
+	public void setLong_AC(Double value) {
 		this.long_AC = value;
 	}
 
-	public Float getLong_AC() {
+	public Double getLong_AC() {
 		return long_AC;
 	}
 
-	public void setLat_AC(Float value) {
+	public void setLat_AC(Double value) {
 		this.lat_AC = value;
 	}
 
-	public Float getLat_AC() {
+	public Double getLat_AC() {
 		return lat_AC;
 	}
 

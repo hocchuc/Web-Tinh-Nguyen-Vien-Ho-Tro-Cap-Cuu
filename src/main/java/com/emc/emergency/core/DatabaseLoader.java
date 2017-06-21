@@ -53,17 +53,17 @@ public class DatabaseLoader implements ApplicationRunner {
         user.save(user2);
         user.save(user3);
 
-        Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Float.parseFloat("10.7973"),Float.parseFloat("106.649"),"active",null,null,"Số 2 Lô L chung cư Bàu cát 3 Tân Phú Hồ Chí Minh");
+        Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.7973"),Double.parseDouble("106.649"),"active",null,null,"Số 2 Lô L chung cư Bàu cát 3 Tân Phú Hồ Chí Minh");
         accident.save(accident1);
-        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7153"),Float.parseFloat("106.638"),"active",null,null,"Số 3 Nguyễn Thị Minh Khai Quận 1 Hồ Chí Minh");
+        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7153"),Double.parseDouble("106.638"),"active",null,null,"Số 3 Nguyễn Thị Minh Khai Quận 1 Hồ Chí Minh");
         accident.save(accident2);
-        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7143"),Float.parseFloat("106.645"),"active",null,null,"Số 123 Âu Cơ Tân Binh Hồ Chí Minh");
+        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7143"),Double.parseDouble("106.645"),"active",null,null,"Số 123 Âu Cơ Tân Binh Hồ Chí Minh");
         accident.save(accident3);
-        Accident accident4 = new Accident(null,user.findOne(3l),"Té cầu thang",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7133"),Float.parseFloat("106.690"),"active",null,null,"Số 4353 Âu Cơ Tân Binh Hồ Chí Minh");
+        Accident accident4 = new Accident(null,user.findOne(3l),"Té cầu thang",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7133"),Double.parseDouble("106.690"),"active",null,null,"Số 4353 Âu Cơ Tân Binh Hồ Chí Minh");
         accident.save(accident4);
-        Accident accident5 = new Accident(null,user.findOne(2l),"Đau tim",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7123"),Float.parseFloat("106.613"),"active",null,null,"Số 454 Âu Cơ Tân Binh Hồ Chí Minh");
+        Accident accident5 = new Accident(null,user.findOne(2l),"Đau tim",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7123"),Double.parseDouble("106.613"),"active",null,null,"Số 454 Âu Cơ Tân Binh Hồ Chí Minh");
         accident.save(accident5);
-        Accident accident6 = new Accident(null,user.findOne(2l),"Té xe",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Float.parseFloat("10.7142"),Float.parseFloat("106.644"),"active",null,null,"Số 433 Âu Cơ Tân Binh Hồ Chí Minh");
+        Accident accident6 = new Accident(null,user.findOne(2l),"Té xe",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7142"),Double.parseDouble("106.644"),"active",null,null,"Số 433 Âu Cơ Tân Binh Hồ Chí Minh");
         accident.save(accident6);
 
         Personal_Infomation p1 = new Personal_Infomation(null,"Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),252956865l,"Từ Dữ","0909999999","Phu Tho Hoa","chucanhhoc@gmail.com",user.findOne(1l));

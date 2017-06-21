@@ -106,9 +106,9 @@ public class AccidentEventHandler {
             if(user.getLong_PI()!=null&&user.getLat_PI()!=null&&user.getToken()!=null){
                 DecimalFormat decimalFormat = new DecimalFormat("#");
                 Log.d(TAG,user.toString());
-                Float distance = Util.distFrom(
-                        Float.valueOf(decimalFormat.format(user.getLat_PI())),
-                        Float.valueOf(decimalFormat.format(user.getLong_PI())),
+                Double distance = Util.distFrom(
+                        Double.valueOf(decimalFormat.format(user.getLat_PI())),
+                        Double.valueOf(decimalFormat.format(user.getLong_PI())),
                         accident.getLat_AC(),
                         accident.getLong_AC());
                 Log.d(TAG,"distance :"+distance);
@@ -119,6 +119,9 @@ public class AccidentEventHandler {
                         String messageId = Util.getUniqueMessageId();
                         Map<String, String> dataPayload = new HashMap<String, String>();
                         dataPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
+                        dataPayload.put("latitude",accident.getLat_AC()+"");
+                        dataPayload.put("longtitude",accident.getLong_AC()+"");
+                        dataPayload.put("address",accident.getAdress());
                         CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
 
                         fcmService.sendMessage(out);
