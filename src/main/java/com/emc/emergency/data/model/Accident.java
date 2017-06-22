@@ -18,7 +18,7 @@ public class Accident  {
 	public Accident() {
 	}
 
-	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC , Double long_AC, String status_AC, List<Chat> chat, List<Image> image, String adress) {
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC , Double long_AC, String status_AC, List<Chat> chat, List<Image> image, String adress, String FirebaseKey) {
 		this.id_AC = id_AC;
 		this.id_user = id_user;
 		this.description_AC = description_AC;
@@ -29,6 +29,7 @@ public class Accident  {
 		this.chat = chat;
 		this.image = image;
 		Adress = adress;
+		firebaseKey = FirebaseKey;
 	}
 
 	@Column(name="id_AC", nullable=false, length=20)
@@ -66,6 +67,9 @@ public class Accident  {
 	@Column(name="addess", nullable=true)
 	private String Adress;
 
+	@Column(name="firebaseKey", nullable=true)
+	private String firebaseKey;
+
 	private void setId_AC(Long value) {
 		this.id_AC = value;
 	}
@@ -90,7 +94,21 @@ public class Accident  {
 		return date_AC;
 	}
 
+	public void setChat(List<Chat> chat) {
+		this.chat = chat;
+	}
 
+	public void setImage(List<Image> image) {
+		this.image = image;
+	}
+
+	public String getFirebaseKey() {
+		return firebaseKey;
+	}
+
+	public void setFirebaseKey(String firebaseKey) {
+		this.firebaseKey = firebaseKey;
+	}
 
 	public void setLong_AC(Double value) {
 		this.long_AC = value;
@@ -152,6 +170,7 @@ public class Accident  {
 				", lat_AC=" + lat_AC +
 				", status_AC='" + status_AC + '\'' +
 				", Adress='" + Adress + '\'' +
+				", Firebase='" + firebaseKey + '\'' +
 				'}';
 	}
 }

@@ -32,10 +32,9 @@ public class User   {
         this.password = password;
     }
 
-    public User(Long id_user, String username, String avatar, User_Type user_type, String password, String token, Double long_PI, Double lat_PI) {
+    public User(Long id_user, String username, User_Type user_type, String password, String token, Double long_PI, Double lat_PI) {
         this.id_user = id_user;
         this.username = username;
-        Avatar = avatar;
         this.user_type = user_type;
         this.password = password;
         this.token = token;
@@ -63,9 +62,6 @@ public class User   {
     @Email
     @Column(name="username", nullable=false, length=50, unique = true)
     private String username;
-
-    @Column(name="avatar", nullable=true)
-    private String Avatar;
 
     @ManyToOne
     @JoinColumn(name = "id_user_type")
@@ -180,13 +176,7 @@ public class User   {
         this.personal_Infomation = personal_Infomation;
     }
 
-    public String getAvatar() {
-        return Avatar;
-    }
 
-    public void setAvatar(String avatar) {
-        Avatar = avatar;
-    }
 
     @Override
     public String toString() {

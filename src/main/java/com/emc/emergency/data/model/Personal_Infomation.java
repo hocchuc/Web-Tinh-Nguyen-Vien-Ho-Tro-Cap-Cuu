@@ -19,8 +19,15 @@ public class Personal_Infomation implements Serializable  {
 	public Personal_Infomation() {
 	}
 
-	public Personal_Infomation(Long id_PI, String name_PI, Boolean sex__PI, Date birthday, Long personal_id, String work_location, String phone_PI, String address_PI, String email_PI, User id_user) {
+	public Personal_Infomation(
+			Long id_PI,	String avatar,
+			String name_PI, Boolean sex__PI,
+			Date birthday, String personal_id,
+			String work_location,	String phone_PI,
+			String address_PI,	String email_PI, User id_user)
+	{
 		this.id_PI = id_PI;
+		Avatar = avatar;
 		this.name_PI = name_PI;
 		this.sex__PI = sex__PI;
 		this.birthday = birthday;
@@ -44,7 +51,8 @@ public class Personal_Infomation implements Serializable  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_PI;
 
-
+	@Column(name="avatar", nullable=true)
+	private String Avatar;
 
 	@Column(name="name_PI", nullable=true, length=20)
 	private String name_PI;
@@ -57,8 +65,8 @@ public class Personal_Infomation implements Serializable  {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private java.util.Date birthday;
 
-	@Column(name="personal_id", nullable=true, length=15)
-	private Long personal_id;
+	@Column(name="personal_id", nullable=true, length=15,unique = true)
+	private String personal_id;
 
 	@Column(name="work_location", nullable=true, length=100)
 	private String work_location;
@@ -110,11 +118,11 @@ public class Personal_Infomation implements Serializable  {
 		this.birthday = birthday;
 	}
 
-	public Long getPersonal_id() {
+	public String getPersonal_id() {
 		return personal_id;
 	}
 
-	public void setPersonal_id(Long personal_id) {
+	public void setPersonal_id(String personal_id) {
 		this.personal_id = personal_id;
 	}
 
@@ -165,20 +173,29 @@ public class Personal_Infomation implements Serializable  {
 	public void setMedical_Info(List<Medical_Info> medical_Info) {
 		this.medical_Info = medical_Info;
 	}
+	public String getAvatar() {
+		return Avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		Avatar = avatar;
+	}
 
 	@Override
 	public String toString() {
 		return "Personal_Infomation{" +
 				"id_PI=" + id_PI +
+				", Avatar='" + Avatar + '\'' +
 				", name_PI='" + name_PI + '\'' +
 				", sex__PI=" + sex__PI +
 				", birthday=" + birthday +
-				", personal_id=" + personal_id +
+				", personal_id='" + personal_id + '\'' +
 				", work_location='" + work_location + '\'' +
 				", phone_PI='" + phone_PI + '\'' +
 				", address_PI='" + address_PI + '\'' +
 				", email_PI='" + email_PI + '\'' +
 				", id_user=" + id_user +
+				", medical_Info=" + medical_Info +
 				'}';
 	}
 }

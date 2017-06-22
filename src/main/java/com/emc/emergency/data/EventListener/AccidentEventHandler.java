@@ -122,6 +122,7 @@ public class AccidentEventHandler {
                         dataPayload.put("latitude",accident.getLat_AC()+"");
                         dataPayload.put("longtitude",accident.getLong_AC()+"");
                         dataPayload.put("address",accident.getAdress());
+                        dataPayload.put("FirebaseKey",accident.getFirebaseKey());
                         CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
 
                         fcmService.sendMessage(out);
