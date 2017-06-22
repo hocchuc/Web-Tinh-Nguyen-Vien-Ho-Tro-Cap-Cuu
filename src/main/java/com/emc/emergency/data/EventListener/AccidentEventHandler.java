@@ -113,7 +113,7 @@ public class AccidentEventHandler {
                         accident.getLong_AC());
                 Log.d(TAG,"distance :"+distance);
                 // 3km = 300.000 cm
-                if(distance < 3000000.0) {
+                if(distance < 300000000.0) {
                     StateResponse stateresponse = new StateResponse();
                     try {
                         String messageId = Util.getUniqueMessageId();
