@@ -46,9 +46,9 @@ public class DatabaseLoader implements ApplicationRunner {
         user_type.save(volunteer);
         user_type.save(user_normal);
 
-        User user1 = new User(null,"hocanhchuc@gmail.com", null,user_type.findOne(2l), "123",null,10.712746, 106.614751);
-        User user2 = new User(null,"trancaotri@gmail.com", null,user_type.findOne(1l), "123",null,10.777437, 106.630484);
-        User user3 = new User(null,"nguyenhuunghia@gmail.com", null,user_type.findOne(3l), "123",null,10.780040, 106.629250);
+        User user1 = new User(null,"hocanhchuc@gmail.com", null,user_type.findOne(2l), "123",null,106.61952, 10.773757);
+        User user2 = new User(null,"trancaotri@gmail.com", null,user_type.findOne(1l), "123",null,106.630484, 10.777437);
+        User user3 = new User(null,"nguyenhuunghia@gmail.com", null,user_type.findOne(3l), "123",null,106.62925, 10.78004);
         user.save(user1);
         user.save(user2);
         user.save(user3);
@@ -71,13 +71,13 @@ public class DatabaseLoader implements ApplicationRunner {
         Personal_Infomation p2 = new Personal_Infomation(null,"Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),252416865l,"115","0909999119","Thach Lam","trancaotri@gmail.com",user.findOne(2l));
         personal_infoRepository.save(p2);
 
-        Medical_Info m1 = new Medical_Info(null,null,"panadol",1,"thuoc dau dau");
+        Medical_Info m1 = new Medical_Info(null,personal_infoRepository.findOne(0L),"panadol",1,"thuoc dau dau");
         medical_infoRepository.save(m1);
-        Medical_Info m1_2 = new Medical_Info(null,null,"Dau dau",2,"dau dau");
+        Medical_Info m1_2 = new Medical_Info(null,personal_infoRepository.findOne(0L),"Dau dau",2,"dau dau");
         medical_infoRepository.save(m1_2);
-        Medical_Info m2 = new Medical_Info(null,null,"bioka",1,"thuoc chua ung thu");
+        Medical_Info m2 = new Medical_Info(null,personal_infoRepository.findOne(1L),"bioka",1,"thuoc chua ung thu");
         medical_infoRepository.save(m2);
-        Medical_Info m2_2 = new Medical_Info(null,null,"Ung Thu",2,"ung thu giai doan 1");
+        Medical_Info m2_2 = new Medical_Info(null,personal_infoRepository.findOne(1L),"Ung Thu",2,"ung thu giai doan 1");
         medical_infoRepository.save(m2_2);
 
         Chat chat1 = new Chat(null,accident.findOne(1l),user.findOne(1L),"Chuyện gì thế ?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:20 PM"));

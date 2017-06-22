@@ -52,7 +52,10 @@ public class RestUserController {
     @ResponseStatus(HttpStatus.CREATED)
     public FlashMessage Register (@RequestBody User user) {
         FlashMessage flashMessage = new FlashMessage(REGISTER,"register",FAILURE);
-        if(userService.Register(user.getUsername(),user.getPassword())) flashMessage.setStatus(SUCCESS);
+        if(userService.Register(user.getUsername(),user.getPassword())) {
+            flashMessage.setStatus(SUCCESS);
+            flashMessage.setMessage(userRepository.findByUsername(user.getUsername()).getId_user()+"");
+        }
         return flashMessage;
     }
     @RequestMapping(value = "/api/refreshToken", method = RequestMethod.POST,
