@@ -15,6 +15,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
@@ -65,14 +66,15 @@ public class AccidentEventHandler {
 
             Response response = null;
             String url =  "http://api.openfpt.vn/ftsrouting/nearest?loc="+accident.getLat_AC()+"%2C"+accident.getLong_AC();
+            String urlGGAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+accident.getLat_AC()+"%2C"+accident.getLong_AC()+"&key="+Util.GOOGLE_MAP_API_KEY;
             logger.log(Level.INFO,url);
 
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url(url)
+                    .url(urlGGAPI)
                     .get()
-                    .addHeader("api_key", Util.OPEN_FPT_API_KEY)
-                    .addHeader("cache-control", "no-cache")
+                    //.addHeader("api_key", Util.OPEN_FPT_API_KEY)
+                  //  .addHeader("cache-control", "no-cache")
                     .build();
             // logger.log(Level.INFO,request.body().toString());
 
@@ -83,15 +85,17 @@ public class AccidentEventHandler {
             }
             try {
                 JSONObject jsonObject = new JSONObject(response.body().string());
-                if (jsonObject.has("name"))
-                    accident.setAdress(jsonObject.getString("name"));
+                JSONArray jsonArray = jsonObject.getJSONArray("results");
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+                if (jsonObject1.has("formatted_address"))
+                    accident.setAdress(jsonObject1.getString("formatted_address"));
                 // logger.log(Level.INFO, Util.OK_LABEL+" "+request.body().toString());
 
 
-                if (jsonObject.has("status"))
-                    if(jsonObject.getInt("status")!=0){
-                        accident.setAdress("Không nằm trong dữ liệu Việt Nam");
-                    }
+//                if (jsonObject.has("status"))
+//                    if(jsonObject.getString("status").equals()){
+//                        accident.setAdress("Không nằm trong dữ liệu Việt Nam");
+//                    }
 
                 accidentRepository.save(accident);
             } catch (IOException e) {
