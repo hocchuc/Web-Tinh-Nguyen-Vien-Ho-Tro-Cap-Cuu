@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by hocan on 23-May-17.
  */
-//@Component
+@Component
 public class DatabaseLoader implements ApplicationRunner {
 
     private final userRepository user;
