@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head('Users')">
+
+  </head>
+  <body>
+      <!-- START MAIN -->
+  <div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
+    <div th:replace="layout :: nav"></div>
+      <div class="divider"></div>
+            
+            <!--DataTables users-->
+            <div id="table-datatables">
+                <div class="row">
+                    <div class="col s12 m2 l2"> </div>
+                    <div class="col s12 m2 l9"><h4 class="header">User Management</h4></div>
+                    <div class="col s12 m2 l2"> </div>
+                </div>
+              <div class="row">
+                  <div class="col s12 m2 l2"> </div>
+                  <div class="col s12 m2 l9">
+                  <table id="data-table-simple" class="responsive-table display highlight" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type user</th>
+                            <th>Status</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
+                 
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type user</th>
+                            <th>Status</th>
+                            <th>Position</th>
+                        </tr>
+                    </tfoot>
+                 
+                    <tbody>
+                        <tr th:each="user  : ${userlist}">
+                            <td th:text="${user.username}">Tiger Nixon</td>
+                            <td th:text="${user.user_type.name_user_type}">System Architect</td>
+                            <td th:text="${user.token}">online</td>
+                            <td th:text="${user.lat_PI}+${user.long_PI}">61</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+                  <div class="col s12 m2 l2"> </div>
+
+              </div>
+            </div> 
+            <br/> 
+          <div class="divider">
+        </div> 
+
+        </div>
+    <!-- END WRAPPER -->
+
+  </div>
+  <!-- END MAIN -->
+
+  </body>
+<div th:replace="layout :: scripts"></div>
+</html>

@@ -43,5 +43,14 @@ public class FlashMessage {
     public static enum Type_Mess {
         SYSTEM, LOGIN, REGISTER, CREATED,TOKEN
     }
+
+    @Override
+    public String toString() {
+        return "FlashMessage{" +
+                "type=" + type +
+                ", message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }
 

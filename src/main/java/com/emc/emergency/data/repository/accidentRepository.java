@@ -18,4 +18,24 @@ public interface  accidentRepository extends CrudRepository<Accident, Long> {
                                               @Param("lat_AC")Float lat_AC,
                                               @Param("long_AC")Float long_AC);
 
+    @Override
+    Accident findOne(Long aLong);
+
+    @Override
+    boolean exists(Long aLong);
+
+    @Override
+    long count();
+
+    @Override
+    void delete(Long aLong);
+
+    @Override
+    void delete(Accident entity);
+
+    @Override
+    void delete(Iterable<? extends Accident> entities);
+
+    @Override
+    void deleteAll();
 }

@@ -79,23 +79,14 @@ public class FCMController {
 		}
 		return response;
 	}
-	@RequestMapping(value = "/register", method = RequestMethod.POST )
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public @ResponseBody
-	String sendMessage(
-			@RequestParam(value = "token", defaultValue = "", required = true) String token)
-	{
-		StateResponse response = new StateResponse();
-		try {
+	String registerToken(
+			@RequestParam(value = "token", defaultValue = "", required = true) String token,
+			@RequestParam(value = "user_id", defaultValue = "", required = true) String user_id) {
 
-			response.setCode(Util.OK_CODE);
-					response.setMessage(Util.OK_MESSAGE);
-					logger.debug(Util.OK_LABEL+token);
+		return null;
+	}
 
-					} catch (Exception e) {
-					response.setCode(Util.SERVER_ERROR_CODE);
-					response.setMessage(e.getMessage());
-					logger.error(Util.ERROR_LABEL + e.getMessage());
-					}
-					return token;
-					}
-					}
+}

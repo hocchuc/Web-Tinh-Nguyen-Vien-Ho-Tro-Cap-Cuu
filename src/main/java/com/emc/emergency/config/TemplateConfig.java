@@ -14,6 +14,8 @@ public class TemplateConfig {
         templateResolver.setCacheable(false);
         templateResolver.setPrefix("classpath:/templates/");
         templateResolver.setSuffix(".html");
+        templateResolver.setCharacterEncoding("UTF-8");
+        templateResolver.setTemplateMode("HTML5");
         return templateResolver;
     }
 
@@ -28,6 +30,8 @@ public class TemplateConfig {
     public ThymeleafViewResolver viewResolver() {
         final ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine());
+        viewResolver.setCharacterEncoding("UTF-8");
+        viewResolver.setCache(false);
         viewResolver.setOrder(1);
         return viewResolver;
     }

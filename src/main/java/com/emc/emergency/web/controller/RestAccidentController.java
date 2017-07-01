@@ -48,6 +48,7 @@ public class RestAccidentController {
         }
         return flashMessage.toString();
     }
+
     @RequestMapping(value = "/api/accident/get", method = RequestMethod.GET)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)

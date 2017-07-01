@@ -51,4 +51,14 @@ public class AccidentService {
         List<Accident> accidents =  accidentRepository.findAll();
         return accidents;
     }
+
+    public void removeOne(long l) {
+        accidentRepository.delete(l);
+    }
+
+    public void activate(long l) {
+        Accident accident = accidentRepository.findOne(l);
+        accident.setStatus_AC("Active");
+        accidentRepository.save(accident);
+    }
 }

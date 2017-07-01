@@ -1,8 +1,12 @@
 package com.emc.emergency.util;
 
+import com.emc.emergency.data.model.User;
 import org.springframework.http.MediaType;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 /*
@@ -71,5 +75,21 @@ public class Util {
 		Double dist =  (earthRadius * c);
 
 		return dist;
+	}
+
+	public static <E> Collection<E> makeCollection(Iterable<E> iter) {
+		Collection<E> list = new ArrayList<E>();
+		for (E item : iter) {
+			list.add(item);
+		}
+		return list;
+	}
+
+	public static List<User> makeUserCollection(Iterable<User> all) {
+		List<User> list = new ArrayList<User>();
+		for (User item : all) {
+			list.add(item);
+		}
+		return list;
 	}
 }

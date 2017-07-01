@@ -62,7 +62,7 @@ public class AccidentEventHandler {
     }
     @HandleAfterCreate
     public void handleAccidentCreate(Accident accident){
-        if(accident.getAdress()==null) {
+        if(accident.getAddress()==null) {
 
             Response response = null;
             String url =  "http://api.openfpt.vn/ftsrouting/nearest?loc="+accident.getLat_AC()+"%2C"+accident.getLong_AC();
@@ -88,7 +88,7 @@ public class AccidentEventHandler {
                 JSONArray jsonArray = jsonObject.getJSONArray("results");
                 JSONObject jsonObject1 = jsonArray.getJSONObject(0);
                 if (jsonObject1.has("formatted_address"))
-                    accident.setAdress(jsonObject1.getString("formatted_address"));
+                    accident.setAddress(jsonObject1.getString("formatted_address"));
                 // logger.log(Level.INFO, Util.OK_LABEL+" "+request.body().toString());
 
 
@@ -103,7 +103,7 @@ public class AccidentEventHandler {
             }
         }
 
-        String message = accident.getDescription_AC() +" ở "+ accident.getAdress();
+        String message = accident.getDescription_AC() +" ở "+ accident.getAddress();
         Log.d("OnAccidentCreated",message);
         Iterable<User> userList = userRepository.findAll();
         for (User user : userList) {
@@ -125,7 +125,7 @@ public class AccidentEventHandler {
                         dataPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
                         dataPayload.put("latitude",accident.getLat_AC()+"");
                         dataPayload.put("longtitude",accident.getLong_AC()+"");
-                        dataPayload.put("address",accident.getAdress());
+                        dataPayload.put("address",accident.getAddress());
                         dataPayload.put("FirebaseKey",accident.getFirebaseKey());
                         CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
 

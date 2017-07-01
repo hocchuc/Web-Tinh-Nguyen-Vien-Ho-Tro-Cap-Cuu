@@ -8,6 +8,7 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.springframework.http.MediaType;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 class CustomRestMvcConfiguration {
@@ -21,7 +22,6 @@ class CustomRestMvcConfiguration {
       public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.setBasePath("/api");
         config.setReturnBodyForPutAndPost(true);
-
         config.exposeIdsFor(Accident.class);
         config.exposeIdsFor(User.class);
         config.exposeIdsFor(Chat.class);

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>Login </title>
-   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Forgot Password form </title>
+<!-- CORE CSS-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"/>
 
 <style type="text/css">
 html,
@@ -20,22 +21,18 @@ html {
 body {
     display: table-cell;
     vertical-align: middle;
-    background: #fff;
-
 }
 .margin {
   margin: 0 !important;
 }
 </style>
-  
+
 </head>
 
-<body >
-
-
+<body id="body" >
   <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form" method="post" th:action="@{/login}">
+      <form class="login-form" method="post" th:action="@{/home}">
         <div class="row">
           <div class="input-field col s12 center">
             <p class="center login-form-text">Login Form</p>
@@ -44,14 +41,15 @@ body {
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input class="validate" id="email" type="email" /><!--th:field="@{username}"-->
-            <label for="email" data-error="wrong" data-success="right"  class="center-align" >Email</label>
+            <input class="validate" type="email" name="username" id="username" required="required"
+                   autofocus="autofocus"  />
+            <label for="username" data-error="wrong" data-success="right"  class="center-align" >Email</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password" /> <!--th:field="*{password}"/-->
+            <input id="password" type="password" name="password" required="required" />
             <label for="password" class="center-align">Password</label>
           </div>
         </div>
@@ -63,7 +61,7 @@ body {
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <button  type="submit" class="button">Login</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Sign in </button>
           </div>
         </div>
         <div class="row">
@@ -87,16 +85,10 @@ body {
       });
       </script>
   
-  <!-- jQuery Library -->
- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
   <!--materialize js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-   <footer class="page-footer">
-          <div class="footer-copyright">
-            <div class="container">
-            </div>
-          </div>
-  </footer>
+  <div th:replace="layout :: scripts"></div>
+
 </body>
 
 </html>

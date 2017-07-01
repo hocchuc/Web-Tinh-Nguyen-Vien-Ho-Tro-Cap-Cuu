@@ -5,6 +5,7 @@ import com.emc.emergency.data.model.User_Type;
 import com.emc.emergency.data.repository.*;
 import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.data.repository.user_typeRepository;
+import com.emc.emergency.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,10 @@ public class UserService {
 //    @Autowired
 //    accidentRepository accidentRepository;
 
+    public List<User> findAll() {
+        List<User> users = Util.makeUserCollection(userRepository.findAll());
+        return users;
+    }
 
     public Boolean Login(String username,String password ) {
         List<User> userList= userRepository.findByUsernameAndPassword(username,password);
