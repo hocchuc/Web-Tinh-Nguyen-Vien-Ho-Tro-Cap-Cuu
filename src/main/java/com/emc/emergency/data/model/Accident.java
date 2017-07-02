@@ -18,7 +18,7 @@ public class Accident  {
 	public Accident() {
 	}
 
-	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC , Double long_AC, String status_AC, List<Chat> chat, List<Image> image, String address, String FirebaseKey) {
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC ,Double long_AC,  String status_AC, List<Chat> chat, List<Image> image, String address, String FirebaseKey) {
 		this.id_AC = id_AC;
 		this.id_user = id_user;
 		this.description_AC = description_AC;

@@ -24,19 +24,23 @@
                   <table id="data-table-simple" class="responsive-table display highlight" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Type user</th>
+                            <th>UserName</th>
+                            <th>Role</th>
                             <th>Status</th>
                             <th>Position</th>
+                            <th>Password</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                  
                     <tfoot>
                         <tr>
-                            <th>Name</th>
-                            <th>Type user</th>
+                            <th>UserName</th>
+                            <th>Role</th>
                             <th>Status</th>
                             <th>Position</th>
+                            <th>Password</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
                  
@@ -45,7 +49,13 @@
                             <td th:text="${user.username}">Tiger Nixon</td>
                             <td th:text="${user.user_type.name_user_type}">System Architect</td>
                             <td th:text="${user.token}">online</td>
-                            <td th:text="${user.lat_PI}+${user.long_PI}">61</td>
+                            <td th:text="${user.password}">online</td>
+                            <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
+                            <td>
+                                <a th:href="@{|/user/save/${user.id_user}|}"><i class="small material-icons">mode_edit</i></a>
+                                <a th:href="@{|/user/lock/${user.id_user}|}"><i class="small material-icons">lock</i></a>
+                                <a th:href="@{|/user/{user.id_AC}|}"><i class="small material-icons">assignment_ind</i></a>
+                            </td>
                         </tr>
                     </tbody>
                   </table>

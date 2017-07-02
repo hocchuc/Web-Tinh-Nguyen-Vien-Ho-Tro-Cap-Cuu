@@ -73,10 +73,7 @@ public class AccidentEventHandler {
             Request request = new Request.Builder()
                     .url(urlGGAPI)
                     .get()
-                    //.addHeader("api_key", Util.OPEN_FPT_API_KEY)
-                  //  .addHeader("cache-control", "no-cache")
                     .build();
-            // logger.log(Level.INFO,request.body().toString());
 
             try {
                 response = client.newCall(request).execute();
@@ -108,6 +105,8 @@ public class AccidentEventHandler {
         Iterable<User> userList = userRepository.findAll();
         for (User user : userList) {
             if(user.getLong_PI()!=null&&user.getLat_PI()!=null&&user.getToken()!=null){
+                if((user.getId_user_type().getName_user_type().equals("volunteer")||(user.getId_user_type().getName_user_type().equals("admin")))){
+
                 DecimalFormat decimalFormat = new DecimalFormat("#");
                 Log.d(TAG,user.toString());
                 Double distance = Util.distFrom(
@@ -117,7 +116,7 @@ public class AccidentEventHandler {
                         accident.getLong_AC());
                 Log.d(TAG,"distance :"+distance);
                 // 3km = 300.000 cm
-                if(distance < 300000000.0) {
+                if(distance < 30000000.0) {
                     StateResponse stateresponse = new StateResponse();
                     try {
                         String messageId = Util.getUniqueMessageId();
@@ -141,6 +140,7 @@ public class AccidentEventHandler {
                         logger.log(Level.WARNING,Util.ERROR_LABEL + message);
                     }
 
+                }
                 }
             }
         }

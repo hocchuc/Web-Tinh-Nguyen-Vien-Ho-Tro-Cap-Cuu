@@ -32,7 +32,7 @@ public class User   {
         this.password = password;
     }
 
-    public User(Long id_user, String username, User_Type user_type, String password, String token, Double long_PI, Double lat_PI) {
+    public User(Long id_user, String username, User_Type user_type, String password, String token, Double lat_PI,Double long_PI) {
         this.id_user = id_user;
         this.username = username;
         this.user_type = user_type;
