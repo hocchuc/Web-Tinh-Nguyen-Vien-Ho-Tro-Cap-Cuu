@@ -67,7 +67,7 @@ public class AccidentEventHandler {
             Response response = null;
             String url =  "http://api.openfpt.vn/ftsrouting/nearest?loc="+accident.getLat_AC()+"%2C"+accident.getLong_AC();
             String urlGGAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+accident.getLat_AC()+"%2C"+accident.getLong_AC()+"&key="+Util.GOOGLE_MAP_API_KEY;
-            logger.log(Level.INFO,url);
+            logger.log(Level.INFO,urlGGAPI);
 
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
@@ -82,10 +82,20 @@ public class AccidentEventHandler {
             }
             try {
                 JSONObject jsonObject = new JSONObject(response.body().string());
+                logger.log(Level.INFO,jsonObject.toString());
+
                 JSONArray jsonArray = jsonObject.getJSONArray("results");
                 JSONObject jsonObject1 = jsonArray.getJSONObject(0);
                 if (jsonObject1.has("formatted_address"))
                     accident.setAddress(jsonObject1.getString("formatted_address"));
+                // nếu không lấy được cái đầu tiên
+                if(accident.getAddress()==null) {
+                    jsonObject1 = jsonArray.getJSONObject(1);
+                    if (jsonObject1.has("formatted_address"))
+                        accident.setAddress(jsonObject1.getString("formatted_address"));
+                }
+                logger.log(Level.INFO,accident.toString());
+
                 // logger.log(Level.INFO, Util.OK_LABEL+" "+request.body().toString());
 
 
@@ -127,6 +137,7 @@ public class AccidentEventHandler {
                         dataPayload.put("address",accident.getAddress());
                         dataPayload.put("FirebaseKey",accident.getFirebaseKey());
                         CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
+                        logger.log(Level.INFO,out.toString());
 
                         fcmService.sendMessage(out);
 

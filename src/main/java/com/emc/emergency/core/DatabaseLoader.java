@@ -53,21 +53,27 @@ public class DatabaseLoader implements ApplicationRunner {
         user.save(user2);
         user.save(user3);
 
-        Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.7973"),Double.parseDouble("106.649"),"Pending",null,null,"Số 2 Lô L chung cư Bàu cát 3 Tân Phú Hồ Chí Minh",null);
+        Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.766622"),Double.parseDouble("106.642844"),"Pending",null,null,"87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null);
         accident.save(accident1);
-        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7153"),Double.parseDouble("106.638"),"Pending",null,null,"Số 3 Nguyễn Thị Minh Khai Quận 1 Hồ Chí Minh",null);
+
+        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.781785"),Double.parseDouble("106.643036"),"Pending",null,null,"541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null);
         accident.save(accident2);
-        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7143"),Double.parseDouble("106.645"),"Pending",null,null,"Số 123 Âu Cơ Tân Binh Hồ Chí Minh",null);
+
+        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.799555"),Double.parseDouble("106.637219"),"Pending",null,null,"15-16 Âu Cơ, phường 14, Tân Phú, Hồ Chí Minh",null);
         accident.save(accident3);
-        Accident accident4 = new Accident(null,user.findOne(3l),"Té cầu thang",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7133"),Double.parseDouble("106.690"),"Pending",null,null,"Số 4353 Âu Cơ Tân Binh Hồ Chí Minh",null);
+
+        Accident accident4 = new Accident(null,user.findOne(3l),"Té cầu thang",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.783994"),Double.parseDouble("106.636266"),"Pending",null,null,"763 Lũy Bán Bích Hoà Thạnh Tân Phú Hồ Chí Minh",null);
         accident.save(accident4);
+
         Accident accident5 = new Accident(null,user.findOne(2l),"Đau tim",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7123"),Double.parseDouble("106.613"),"Pending",null,null,"Số 454 Âu Cơ Tân Binh Hồ Chí Minh",null);
         accident.save(accident5);
+
         Accident accident6 = new Accident(null,user.findOne(2l),"Té xe",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7142"),Double.parseDouble("106.644"),"Pending",null,null,"Số 433 Âu Cơ Tân Binh Hồ Chí Minh",null);
         accident.save(accident6);
 
         Personal_Infomation p1 = new Personal_Infomation(null,null,"Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),"252956865l","Từ Dữ","0909999999","Phu Tho Hoa","chucanhhoc@gmail.com",user.findOne(1l));
         personal_infoRepository.save(p1);
+
         Personal_Infomation p2 = new Personal_Infomation(null,null,"Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),"252416865l","115","0909999119","Thach Lam","trancaotri@gmail.com",user.findOne(2l));
         personal_infoRepository.save(p2);
 
@@ -75,8 +81,10 @@ public class DatabaseLoader implements ApplicationRunner {
         medical_infoRepository.save(m1);
         Medical_Info m1_2 = new Medical_Info(null,personal_infoRepository.findOne(0L),"Dau dau",2,"dau dau");
         medical_infoRepository.save(m1_2);
+
         Medical_Info m2 = new Medical_Info(null,personal_infoRepository.findOne(1L),"bioka",1,"thuoc chua ung thu");
         medical_infoRepository.save(m2);
+
         Medical_Info m2_2 = new Medical_Info(null,personal_infoRepository.findOne(1L),"Ung Thu",2,"ung thu giai doan 1");
         medical_infoRepository.save(m2_2);
 

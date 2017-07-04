@@ -64,7 +64,7 @@ public class Accident  {
 	@OneToMany(mappedBy="id_AC")
 	private List<Image> image = new ArrayList<>();
 
-	@Column(name="addess", nullable=true)
+	@Column(name="address", nullable=true)
 	private String address;
 
 	@Column(name="firebaseKey", nullable=true)
@@ -156,7 +156,7 @@ public class Accident  {
 	}
 
 	public void setAddress(String address) {
-		address = address;
+		this.address = address;
 	}
 
 	@Override
