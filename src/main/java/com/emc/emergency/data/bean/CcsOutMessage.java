@@ -40,6 +40,13 @@ public class CcsOutMessage {
 		this.dataPayload = dataPayload;
 	}
 
+	public CcsOutMessage(String to, String messageId, Map<String, String> dataPayload,Map<String, String> notificationPayload ) {
+		this.to = to;
+		this.messageId = messageId;
+		this.dataPayload = dataPayload;
+		this.notificationPayload = notificationPayload;
+	}
+
 	public String getTo() {
 		return to;
 	}

@@ -11,6 +11,7 @@ import org.jivesoftware.smack.XMPPException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,9 +56,7 @@ public class FCMController {
 	 */
 	@RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public @ResponseBody
-	StateResponse sendMessage(
-			@RequestParam(value = "token", defaultValue = "", required = true) String token,
-			@RequestParam(value = "message", defaultValue = "", required = true) String message) {
+	StateResponse sendMessage(@Param("token")String token,@Param("message")String message) {
 
 		StateResponse response = new StateResponse();
 

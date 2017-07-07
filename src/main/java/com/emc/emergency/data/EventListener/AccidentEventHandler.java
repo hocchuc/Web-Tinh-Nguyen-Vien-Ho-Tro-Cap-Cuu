@@ -136,7 +136,18 @@ public class AccidentEventHandler {
                         dataPayload.put("longtitude",accident.getLong_AC()+"");
                         dataPayload.put("address",accident.getAddress());
                         dataPayload.put("FirebaseKey",accident.getFirebaseKey());
+
                         CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
+
+                        Map<String, String> notiPayload = new HashMap<String, String>();
+                        notiPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
+                        notiPayload.put("latitude",accident.getLat_AC()+"");
+                        notiPayload.put("longtitude",accident.getLong_AC()+"");
+                        notiPayload.put("address",accident.getAddress());
+                        notiPayload.put("FirebaseKey",accident.getFirebaseKey());
+                        out.setNotificationPayload(notiPayload);
+
+                        out.setPriority("High");
                         logger.log(Level.INFO,out.toString());
 
                         fcmService.sendMessage(out);

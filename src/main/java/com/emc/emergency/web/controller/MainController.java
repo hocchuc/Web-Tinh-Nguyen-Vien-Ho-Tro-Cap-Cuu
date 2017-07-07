@@ -2,6 +2,7 @@ package com.emc.emergency.web.controller;
 
 import com.emc.emergency.data.model.Accident;
 import com.emc.emergency.data.model.User;
+import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.AccidentService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
@@ -30,6 +31,8 @@ public class MainController {
     // Home page - index of all GIFs
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
+    @Autowired
+    userRepository userRepository;
     @Autowired
     UserService userService;
     @Autowired
@@ -90,5 +93,19 @@ public class MainController {
         return "mainpage/forgot-password";
     }
 
+    @RequestMapping(value = "/refreshToken", method = RequestMethod.POST)
+    @ResponseBody
+    public String refreshToken(@Param("token")String token,@Param("id_user")String id_user) {
+        FlashMessage flashMessage = new FlashMessage(LOGIN,"login",FAILURE);
+        User user = userRepository.findOne(Long.parseLong(id_user));
+        if(user!=null) {
+            // todo move to Services someday
+            user.setToken(token);
+            userRepository.save(user);
+            flashMessage.setStatus(SUCCESS);
+        }
+        return flashMessage.toString();
+
+    }
 
 }
