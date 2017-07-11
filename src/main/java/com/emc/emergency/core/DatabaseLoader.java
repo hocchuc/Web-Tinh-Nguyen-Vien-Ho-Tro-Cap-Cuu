@@ -23,7 +23,7 @@ public class DatabaseLoader implements ApplicationRunner {
     private final personal_infoRepository personal_infoRepository;
     private final medical_infoRepository medical_infoRepository;
 
-    @Autowired
+        @Autowired
     public DatabaseLoader(userRepository user, user_typeRepository user_type, accidentRepository accident, chatRepository chat, imageRepository imageRepository, personal_infoRepository personal_infoRepository, medical_infoRepository medical_infoRepository) {
         this.user = user;
         this.user_type = user_type;

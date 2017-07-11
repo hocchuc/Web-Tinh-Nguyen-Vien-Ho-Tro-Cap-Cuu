@@ -3,6 +3,7 @@ package com.emc.emergency.web.controller;
 import com.emc.emergency.data.model.Accident;
 import com.emc.emergency.data.model.User;
 import com.emc.emergency.data.model.User_Type;
+import com.emc.emergency.data.repository.accidentRepository;
 import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.data.repository.user_typeRepository;
 import com.emc.emergency.service.AccidentService;
@@ -42,7 +43,8 @@ public class MainController {
     UserService userService;
     @Autowired
     AccidentService accidentService;
-
+    @Autowired
+    accidentRepository accidentRepo;
     @RequestMapping("/")
     public String sign_in() {
         return "mainpage/login";
@@ -70,7 +72,9 @@ public class MainController {
     @RequestMapping(value = "/home", method = RequestMethod.POST)
     public String home(@Param("username")String username,@Param("password")String password,Model model ) {
         List<User> users = userService.findAll();
+        List<Accident> accidents = accidentService.GetAccident();
         model.addAttribute("userlist",users);
+        model.addAttribute("accidentList",accidents);
         if(userService.Login(username,password)) return "mainpage/home";
         model.addAttribute("Message","Sai user name hoặc mật khẩu");
         return "redirect:mainpage/login";

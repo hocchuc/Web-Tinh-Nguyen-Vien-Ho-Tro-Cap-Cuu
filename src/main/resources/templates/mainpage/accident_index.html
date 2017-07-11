@@ -14,22 +14,21 @@
         <!--DataTables accident-->
         <div id="table-datatables">
             <div class="row">
-                <div class="col s12 m2 l2"> </div>
-                <div class="col s12 m2 l9"><h4 class="header">Accident Management</h4></div>
-                <div class="col s12 m2 l2"> </div>
+                <div class="col s1 m1 l1"> </div>
+                <div class="col s10 m10 l10"><h4 class="header">Accident Management</h4></div>
+                <div class="col s1 m1 l1"> </div>
             </div>
             <div class="row">
-                <div class="col s12 m2 l2"> </div>
-                <div class="col s12 m8 l8">
+                <div class="col s1 m1 l1"> </div>
+                <div class="col s10 m10 l10">
                     <table id="data-table-simple" class="responsive-table display highlight" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Select</th>
                             <th>ID</th>
                             <th>User</th>
                             <th>Description</th>
                             <th>Time</th>
-                            <th>Position</th>
+                            <th>Address</th>
                             <th>Status</th>
                             <th>Delete</th>
                             <th>Activate</th>
@@ -38,12 +37,11 @@
 
                         <tfoot>
                         <tr>
-                            <th>Select</th>
                             <th>ID</th>
                             <th>User</th>
                             <th>Description</th>
                             <th>Time</th>
-                            <th>Position</th>
+                            <th>Address</th>
                             <th>Status</th>
                             <th>Delete</th>
                             <th>Activate</th>
@@ -53,12 +51,6 @@
 
                         <tbody>
                         <tr th:each="accident  : ${accidents}">
-                            <td>
-                                <!--<div class="input-field col s12 m12 l12  login-text">-->
-                            <!--<input hidden="hidden" name="id" th:value="${accident.id_AC}" />-->
-                            <input th:id="'selected'+${accident.id_AC}"  type="checkbox" />
-                                <!--</div>-->
-                            </td>
                             <td th:text="${accident.id_AC}">Tiger Nixon</td>
                             <td th:text="${accident.id_user.username}">System Architect</td>
                             <td th:text="${accident.description_AC}">online</td>
@@ -83,7 +75,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col s12 m2 l2"> </div>
+                <div class="col s1 m1 l1"> </div>
             </div>
         </div>
         <br/>

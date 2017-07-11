@@ -38,13 +38,13 @@
                 <li th:classappend="${#httpServletRequest.servletPath.equals('/home') ? 'active' : ''}"><a th:href="@{/home}">Home</a></li>
                 <li th:classappend="${#httpServletRequest.servletPath.equals('/accounts') ? 'active' : ''}"><a th:href="@{/accounts}">Account</a></li>
                 <li th:classappend="${#httpServletRequest.servletPath.equals('/accidents') ? 'active' : ''}"><a th:href="@{/accidents}">Accidents</a></li>
-                <li th:classappend="${#httpServletRequest.servletPath.equals('/controlpanel') ? 'active' : ''}"><a th:href="@{/controlpanel}">Control Panel</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/logout') ? 'active' : ''}"><a th:href="@{/controlpanel}">Logout</a></li>
             </ul>
             <ul id="mobile-nav" class="side-nav">
                 <li th:classappend="${#httpServletRequest.servletPath.equals('/home') ? 'active' : ''}"><a th:href="@{/home}">Home</a></li>
                 <li th:classappend="${#httpServletRequest.servletPath.equals('/accounts') ? 'active' : ''}"><a th:href="@{/accounts}">Account</a></li>
                 <li th:classappend="${#httpServletRequest.servletPath.equals('/accidents') ? 'active' : ''}"><a th:href="@{/accidents}">Accidents</a></li>
-                <li th:classappend="${#httpServletRequest.servletPath.equals('/controlpanel') ? 'active' : ''}"><a th:href="@{/controlpanel}">Control Panel</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/logout') ? 'active' : ''}"><a th:href="@{/controlpanel}">Logout</a></li>
             </ul>
         </div>
     </nav>
