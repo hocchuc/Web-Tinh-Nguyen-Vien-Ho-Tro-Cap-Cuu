@@ -109,63 +109,63 @@ public class AccidentEventHandler {
                 e.printStackTrace();
             }
         }
-
-        String message = accident.getDescription_AC() +" ở "+ accident.getAddress();
-        Log.d("OnAccidentCreated",message);
-        Iterable<User> userList = userRepository.findAll();
-        for (User user : userList) {
-            if(user.getLong_PI()!=null&&user.getLat_PI()!=null&&user.getToken()!=null){
-                if((user.getId_user_type().getName_user_type().equals("volunteer")||(user.getId_user_type().getName_user_type().equals("admin")))){
-
-                DecimalFormat decimalFormat = new DecimalFormat("#");
-                Log.d(TAG,user.toString());
-                Double distance = Util.distFrom(
-                        Double.valueOf(decimalFormat.format(user.getLat_PI())),
-                        Double.valueOf(decimalFormat.format(user.getLong_PI())),
-                        accident.getLat_AC(),
-                        accident.getLong_AC());
-                Log.d(TAG,"distance :"+distance);
-                // 3km = 300.000 cm
-                if(distance < 30000000.0) {
-                    StateResponse stateresponse = new StateResponse();
-                    try {
-                        String messageId = Util.getUniqueMessageId();
-                        Map<String, String> dataPayload = new HashMap<String, String>();
-                        dataPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
-                        dataPayload.put("latitude",accident.getLat_AC()+"");
-                        dataPayload.put("longtitude",accident.getLong_AC()+"");
-                        dataPayload.put("address",accident.getAddress());
-                        dataPayload.put("FirebaseKey",accident.getFirebaseKey());
-
-                        CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
-
-                        Map<String, String> notiPayload = new HashMap<String, String>();
-                        notiPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
-                        notiPayload.put("latitude",accident.getLat_AC()+"");
-                        notiPayload.put("longtitude",accident.getLong_AC()+"");
-                        notiPayload.put("address",accident.getAddress());
-                        notiPayload.put("FirebaseKey",accident.getFirebaseKey());
-                        out.setNotificationPayload(notiPayload);
-
-                        out.setPriority("High");
-                        logger.log(Level.INFO,out.toString());
-
-                        fcmService.sendMessage(out);
-
-                        stateresponse.setCode(Util.OK_CODE);
-                        stateresponse.setMessage(Util.OK_MESSAGE);
-                        logger.log(Level.INFO,Util.OK_LABEL + message);
-                        Log.d(TAG,"response :"+stateresponse.toString());
-                    } catch (Exception e) {
-                        stateresponse.setCode(Util.SERVER_ERROR_CODE);
-                        stateresponse.setMessage(e.getMessage());
-                        logger.log(Level.WARNING,Util.ERROR_LABEL + message);
-                    }
-
-                }
-                }
-            }
-        }
+//
+//        String message = accident.getDescription_AC() +" ở "+ accident.getAddress();
+//        Log.d("OnAccidentCreated",message);
+//        Iterable<User> userList = userRepository.findAll();
+//        for (User user : userList) {
+//            if(user.getLong_PI()!=null&&user.getLat_PI()!=null&&user.getToken()!=null){
+//                if((user.getId_user_type().getName_user_type().equals("volunteer")||(user.getId_user_type().getName_user_type().equals("admin")))){
+//
+//                DecimalFormat decimalFormat = new DecimalFormat("#");
+//                Log.d(TAG,user.toString());
+//                Double distance = Util.distFrom(
+//                        Double.valueOf(decimalFormat.format(user.getLat_PI())),
+//                        Double.valueOf(decimalFormat.format(user.getLong_PI())),
+//                        accident.getLat_AC(),
+//                        accident.getLong_AC());
+//                Log.d(TAG,"distance :"+distance);
+//                // 3km = 300.000 cm
+//                if(distance < 30000000.0) {
+//                    StateResponse stateresponse = new StateResponse();
+//                    try {
+//                        String messageId = Util.getUniqueMessageId();
+//                        Map<String, String> dataPayload = new HashMap<String, String>();
+//                        dataPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
+//                        dataPayload.put("latitude",accident.getLat_AC()+"");
+//                        dataPayload.put("longtitude",accident.getLong_AC()+"");
+//                        dataPayload.put("address",accident.getAddress());
+//                        dataPayload.put("FirebaseKey",accident.getFirebaseKey());
+//
+//                        CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
+//
+//                        Map<String, String> notiPayload = new HashMap<String, String>();
+//                        notiPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
+//                        notiPayload.put("latitude",accident.getLat_AC()+"");
+//                        notiPayload.put("longtitude",accident.getLong_AC()+"");
+//                        notiPayload.put("address",accident.getAddress());
+//                        notiPayload.put("FirebaseKey",accident.getFirebaseKey());
+//                        out.setNotificationPayload(notiPayload);
+//
+//                        out.setPriority("High");
+//                        logger.log(Level.INFO,out.toString());
+//
+//                        fcmService.sendMessage(out);
+//
+//                        stateresponse.setCode(Util.OK_CODE);
+//                        stateresponse.setMessage(Util.OK_MESSAGE);
+//                        logger.log(Level.INFO,Util.OK_LABEL + message);
+//                        Log.d(TAG,"response :"+stateresponse.toString());
+//                    } catch (Exception e) {
+//                        stateresponse.setCode(Util.SERVER_ERROR_CODE);
+//                        stateresponse.setMessage(e.getMessage());
+//                        logger.log(Level.WARNING,Util.ERROR_LABEL + message);
+//                    }
+//
+//                }
+//                }
+//            }
+//        }
 
 
     }

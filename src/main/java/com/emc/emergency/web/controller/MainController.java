@@ -2,10 +2,13 @@ package com.emc.emergency.web.controller;
 
 import com.emc.emergency.data.model.Accident;
 import com.emc.emergency.data.model.User;
+import com.emc.emergency.data.model.User_Type;
 import com.emc.emergency.data.repository.userRepository;
+import com.emc.emergency.data.repository.user_typeRepository;
 import com.emc.emergency.service.AccidentService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
+import com.emc.emergency.xmpp.MessageSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,7 +34,8 @@ import static com.emc.emergency.web.FlashMessage.Status.*;
 public class MainController {
     // Home page - index of all GIFs
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-
+    @Autowired
+    user_typeRepository userTypeRepository;
     @Autowired
     userRepository userRepository;
     @Autowired
@@ -106,6 +111,19 @@ public class MainController {
         }
         return flashMessage.toString();
 
+    }
+
+    @RequestMapping(value="account/changerole/{userID}", method= RequestMethod.POST)
+    public String activate(
+            @PathVariable("userID") String id, Model model
+    ) {
+        User user = userRepository.findOne(Long.parseLong(id));
+        User_Type volunteer = userTypeRepository.findOne(2l);
+        user.setUser_type(volunteer);
+        userRepository.save(user);
+        List<User> users = userService.findAll();
+        model.addAttribute("userlist",users);
+        return "mainpage/user_index";
     }
 
 }

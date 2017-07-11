@@ -19,7 +19,6 @@
                     <div class="col s12 m2 l2"> </div>
                 </div>
               <div class="row">
-                  <div class="col s12 m2 l2"> </div>
                   <div class="col s12 m2 l9">
                   <table id="data-table-simple" class="responsive-table display highlight" cellspacing="0">
                     <thead>
@@ -56,11 +55,17 @@
                                 <a th:href="@{|/user/lock/${user.id_user}|}"><i class="small material-icons">lock</i></a>
                                 <a th:href="@{|/user/{user.id_AC}|}"><i class="small material-icons">assignment_ind</i></a>
                             </td>
+                            <td>
+                                <input hidden="hidden" name="id" th:value="${user.id_user}" />
+                                <form th:action="@{|/account/changerole/${user.id_user}|}" method="post">
+                                    <button type="submit" class="btn waves-effect waves-light">
+                                        <i class="tiny material-icons">done</i>Permission</button>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
                   </table>
                 </div>
-                  <div class="col s12 m2 l2"> </div>
 
               </div>
             </div> 

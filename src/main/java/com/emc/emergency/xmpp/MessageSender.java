@@ -17,6 +17,9 @@ import org.jivesoftware.smack.XMPPException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -28,6 +31,7 @@ import java.util.logging.Logger;
 /**
  * Created by hocan on 02-Jul-17.
  */
+@Component
 public class MessageSender {
     String TAG = "MessageSender";
     @Autowired
@@ -57,46 +61,9 @@ public class MessageSender {
     }
     public void sendAccident( Accident accident) {
 
-        if (accident.getAddress() == null) {
-
-            Response response = null;
-            String url = "http://api.openfpt.vn/ftsrouting/nearest?loc=" + accident.getLat_AC() + "%2C" + accident.getLong_AC();
-            String urlGGAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + accident.getLat_AC() + "%2C" + accident.getLong_AC() + "&key=" + Util.GOOGLE_MAP_API_KEY;
-            logger.log(Level.INFO, url);
-
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder()
-                    .url(urlGGAPI)
-                    .get()
-                    .build();
-
-            try {
-                response = client.newCall(request).execute();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                JSONObject jsonObject = new JSONObject(response.body().string());
-                JSONArray jsonArray = jsonObject.getJSONArray("results");
-                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
-                if (jsonObject1.has("formatted_address"))
-                    accident.setAddress(jsonObject1.getString("formatted_address"));
-                // logger.log(Level.INFO, Util.OK_LABEL+" "+request.body().toString());
-
-
-//                if (jsonObject.has("status"))
-//                    if(jsonObject.getString("status").equals()){
-//                        accident.setAdress("Không nằm trong dữ liệu Việt Nam");
-//                    }
-
-                accidentRepository.save(accident);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
 
         String message = accident.getDescription_AC() + " ở " + accident.getAddress();
-        Log.d("OnAccidentCreated", message);
+       //  Log.d("OnAccidentCreated", message);
         Iterable<User> userList = userRepository.findAll();
         for (User user : userList) {
             if (user.getLong_PI() != null && user.getLat_PI() != null && user.getToken() != null) {
