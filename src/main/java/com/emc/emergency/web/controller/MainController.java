@@ -105,7 +105,7 @@ public class MainController {
 
     @RequestMapping("/controlpanel")
     public String controlpanel() {
-        return "mainpage/register";
+        return "mainpage/";
     }
 
     @RequestMapping("/forgot-password")
