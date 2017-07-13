@@ -38,6 +38,18 @@ public class UserService {
         return true;
     }
 
+    public Boolean Login2(String username,String password ) {
+        List<User> userList= userRepository.findByUsernameAndPassword(username,password);
+        Boolean flag=false;
+
+        for (User user : userList) {
+            if (user.getUser_type().getName_user_type().equals("admin")) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
     public Boolean Register(String username,String password ) {
         User userList= userRepository.findByUsername(username);
         if(userList==null)

@@ -69,15 +69,26 @@ public class MainController {
 
     }
 
+    @RequestMapping(value = "/login2", method = RequestMethod.POST)
+    @ResponseBody
+    public String login2(@Param("username")String username,@Param("password")String password) {
+        FlashMessage flashMessage = new FlashMessage(LOGIN,"login",FAILURE);
+        if(userService.Login2(username,password)) flashMessage.setStatus(SUCCESS );
+        return flashMessage.toString();
+
+    }
+
     @RequestMapping(value = "/home", method = RequestMethod.POST)
     public String home(@Param("username")String username,@Param("password")String password,Model model ) {
         List<User> users = userService.findAll();
         List<Accident> accidents = accidentService.GetAccident();
         model.addAttribute("userlist",users);
         model.addAttribute("accidentList",accidents);
-        if(userService.Login(username,password)) return "mainpage/home";
         model.addAttribute("Message","Sai user name hoặc mật khẩu");
-        return "redirect:mainpage/login";
+        if(userService.Login2(username,password)) return "mainpage/home";
+        else {
+            return "mainpage/login";
+        }
     }
 
     @RequestMapping(value = "/accounts")
