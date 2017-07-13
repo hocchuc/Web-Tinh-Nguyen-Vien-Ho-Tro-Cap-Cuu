@@ -141,4 +141,17 @@ public class MainController {
         return "mainpage/user_index";
     }
 
+    @RequestMapping(value="account/setUser/{userID}", method= RequestMethod.POST)
+    public String setUser(
+        @PathVariable("userID") String id, Model model
+    ) {
+        User user = userRepository.findOne(Long.parseLong(id));
+        User_Type User = userTypeRepository.findOne(3l);
+        user.setUser_type(User);
+        userRepository.save(user);
+        List<User> users = userService.findAll();
+        model.addAttribute("userlist",users);
+        return "mainpage/user_index";
+    }
+
 }

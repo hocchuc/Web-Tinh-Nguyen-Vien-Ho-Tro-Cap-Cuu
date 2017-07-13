@@ -32,6 +32,8 @@
                             <th>Status</th>
                             <th>Delete</th>
                             <th>Activate</th>
+                            <th>Set Done</th>
+
                         </tr>
                         </thead>
 
@@ -45,6 +47,7 @@
                             <th>Status</th>
                             <th>Delete</th>
                             <th>Activate</th>
+                            <th>Set Done</th>
 
                         </tr>
                         </tfoot>
@@ -69,6 +72,13 @@
                                 <form th:action="@{|/accident/activate/${accident.id_AC}|}" method="post">
                                     <button type="submit" class="btn waves-effect waves-light">
                                     <i class="tiny material-icons">done</i>Activate</button>
+                                </form>
+                            </td>
+                            <td>
+                                <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
+                                <form th:action="@{|/accident/setdone/${accident.id_AC}|}" method="post">
+                                    <button type="submit" class="btn waves-effect waves-light">
+                                        <i class="tiny material-icons">done_all</i>Activate</button>
                                 </form>
                             </td>
                         </tr>

@@ -190,7 +190,7 @@ public class CcsClient implements StanzaListener {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void processStanza(Stanza packet) {
-		logger.log(Level.INFO, "Received: " + packet.toXML());
+		logger.log(Level.INFO, "Received: " + packet.toString());
 		GcmPacketExtension gcmPacket = (GcmPacketExtension) packet.getExtension(Util.FCM_NAMESPACE);
 		String json = gcmPacket.getJson();
 		try {

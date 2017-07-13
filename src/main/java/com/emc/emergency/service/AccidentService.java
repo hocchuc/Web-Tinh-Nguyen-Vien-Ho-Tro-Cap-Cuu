@@ -61,4 +61,10 @@ public class AccidentService {
         accident.setStatus_AC("Active");
         accidentRepository.save(accident);
     }
+
+    public void setdone(long l) {
+        Accident accident = accidentRepository.findOne(l);
+        accident.setStatus_AC("Done");
+        accidentRepository.save(accident);
+    }
 }

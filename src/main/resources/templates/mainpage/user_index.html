@@ -55,9 +55,16 @@
                                 <input hidden="hidden" name="id" th:value="${user.id_user}" />
                                 <form th:action="@{|/account/changerole/${user.id_user}|}" method="post">
                                     <button type="submit" class="btn waves-effect waves-light">
-                                        <i class="tiny material-icons">done</i>Permission</button>
+                                        <i class="tiny material-icons">verified_user</i>Set Volunteer</button>
                                 </form>
                             </td>
+                             <td>
+                            <input hidden="hidden" name="id" th:value="${user.id_user}" />
+                            <form th:action="@{|/account/setUser/${user.id_user}|}" method="post">
+                              <button type="submit" class="btn waves-effect waves-light">
+                                <i class="tiny material-icons">perm_identity</i>Set User</button>
+                            </form>
+                          </td>
                         </tr>
                     </tbody>
                   </table>
