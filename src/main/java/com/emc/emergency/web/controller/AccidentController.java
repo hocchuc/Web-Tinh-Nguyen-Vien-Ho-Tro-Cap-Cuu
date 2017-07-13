@@ -25,7 +25,6 @@ import java.util.List;
  */
 @Controller
 public class AccidentController {
-    // Home page - index of all GIFs
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @Autowired
@@ -34,6 +33,7 @@ public class AccidentController {
     AccidentService accidentService;
     @Autowired
     accidentRepository accidentRepo;
+
     @Autowired FCMService fcmService;
 
     @RequestMapping(value = "/accidents")
@@ -59,13 +59,15 @@ public class AccidentController {
     @RequestMapping(value="accident/activate/{accidentID}", method= RequestMethod.POST)
     public String activate(
             @PathVariable("accidentID") String id, Model model
-    ) {
+    ) { //Đổi thuộc tính active
         accidentService.activate(Long.parseLong(id));
-        List<Accident> accidents = accidentService.GetAccident();
-
-        model.addAttribute("accidents",accidents);
         MessageSender messageSender = new MessageSender();
         messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);
+        //Chuẩn bị đối tượng cho Spring MVC
+        List<Accident> accidents = accidentService.GetAccident();
+        model.addAttribute("accidents",accidents);
+
+
         return "mainpage/accident_index";
     }
 }
