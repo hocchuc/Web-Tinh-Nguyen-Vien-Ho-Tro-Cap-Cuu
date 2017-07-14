@@ -62,6 +62,9 @@ public class AccidentEventHandler {
     }
     @HandleAfterCreate
     public void handleAccidentCreate(Accident accident){
+        // xoa neu du lieu bi loi
+        //if(accident.getId_user()==null) accidentRepository.delete(accident.getId_AC());
+
         if(accident.getAddress()==null) {
 
             Response response = null;

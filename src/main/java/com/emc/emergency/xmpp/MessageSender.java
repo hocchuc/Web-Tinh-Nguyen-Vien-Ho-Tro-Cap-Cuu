@@ -159,6 +159,7 @@ public class MessageSender {
                             notiPayload.put("longtitude",accident.getLong_AC()+"");
                             notiPayload.put("address",accident.getAddress());
                             notiPayload.put("FirebaseKey",accident.getFirebaseKey());
+
                             out.setNotificationPayload(notiPayload);
 
                             out.setPriority("High");

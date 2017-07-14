@@ -75,9 +75,9 @@ public class AccidentController {
     public String setdone(
         @PathVariable("accidentID") String id, Model model
     ) { //Đổi thuộc tính active
-        accidentService.activate(Long.parseLong(id));
+        accidentService.setdone(Long.parseLong(id));
         MessageSender messageSender = new MessageSender();
-        messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);
+        messageSender.sendAccidentDone(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);
         //Chuẩn bị đối tượng cho Spring MVC
         List<Accident> accidents = accidentService.GetAccident();
         model.addAttribute("accidents",accidents);
