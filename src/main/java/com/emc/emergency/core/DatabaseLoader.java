@@ -18,8 +18,7 @@ public class DatabaseLoader implements ApplicationRunner {
     private final userRepository user;
     private final user_typeRepository user_type;
     private final accidentRepository accident;
-    private final chatRepository chat;
-    private final imageRepository imageRepository;
+
     private final personal_infoRepository personal_infoRepository;
     private final medical_infoRepository medical_infoRepository;
     private final accident_detailRepository accident_detailRepository;
@@ -27,12 +26,10 @@ public class DatabaseLoader implements ApplicationRunner {
 
 
         @Autowired
-    public DatabaseLoader(userRepository user, user_typeRepository user_type, accidentRepository accident, chatRepository chat, imageRepository imageRepository, personal_infoRepository personal_infoRepository, medical_infoRepository medical_infoRepository, accident_detailRepository accident_detailRepository, action_typeRepository action_typeRepository) {
+    public DatabaseLoader(userRepository user, user_typeRepository user_type, accidentRepository accident,  personal_infoRepository personal_infoRepository, medical_infoRepository medical_infoRepository, accident_detailRepository accident_detailRepository, action_typeRepository action_typeRepository) {
         this.user = user;
         this.user_type = user_type;
         this.accident = accident;
-        this.chat = chat;
-        this.imageRepository = imageRepository;
         this.personal_infoRepository = personal_infoRepository;
         this.medical_infoRepository = medical_infoRepository;
         this.accident_detailRepository = accident_detailRepository;
@@ -64,13 +61,13 @@ public class DatabaseLoader implements ApplicationRunner {
         user.save(user5);
         user.save(user6);
 
-        Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.766622"),Double.parseDouble("106.642844"),"Pending",null,null,"87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null);
+        Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.766622"),Double.parseDouble("106.642844"),"Pending","87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null);
         accident.save(accident1);
 
-        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.781785"),Double.parseDouble("106.643036"),"Pending",null,null,"541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null);
+        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.781785"),Double.parseDouble("106.643036"),"Pending","541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null);
         accident.save(accident2);
 
-        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.799555"),Double.parseDouble("106.637219"),"Pending",null,null,"15-16 Âu Cơ, phường 14, Tân Phú, Hồ Chí Minh",null);
+        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.799555"),Double.parseDouble("106.637219"),"Pending","15-16 Âu Cơ, phường 14, Tân Phú, Hồ Chí Minh",null);
         accident.save(accident3);
 
         //Accident accident4 = new Accident(null,user.findOne(3l),"Té cầu thang",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.783994"),Double.parseDouble("106.636266"),"Pending",null,null,"763 Lũy Bán Bích Hoà Thạnh Tân Phú Hồ Chí Minh",null);

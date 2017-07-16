@@ -21,10 +21,7 @@ public class AccidentService {
     accidentRepository accidentRepository;
     @Autowired
     userRepository userRepository;
-    @Autowired
-    chatRepository chatRepository;
-    @Autowired
-    imageRepository imageRepository;
+
     @Autowired
     accident_detailRepository accident_detailRepository;
     @Autowired
@@ -32,8 +29,7 @@ public class AccidentService {
 
     public boolean CreateAccident(Long id_AC, Long id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC) {
         User user = null;
-        List<Chat> chats = null;
-        List<Image> images = null;
+
         try {
             user = userRepository.findOne(id_user);
             if(user==null) return false;
