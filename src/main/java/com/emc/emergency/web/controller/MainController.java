@@ -10,9 +10,11 @@ import com.emc.emergency.service.AccidentService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
 import com.emc.emergency.xmpp.MessageSender;
+import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +35,9 @@ import static com.emc.emergency.web.FlashMessage.Status.*;
  */
 @Controller
 public class MainController {
+    @Autowired
+    HttpSession session ;
+
     // Home page - index of all GIFs
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
     @Autowired
@@ -80,8 +85,14 @@ public class MainController {
 
     @RequestMapping(value = "/home", method = RequestMethod.POST)
     public String home(@Param("username")String username,@Param("password")String password,Model model ) {
+
         List<User> users = userService.findAll();
         List<Accident> accidents = accidentService.GetAccident();
+        session.setAttribute("id_admin", userService.getUserByUsername(username).getId_user());
+
+        Long id_admin = (Long) session.getAttribute("id_admin");
+        if(id_admin==null) return "mainpage/login";
+
         model.addAttribute("userlist",users);
         model.addAttribute("accidentList",accidents);
         model.addAttribute("Message","Sai user name hoặc mật khẩu");
@@ -128,10 +139,13 @@ public class MainController {
 
     }
 
-    @RequestMapping(value="account/changerole/{userID}", method= RequestMethod.POST)
+    @RequestMapping(value="account/setVolunteer/{userID}", method= RequestMethod.POST)
     public String activate(
             @PathVariable("userID") String id, Model model
     ) {
+        Long id_admin = (Long) session.getAttribute("id_admin");
+        if(id_admin==null) return "mainpage/login";
+
         User user = userRepository.findOne(Long.parseLong(id));
         User_Type volunteer = userTypeRepository.findOne(2l);
         user.setUser_type(volunteer);
@@ -145,6 +159,9 @@ public class MainController {
     public String setUser(
         @PathVariable("userID") String id, Model model
     ) {
+        Long id_admin = (Long) session.getAttribute("id_admin");
+        if(id_admin==null) return "mainpage/login";
+
         User user = userRepository.findOne(Long.parseLong(id));
         User_Type User = userTypeRepository.findOne(3l);
         user.setUser_type(User);

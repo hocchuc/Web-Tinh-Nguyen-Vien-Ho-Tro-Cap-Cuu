@@ -6,9 +6,11 @@ import com.emc.emergency.service.AccidentService;
 import com.emc.emergency.service.FCMService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.xmpp.MessageSender;
+import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -26,7 +28,8 @@ import java.util.List;
 @Controller
 public class AccidentController {
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-
+    @Autowired
+    HttpSession session;
     @Autowired
     UserService userService;
     @Autowired
@@ -38,9 +41,14 @@ public class AccidentController {
 
     @RequestMapping(value = "/accidents")
     public String AccidentIndex(Model model ) {
+
+        Long id_admin = (Long) session.getAttribute("id_admin");
+        if(id_admin==null) return "mainpage/login";
+
         List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
         List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");
         accidents.addAll(accidents2);
+
         model.addAttribute("accidents",accidents);
         return "mainpage/accident_index";
     }
@@ -51,6 +59,9 @@ public class AccidentController {
     public String remove(
             @PathVariable("accidentID") String id, Model model
     ) {
+        Long id_admin = (Long) session.getAttribute("id_admin");
+        if(id_admin==null) return "mainpage/login";
+
         accidentService.removeOne((Long.parseLong(id)));
         List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
         List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");
@@ -64,9 +75,12 @@ public class AccidentController {
     public String activate(
             @PathVariable("accidentID") String id, Model model
     ) { //Đổi thuộc tính active
-        accidentService.activate(Long.parseLong(id));
+        Long id_admin = (Long) session.getAttribute("id_admin");
+        if(id_admin==null) return "mainpage/login";
+
+        accidentService.activate(Long.parseLong(id),id_admin);
         MessageSender messageSender = new MessageSender();
-        messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);
+        messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService, id);
 
         //Chuẩn bị đối tượng cho Spring MVC
         List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
@@ -82,6 +96,9 @@ public class AccidentController {
     public String setdone(
         @PathVariable("accidentID") String id, Model model
     ) { //Đổi thuộc tính active
+        Long id_admin = (Long) session.getAttribute("id_admin");
+        if(id_admin==null) return "mainpage/login";
+
         accidentService.setdone(Long.parseLong(id));
         MessageSender messageSender = new MessageSender();
         messageSender.sendAccidentDone(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);

@@ -56,8 +56,6 @@ public class Accident  {
 	@Column(name="status_AC", nullable=true, length=50)
 	private String status_AC;
 
-
-
 	@Column(name="address", nullable=true)
 	private String address;
 

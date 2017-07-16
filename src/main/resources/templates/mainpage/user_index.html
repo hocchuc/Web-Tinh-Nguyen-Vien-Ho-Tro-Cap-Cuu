@@ -28,6 +28,8 @@
                           <th>Role</th>
                           <th>Password</th>
                           <th>Position</th>
+                          <th>Is_Signup_Admin</th>
+
                         </tr>
                     </thead>
                  
@@ -37,6 +39,7 @@
                             <th>Role</th>
                             <th>Password</th>
                             <th>Position</th>
+                          <th>Is_Signup_Admin</th>
                         </tr>
                     </tfoot>
                  
@@ -46,14 +49,10 @@
                             <td th:text="${user.user_type.name_user_type}">System Architect</td>
                             <td th:text="${user.password}">online</td>
                             <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
-                            <!--<td>-->
-                                <!--<a th:href="@{|/user/save/${user.id_user}|}"><i class="small material-icons">mode_edit</i></a>-->
-                                <!--<a th:href="@{|/user/lock/${user.id_user}|}"><i class="small material-icons">lock</i></a>-->
-                                <!--<a th:href="@{|/user/{user.id_AC}|}"><i class="small material-icons">assignment_ind</i></a>-->
-                            <!--</td>-->
+                           <td th:text="${user.is_signup_volunteer} ? 'Yes' : 'No'">61</td>
                             <td>
                                 <input hidden="hidden" name="id" th:value="${user.id_user}" />
-                                <form th:action="@{|/account/changerole/${user.id_user}|}" method="post">
+                                <form th:action="@{|/account/setVolunteer/${user.id_user}|}" method="post">
                                     <button type="submit" class="btn waves-effect waves-light">
                                         <i class="tiny material-icons">verified_user</i>Set Volunteer</button>
                                 </form>

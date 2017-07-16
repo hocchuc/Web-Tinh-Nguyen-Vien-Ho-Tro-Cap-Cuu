@@ -33,12 +33,6 @@ public class AccidentService {
         try {
             user = userRepository.findOne(id_user);
             if(user==null) return false;
-            /*chats = new ArrayList<>();
-            images = new ArrayList<>();
-            chats = (List<Chat>) chatRepository.findAll(chatlist);
-            images = (List<Image>) imageRepository.findAll(imagelist);*/
-      /*      Accident accident = new Accident(null, user, description_AC,  date_AC, long_AC, lat_AC, status_AC, null, null);*/
-            //accidentRepository.save(accident);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -55,9 +49,10 @@ public class AccidentService {
         accidentRepository.delete(l);
     }
 
-    public void activate(long l) {
-        Accident accident = accidentRepository.findOne(l);
+    public void activate(long id_AC, long id_admin) {
+        Accident accident = accidentRepository.findOne(id_AC);
         accident.setStatus_AC("Active");
+        accident.setId_admin_active(userRepository.findOne(id_admin));
         accidentRepository.save(accident);
     }
 

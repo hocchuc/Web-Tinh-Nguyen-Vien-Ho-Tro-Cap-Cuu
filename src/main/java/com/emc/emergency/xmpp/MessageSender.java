@@ -43,7 +43,7 @@ public class MessageSender {
     userRepository userRepository;
 
 
-    private static final Logger logger = Logger.getLogger(CcsClient.class.getName());
+    private static final Logger logger = Logger.getLogger(MessageSender.class.getName());
 
     public MessageSender() {
 
@@ -60,7 +60,7 @@ public class MessageSender {
             e.printStackTrace();
         }
     }
-    public void sendAccident( Accident accident,Iterable<User> users, FCMService fcmService) {
+    public void sendAccident( Accident accident,Iterable<User> users, FCMService fcmService,String id_AC) {
         String message = accident.getDescription_AC() + " ở " + accident.getAddress();
        //  Log.d("OnAccidentCreated", message);
         Iterable<User> userList = users;
@@ -87,6 +87,8 @@ public class MessageSender {
                             dataPayload.put("longtitude",accident.getLong_AC()+"");
                             dataPayload.put("address",accident.getAddress());
                             dataPayload.put("FirebaseKey",accident.getFirebaseKey());
+                            dataPayload.put("id_AC",accident.getId_AC()+"");
+                            logger.log(Level.INFO,accident.getId_AC()+"");
 
                             CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
 
@@ -98,6 +100,9 @@ public class MessageSender {
                             notiPayload.put("longtitude",accident.getLong_AC()+"");
                             notiPayload.put("address",accident.getAddress());
                             notiPayload.put("FirebaseKey",accident.getFirebaseKey());
+                            notiPayload.put("id_AC",id_AC+"");
+                            logger.log(Level.INFO,id_AC+"");
+
                             out.setNotificationPayload(notiPayload);
 
                             out.setPriority("High");

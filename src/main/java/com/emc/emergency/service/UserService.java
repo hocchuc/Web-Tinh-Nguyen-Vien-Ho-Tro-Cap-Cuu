@@ -37,7 +37,11 @@ public class UserService {
         if(userList.isEmpty()) return false;
         return true;
     }
-
+    public User getUserByUsername(String username ) {
+        User user= userRepository.findByUsername(username);
+        if(null==user) return null;
+        return user;
+    }
     public Boolean Login2(String username,String password ) {
         List<User> userList= userRepository.findByUsernameAndPassword(username,password);
         Boolean flag=false;
