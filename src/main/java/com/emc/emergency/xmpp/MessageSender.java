@@ -122,13 +122,20 @@ public class MessageSender {
     }
 
     public void sendAccidentDone( Accident accident,Iterable<User> users, FCMService fcmService) {
+        int SoUserDaCall = 0 ;
+        // 3km = 300.000 cm
+        Double DefaultDistance = 3000000.0;
+
         String message = "Tai nạn ở " + accident.getAddress()+" đã xong";
         //  Log.d("OnAccidentCreated", message);
         Iterable<User> userList = users;
-        for (User user : userList) {
+
+        while (SoUserDaCall == 0 ) {
+            DefaultDistance = DefaultDistance + 100000.0;
+            for (User user : userList) {
+            // chọn danh sách user có tọa độ và token
             if (user.getLong_PI() != null && user.getLat_PI() != null && user.getToken() != null) {
                 if ((user.getId_user_type().getName_user_type().equals("volunteer") || (user.getId_user_type().getName_user_type().equals("admin")))) {
-
                     DecimalFormat decimalFormat = new DecimalFormat("#");
                     logger.log(Level.INFO,user.toString());
                     Double distance  = Util.distFrom(
@@ -137,8 +144,10 @@ public class MessageSender {
                         accident.getLat_AC(),
                         accident.getLong_AC());
                     logger.log(Level.INFO,"distance :" + distance);
-                    // 3km = 300.000 cm
-                    if (distance < 30000000.0) {
+
+                    if (distance <=  DefaultDistance) {
+                        SoUserDaCall++;
+
                         StateResponse stateresponse = new StateResponse();
                         try {
                             String messageId = Util.getUniqueMessageId();
@@ -171,6 +180,9 @@ public class MessageSender {
                             stateresponse.setMessage(Util.OK_MESSAGE);
                             logger.log(Level.INFO,Util.OK_LABEL + message);
                             Log.d(TAG,"response :"+stateresponse.toString());
+
+                            if(SoUserDaCall == 5)  break;
+
                         } catch (Exception e) {
                             stateresponse.setCode(Util.SERVER_ERROR_CODE);
                             stateresponse.setMessage(e.getMessage());
@@ -181,5 +193,9 @@ public class MessageSender {
                 }
             }
         }
+
+        }
+
+
     }
 }

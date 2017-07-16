@@ -38,7 +38,9 @@ public class AccidentController {
 
     @RequestMapping(value = "/accidents")
     public String AccidentIndex(Model model ) {
-        List<Accident> accidents = accidentService.GetAccident();
+        List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
+        List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");
+        accidents.addAll(accidents2);
         model.addAttribute("accidents",accidents);
         return "mainpage/accident_index";
     }
@@ -50,7 +52,9 @@ public class AccidentController {
             @PathVariable("accidentID") String id, Model model
     ) {
         accidentService.removeOne((Long.parseLong(id)));
-        List<Accident> accidents = accidentService.GetAccident();
+        List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
+        List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");
+        accidents.addAll(accidents2);
         model.addAttribute("accidents",accidents);
 
         return "mainpage/accident_index";
@@ -63,8 +67,11 @@ public class AccidentController {
         accidentService.activate(Long.parseLong(id));
         MessageSender messageSender = new MessageSender();
         messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);
+
         //Chuẩn bị đối tượng cho Spring MVC
-        List<Accident> accidents = accidentService.GetAccident();
+        List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
+        List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");
+        accidents.addAll(accidents2);
         model.addAttribute("accidents",accidents);
 
 
@@ -79,7 +86,9 @@ public class AccidentController {
         MessageSender messageSender = new MessageSender();
         messageSender.sendAccidentDone(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);
         //Chuẩn bị đối tượng cho Spring MVC
-        List<Accident> accidents = accidentService.GetAccident();
+        List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
+        List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");
+        accidents.addAll(accidents2);
         model.addAttribute("accidents",accidents);
 
 

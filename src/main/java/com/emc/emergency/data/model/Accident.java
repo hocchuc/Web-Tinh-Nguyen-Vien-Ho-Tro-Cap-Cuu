@@ -29,7 +29,7 @@ public class Accident  {
 		this.chat = chat;
 		this.image = image;
 		this.address = address;
-		firebaseKey = FirebaseKey;
+		this.firebaseKey = FirebaseKey;
 	}
 
 	@Column(name="id_AC", nullable=false, length=20)
@@ -69,6 +69,30 @@ public class Accident  {
 
 	@Column(name="firebaseKey", nullable=true)
 	private String firebaseKey;
+
+	@ManyToOne
+	@JoinColumn(name = "accidents_active")
+	private User id_admin_active;
+
+	@OneToMany(mappedBy="id_AC")
+	private List<Accident_Detail> accident_details;
+
+	public List<Accident_Detail> getAccident_details() {
+		return accident_details;
+	}
+
+	public void setAccident_details(
+			List<Accident_Detail> accident_details) {
+		this.accident_details = accident_details;
+	}
+
+	public User getId_admin_active() {
+		return id_admin_active;
+	}
+
+	public void setId_admin_active(User id_admin_active) {
+		this.id_admin_active = id_admin_active;
+	}
 
 	private void setId_AC(Long value) {
 		this.id_AC = value;

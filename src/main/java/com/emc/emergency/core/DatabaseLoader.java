@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by hocan on 23-May-17.
  */
-//@Component
+@Component
 public class DatabaseLoader implements ApplicationRunner {
 
     private final userRepository user;
@@ -22,9 +22,12 @@ public class DatabaseLoader implements ApplicationRunner {
     private final imageRepository imageRepository;
     private final personal_infoRepository personal_infoRepository;
     private final medical_infoRepository medical_infoRepository;
+    private final accident_detailRepository accident_detailRepository;
+    private final action_typeRepository action_typeRepository;
+
 
         @Autowired
-    public DatabaseLoader(userRepository user, user_typeRepository user_type, accidentRepository accident, chatRepository chat, imageRepository imageRepository, personal_infoRepository personal_infoRepository, medical_infoRepository medical_infoRepository) {
+    public DatabaseLoader(userRepository user, user_typeRepository user_type, accidentRepository accident, chatRepository chat, imageRepository imageRepository, personal_infoRepository personal_infoRepository, medical_infoRepository medical_infoRepository, accident_detailRepository accident_detailRepository, action_typeRepository action_typeRepository) {
         this.user = user;
         this.user_type = user_type;
         this.accident = accident;
@@ -32,6 +35,8 @@ public class DatabaseLoader implements ApplicationRunner {
         this.imageRepository = imageRepository;
         this.personal_infoRepository = personal_infoRepository;
         this.medical_infoRepository = medical_infoRepository;
+        this.accident_detailRepository = accident_detailRepository;
+        this.action_typeRepository = action_typeRepository;
     }
 
 
@@ -106,13 +111,18 @@ public class DatabaseLoader implements ApplicationRunner {
         Medical_Info m2_2 = new Medical_Info(null,personal_infoRepository.findOne(1L),"Ung Thu",2,"ung thu giai doan 1");
         medical_infoRepository.save(m2_2);
 
-        Chat chat1 = new Chat(null,accident.findOne(1l),user.findOne(1L),"Chuyện gì thế ?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:20 PM"));
-        chat.save(chat1);
-        Chat chat2 = new Chat(null,accident.findOne(2l),user.findOne(2L),"Chúng tôi sẽ đến trong thời gian sớm nhất?",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:11:20 PM"));
-        chat.save(chat2);
+        Action_Type action_type1  =new Action_Type(null,"Join");
+        Action_Type action_type2  =new Action_Type(null,"SetDone");
+        Action_Type action_type3  =new Action_Type(null,"ReportFake");
+        Action_Type action_type4  =new Action_Type(null,"ReportTrue");
 
-//        ArrayList<Medical_Info> list_mi1 = new ArrayList<Medical_Info>();
-//        list_mi1.add(m1);
-//        list_mi1.add(m1_2);
+        action_typeRepository.save(action_type1);
+        action_typeRepository.save(action_type2);
+        action_typeRepository.save(action_type3);
+        action_typeRepository.save(action_type4);
+
+
+
+
     }
 }

@@ -30,6 +30,7 @@
                             <th>Time</th>
                             <th>Address</th>
                             <th>Status</th>
+                            <th>Position</th>
                             <th>Delete</th>
                             <th>Activate</th>
                             <th>Set Done</th>
@@ -45,6 +46,7 @@
                             <th>Time</th>
                             <th>Address</th>
                             <th>Status</th>
+                            <th>Position</th>
                             <th>Delete</th>
                             <th>Activate</th>
                             <th>Set Done</th>
@@ -60,6 +62,7 @@
                             <td th:text="${accident.date_AC}">61</td>
                             <td th:text="${accident.Address}">61</td>
                             <td th:text="${accident.status_AC}">61</td>
+                            <td th:text="|${accident.lat_AC},${accident.long_AC}|">6</td>
                             <td>
                                 <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
                                 <form th:action="@{|/accident/remove/${accident.id_AC}|}" method="post">

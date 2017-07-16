@@ -29,6 +29,9 @@ class CustomRestMvcConfiguration {
         config.exposeIdsFor(Medical_Info.class);
         config.exposeIdsFor(User_Type.class);
         config.exposeIdsFor(Image.class);
+        config.exposeIdsFor(Accident_Detail.class);
+        config.exposeIdsFor(Action_Type.class);
+
 
       }
     };

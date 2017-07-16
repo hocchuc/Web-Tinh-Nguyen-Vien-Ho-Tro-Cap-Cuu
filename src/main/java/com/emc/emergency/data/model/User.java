@@ -15,16 +15,6 @@ public class User   {
 
     public User() {
     }
-//    public User(Long id_user, String username ) {
-//        this.id_user = id_user;
-//        this.username = username;
-//    }
-//    public User(Long id_user, String username , User_Type user_type, String password) {
-//        this.id_user = id_user;
-//        this.username = username;
-//        this.user_type = user_type;
-//        this.password = password;
-//    }
 
 
     public User(String username, String password) {
@@ -73,8 +63,18 @@ public class User   {
     @OneToMany(mappedBy="id_user")
     private List<Chat> chat = new ArrayList<>();
 
+    @OneToMany(mappedBy = "id_admin_active")
+    private List<Accident> accidents_active;
+
     @OneToOne(mappedBy="id_user")
     private Personal_Infomation personal_Infomation;
+
+    @OneToMany(mappedBy="id_user")
+    private List<Accident_Detail> accident_details;
+
+    @Column(name="is_signup_volunteer", nullable=true )
+    private boolean is_signup_volunteer;
+
 
     @Column(name="password", nullable=false, length=50 )
     private String password;
@@ -87,6 +87,26 @@ public class User   {
 
     @Column(name="lat_PI", nullable=true)
     private Double lat_PI;
+
+
+
+    public boolean isIs_signup_volunteer() {
+        return is_signup_volunteer;
+    }
+
+    public void setIs_signup_volunteer(boolean is_signup_volunteer) {
+        this.is_signup_volunteer = is_signup_volunteer;
+    }
+
+    public List<Accident_Detail> getAccident_details() {
+        return accident_details;
+    }
+
+    public void setAccident_details(
+        List<Accident_Detail> accident_details) {
+        this.accident_details = accident_details;
+    }
+
 
     public Double getLong_PI() {
         return long_PI;
