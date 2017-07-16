@@ -3,11 +3,7 @@ package com.emc.emergency.service;
 import com.emc.emergency.data.model.Accident;
 import com.emc.emergency.data.model.Accident_Detail;
 import com.emc.emergency.data.model.Action_Type;
-import com.emc.emergency.data.model.Chat;
-import com.emc.emergency.data.model.Image;
 import com.emc.emergency.data.model.User;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.emc.emergency.data.repository.*;
@@ -15,7 +11,6 @@ import com.emc.emergency.data.repository.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by hocan on 23-May-17.

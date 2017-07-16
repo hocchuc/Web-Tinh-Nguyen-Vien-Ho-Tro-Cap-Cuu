@@ -18,7 +18,7 @@ public class Accident  {
 	public Accident() {
 	}
 
-	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC ,Double long_AC,  String status_AC, List<Chat> chat, List<Image> image, String address, String FirebaseKey) {
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC ,Double long_AC,  String status_AC,  String address, String FirebaseKey) {
 		this.id_AC = id_AC;
 		this.id_user = id_user;
 		this.description_AC = description_AC;
@@ -26,8 +26,6 @@ public class Accident  {
 		this.long_AC = long_AC;
 		this.lat_AC = lat_AC;
 		this.status_AC = status_AC;
-		this.chat = chat;
-		this.image = image;
 		this.address = address;
 		this.firebaseKey = FirebaseKey;
 	}
@@ -58,11 +56,7 @@ public class Accident  {
 	@Column(name="status_AC", nullable=true, length=50)
 	private String status_AC;
 
-	@OneToMany(mappedBy="id_AC")
-	private List<Chat> chat = new ArrayList<>();
 
-	@OneToMany(mappedBy="id_AC")
-	private List<Image> image = new ArrayList<>();
 
 	@Column(name="address", nullable=true)
 	private String address;
@@ -118,13 +112,7 @@ public class Accident  {
 		return date_AC;
 	}
 
-	public void setChat(List<Chat> chat) {
-		this.chat = chat;
-	}
 
-	public void setImage(List<Image> image) {
-		this.image = image;
-	}
 
 	public String getFirebaseKey() {
 		return firebaseKey;
@@ -166,13 +154,7 @@ public class Accident  {
 		return id_user;
 	}
 
-	public List<Chat> getChat() {
-		return chat;
-	}
 
-	public List<Image> getImage() {
-		return image;
-	}
 
 
 	public String getAddress() {

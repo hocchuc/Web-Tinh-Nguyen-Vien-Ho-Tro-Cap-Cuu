@@ -60,8 +60,7 @@ public class User   {
     @OneToMany(mappedBy="id_user")
     private List<Accident> accident = new ArrayList<>();
 
-    @OneToMany(mappedBy="id_user")
-    private List<Chat> chat = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "id_admin_active")
     private List<Accident> accidents_active;
@@ -168,9 +167,6 @@ public class User   {
         return accident;
     }
 
-    public List<Chat> getChat() {
-        return chat;
-    }
 
     public User_Type getUser_type() {
         return user_type;
@@ -184,9 +180,6 @@ public class User   {
         this.accident = accident;
     }
 
-    public void setChat(List<Chat> chat) {
-        this.chat = chat;
-    }
 
     public Personal_Infomation getPersonal_Infomation() {
         return personal_Infomation;
