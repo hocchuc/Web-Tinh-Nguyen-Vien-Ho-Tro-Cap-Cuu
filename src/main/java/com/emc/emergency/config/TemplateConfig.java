@@ -7,7 +7,7 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
 @Configuration
-public class TemplateConfig {
+public class  TemplateConfig {
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         final SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();

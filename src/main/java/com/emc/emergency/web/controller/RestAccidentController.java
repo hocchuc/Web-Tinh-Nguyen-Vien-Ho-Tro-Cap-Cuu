@@ -35,6 +35,7 @@ import static com.emc.emergency.web.FlashMessage.Type_Mess.REGISTER;
  */
 @RestController
 public class RestAccidentController {
+
     @InitBinder
     public void initBinder(WebDataBinder binder){
         binder.registerCustomEditor(       Date.class,
@@ -88,12 +89,13 @@ public class RestAccidentController {
     @ResponseStatus(HttpStatus.OK)
     public String CreateAction(@RequestBody String jsonBody) throws ParseException,JsonParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a");
-        String id_user = "0L", id_AC = "0L", id_action_type = "0L";
+        String id_user = "0", id_AC = "0", id_action_type = "0";
         Date date = null;
+
         JSONObject jsonObject = new JSONObject(jsonBody);
         if(jsonObject.has("id_user")) id_user = jsonObject.getString("id_user");
         if(jsonObject.has("id_AC")) id_AC = jsonObject.getString("id_AC");
-        if(jsonObject.has("id_type_action")) id_action_type = jsonObject.getString("id_action_type");
+        if(jsonObject.has("id_action_type")) id_action_type = jsonObject.getString("id_action_type");
 
         if(jsonObject.has("date")) date = formatter.parse(jsonObject.getString("date"));
         if(accidentService.CreateAccidentDetail(Long.parseLong(id_user),Long.parseLong(id_AC),

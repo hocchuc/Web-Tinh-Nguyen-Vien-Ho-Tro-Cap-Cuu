@@ -41,6 +41,9 @@ public class Util {
 	public static final String PAYLOAD_ATTRIBUTE_RECIPIENT = "recipient";
 	public static final String PAYLOAD_ATTRIBUTE_ACCOUNT = "account";
 	public static final String BACKEND_ACTION_ACCIDENT = "new_accident";
+	public static final String BACKEND_FAKE_ACCIDENT = "fake_accident";
+	public static final String BACKEND_DONE_ACCIDENT = "done_accident";
+
 	// open FPT API key
 	public static final String OPEN_FPT_API_KEY = "b05ee21f52ec466eb4cf33e99553b219";
 	public static final String GOOGLE_MAP_API_KEY = "AIzaSyDqJt9RRQMiHoXqzbk6aIUJh_o78DviskU";

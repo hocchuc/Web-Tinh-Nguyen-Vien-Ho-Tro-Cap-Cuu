@@ -62,6 +62,12 @@ public class Accident  {
 	@Column(name="firebaseKey", nullable=true)
 	private String firebaseKey;
 
+	@Column(name="is_reported_fake", nullable=true)
+	private Boolean is_reported_fake;
+
+	@Column(name="joined", nullable=true)
+	private int joined = 0;
+
 	@ManyToOne
 	@JoinColumn(name = "accidents_active")
 	private User id_admin_active;
@@ -71,6 +77,22 @@ public class Accident  {
 
 	public List<Accident_Detail> getAccident_details() {
 		return accident_details;
+	}
+
+	public int getJoined() {
+		return joined;
+	}
+
+	public void setJoined(int joined) {
+		this.joined = joined;
+	}
+
+	public Boolean getIs_reported_fake() {
+		return is_reported_fake;
+	}
+
+	public void setIs_reported_fake(Boolean is_reported_fake) {
+		this.is_reported_fake = is_reported_fake;
 	}
 
 	public void setAccident_details(

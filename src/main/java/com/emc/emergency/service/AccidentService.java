@@ -73,17 +73,57 @@ public class AccidentService {
     }
 
     public boolean CreateAccidentDetail(Long id_user,Long id_AC,Long id_action_type, Date date){
-
+        Iterable<Accident_Detail> accidentDetails = accident_detailRepository.findAll() ;
         Action_Type action_type = action_typeRepository.findOne(id_action_type);
         User user = userRepository.findOne(id_user);
         Accident accident = accidentRepository.findOne(id_AC);
 
         if(action_type==null||user==null||accident==null) return false;
-
         Accident_Detail accident_detail = new Accident_Detail(null, date, user, accident,action_type);
+
+        Boolean is_duplicate = false;
+        for (Accident_Detail accidentdel : accidentDetails){
+            // compare 3 long - -
+            if(accident_detail.getId_user().getId_user().equals(accidentdel.getId_user().getId_user())&&
+                accident_detail.getAction_type().getId_action().equals(accidentdel.getAction_type().getId_action())&&accident_detail.getId_AC().getId_AC().equals(accidentdel.getId_AC().getId_AC()))
+            {
+                is_duplicate=true;
+                break;
+            }
+        }
+
+        if(is_duplicate) {
+            return false;
+        }
+        else {
+            if(accident_detail.getAction_type().getName_action().equals("Join")){
+                accident.setJoined(accident.getJoined() + 1);
+                accidentRepository.save(accident);
+            }
+            if (accident_detail.getAction_type().getName_action().equals("ReportFake")){
+                accident.setIs_reported_fake(true);
+                accidentRepository.save(accident);
+
+            }
+            if (accident_detail.getAction_type().getName_action().equals("ReportTrue")){
+                accident.setIs_reported_fake(false);
+                accidentRepository.save(accident);
+
+            }
+            if (accident_detail.getAction_type().getName_action().equals("SetDone")){
+                accident.setStatus_AC("Done");
+                accidentRepository.save(accident);
+
+            }
+
+        }
+
         accident_detailRepository.save(accident_detail);
 
 
         return true;
     }
+
+
+
 }

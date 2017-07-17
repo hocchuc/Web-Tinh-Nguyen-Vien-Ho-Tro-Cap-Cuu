@@ -1,5 +1,6 @@
 package com.emc.emergency.config;
 
+import com.emc.emergency.data.EventListener.AccidentDetailEventHandler;
 import com.emc.emergency.data.EventListener.AccidentEventHandler;
 import com.emc.emergency.data.model.*;
 import org.springframework.context.annotation.Bean;
@@ -7,8 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
-import org.springframework.http.MediaType;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 @Configuration
 class CustomRestMvcConfiguration {
@@ -38,4 +38,8 @@ class CustomRestMvcConfiguration {
   AccidentEventHandler accidentEventHandler() {
     return new AccidentEventHandler();
   }
+
+  @Bean
+  AccidentDetailEventHandler accidentDetailEventHandler() { return new AccidentDetailEventHandler();}
+
 }

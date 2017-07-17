@@ -1,5 +1,6 @@
 package com.emc.emergency.data.model;
 
+import com.google.gson.annotations.Expose;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;

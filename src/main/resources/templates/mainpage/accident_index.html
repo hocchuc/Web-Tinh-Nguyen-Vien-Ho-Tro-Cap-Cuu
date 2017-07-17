@@ -30,9 +30,10 @@
                             <th>Time</th>
                             <th>Address</th>
                             <th>Status</th>
-                            <th >Position</th>
-                            <th>Is Joined</th>
-                            <th>ID_Admin_Active</th>
+                            <th>Position</th>
+                            <th>Joined </th>
+                            <th>Admin_Active </th>
+                            <th>Fake</th>
                             <th>Delete</th>
                             <th>Activate</th>
                             <th>Set Done</th>
@@ -49,8 +50,9 @@
                             <th>Address</th>
                             <th>Status</th>
                             <th>Position</th>
-                            <th>Is Joined</th>
-                            <th>ID_Admin_Active</th>
+                            <th>Joined </th>
+                            <th>Admin_Active </th>
+                            <th>Fake</th>
                             <th>Delete</th>
                             <th>Activate</th>
                             <th>Set Done</th>
@@ -67,8 +69,9 @@
                             <td th:text="${accident.Address}" style="word-wrap: break-word">61</td>
                             <td th:text="${accident.status_AC}">61</td>
                             <td th:text="|${accident.lat_AC}, ${accident.long_AC}|">6</td>
-                            <td th:text="${accident.accident_details!=null} ? ${#lists.size(accident.accident_details)} : 'No'"></td>
-                            <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'"></td>
+                            <td th:text=" ${accident.joined}"> 0</td>
+                            <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">No</td>
+                            <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
                             <td>
                                 <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
                                 <form th:action="@{|/accident/remove/${accident.id_AC}|}" method="post">
