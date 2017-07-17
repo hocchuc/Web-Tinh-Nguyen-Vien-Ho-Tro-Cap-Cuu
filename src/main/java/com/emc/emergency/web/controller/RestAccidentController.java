@@ -96,10 +96,11 @@ public class RestAccidentController {
         if(jsonObject.has("id_user")) id_user = jsonObject.getString("id_user");
         if(jsonObject.has("id_AC")) id_AC = jsonObject.getString("id_AC");
         if(jsonObject.has("id_action_type")) id_action_type = jsonObject.getString("id_action_type");
-
         if(jsonObject.has("date")) date = formatter.parse(jsonObject.getString("date"));
         if(accidentService.CreateAccidentDetail(Long.parseLong(id_user),Long.parseLong(id_AC),
             Long.valueOf(id_action_type),date)) return "Success";
         return "Failure" ;
     }
+
+
 }

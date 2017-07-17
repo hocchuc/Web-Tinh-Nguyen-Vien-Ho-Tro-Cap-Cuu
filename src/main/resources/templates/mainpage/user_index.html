@@ -28,8 +28,10 @@
                           <th>Role</th>
                           <th>Password</th>
                           <th>Position</th>
-                          <th>Is_Signup_Admin</th>
-
+                          <th>Accident</th>
+                          <th>Signup_Admin</th>
+                          <th>Set Volunteer</th>
+                          <th>Set User</th>
                         </tr>
                     </thead>
                  
@@ -39,7 +41,8 @@
                             <th>Role</th>
                             <th>Password</th>
                             <th>Position</th>
-                          <th>Is_Signup_Admin</th>
+                            <th>Accident</th>
+                            <th>Signup_Admin</th>
                         </tr>
                     </tfoot>
                  
@@ -49,7 +52,8 @@
                             <td th:text="${user.user_type.name_user_type}">System Architect</td>
                             <td th:text="${user.password}">online</td>
                             <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
-                           <td th:text="${user.is_signup_volunteer} ? 'Yes' : 'No'">61</td>
+                          <td th:text="${user.accident!=null} ? ${#lists.size(user.accident)} : 'No'"></td>
+                          <td th:text="${user.is_signup_volunteer} ? 'Yes' : 'No'">61</td>
                             <td>
                                 <input hidden="hidden" name="id" th:value="${user.id_user}" />
                                 <form th:action="@{|/account/setVolunteer/${user.id_user}|}" method="post">
