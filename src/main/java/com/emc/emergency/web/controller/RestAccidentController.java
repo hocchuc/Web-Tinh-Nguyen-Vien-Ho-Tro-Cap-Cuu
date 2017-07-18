@@ -1,12 +1,17 @@
 package com.emc.emergency.web.controller;
 
 import com.emc.emergency.data.model.Accident;
+import com.emc.emergency.data.model.Accident_Detail;
 import com.emc.emergency.data.model.User;
+import com.emc.emergency.data.repository.accidentRepository;
+import com.emc.emergency.data.repository.accident_detailRepository;
 import com.emc.emergency.service.AccidentService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
 import com.google.api.client.json.Json;
+import com.google.gson.Gson;
 import java.text.ParseException;
+import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +48,9 @@ public class RestAccidentController {
     }
     @Autowired
     AccidentService accidentService;
+
+    @Autowired accidentRepository accidentRepository;
+    @Autowired accident_detailRepository accident_detailRepository;
 
     @RequestMapping(value = "/api/accident/create", method = RequestMethod.POST)
     @ResponseBody
@@ -100,6 +108,26 @@ public class RestAccidentController {
         if(accidentService.CreateAccidentDetail(Long.parseLong(id_user),Long.parseLong(id_AC),
             Long.valueOf(id_action_type),date)) return "Success";
         return "Failure" ;
+    }
+
+    @RequestMapping(value = "/api/accident/GetAllUserJoined/{id_AC}", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE,produces = "application/json")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public String GetAllUserJoined(@PathVariable("id_AC") String id_AC) throws ParseException,JsonParseException {
+        Accident accidents = accidentRepository.findOne(Long.parseLong(id_AC));
+        List<Accident_Detail> accidentDetails = accidents.getAccident_details();
+        String json = "";
+        JSONArray jsonArray = new JSONArray();
+        for(int i = 0; i<accidentDetails.size(); i++) {
+            if (accidentDetails.get(i).getAction_type().getName_action().equals("Join")) {
+                JSONObject jsonObject = new JSONObject().put("id_user",
+                    accidentDetails.get(i).getId_user().getId_user());
+                jsonObject.put("date", accidentDetails.get(i).getDate_create());
+                jsonArray.put(jsonObject);
+            }
+        }
+        json = jsonArray.toString();
+       return jsonArray.toString();
     }
 
 
