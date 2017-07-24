@@ -24,6 +24,7 @@ import static com.emc.emergency.web.FlashMessage.Type_Mess.*;
  */
 @RestController
 public class RestUserController {
+
     @Autowired
     UserService userService;
     @Autowired

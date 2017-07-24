@@ -48,8 +48,8 @@ public class DatabaseLoader implements ApplicationRunner {
         user_type.save(volunteer);
         user_type.save(user_normal);
 
-        User user1 = new User(null,"hocanhchuc@gmail.com",user_type.findOne(1l), "123456",null,10.712746, 106.614751);
-        User user2 = new User(null,"trancaotri@gmail.com",user_type.findOne(1l), "123456",null,10.777437, 106.630484);
+        User user1 = new User(null,"hocanhchuc@gmail.com",user_type.findOne(1l), "123456",null,10.738214, 106.674845);
+        User user2 = new User(null,"trancaotri@gmail.com",user_type.findOne(1l), "123456",null,10.734188, 106.679858);
         User user3 = new User(null,"diemhang@gmail.com",user_type.findOne(2l), "123456",null,10.780200, 106.629210);
         User user4 = new User(null,"trantrungduong@gmail.com",user_type.findOne(2l), "123456",null,10.780040, 106.629250);
         User user5 = new User(null,"truongminhhoang@gmail.com",user_type.findOne(3l), "123456",null,10.782240, 106.623230);
@@ -61,7 +61,7 @@ public class DatabaseLoader implements ApplicationRunner {
         user.save(user5);
         user.save(user6);
 
-            Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.766622"),Double.parseDouble("106.642844"),"Pending","87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null,true);
+            Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.737994"),Double.parseDouble("106.679003"),"Pending","87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null,true);
         accident.save(accident1);
 
         Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.781785"),Double.parseDouble("106.643036"),"Pending","541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null,true);
@@ -118,8 +118,11 @@ public class DatabaseLoader implements ApplicationRunner {
         action_typeRepository.save(action_type3);
         action_typeRepository.save(action_type4);
 
+        Accident_Detail accident_detail1 = new Accident_Detail(null,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/1995"),user.findOne(1L),accident.findOne(1L),action_typeRepository.findOne(1L));
 
-
+        Accident_Detail accident_detail2 = new Accident_Detail(null,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/1995"),user.findOne(2L),accident.findOne(1L),action_typeRepository.findOne(1L));
+        accident_detailRepository.save(accident_detail1);
+        accident_detailRepository.save(accident_detail2);
 
     }
 }

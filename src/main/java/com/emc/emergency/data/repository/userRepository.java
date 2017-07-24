@@ -28,10 +28,10 @@ public interface userRepository extends CrudRepository<User, Long> {
     boolean exists(Long aLong);
 
     @Override
-    Iterable<User> findAll();
+    List<User> findAll();
 
     @Override
-    Iterable<User> findAll(Iterable<Long> longs);
+    List<User> findAll(Iterable<Long> longs);
 
     @Override
     long count();

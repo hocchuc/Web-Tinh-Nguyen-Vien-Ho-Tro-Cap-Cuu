@@ -4,7 +4,13 @@
 <head th:fragment="head(page_title)" lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
-
+    <style type="text/css">
+		#map {
+			height: 400px;
+			width: 400px;
+			background-size: 400px 300px;
+		}
+	</style>
     <link rel="icon" th:href="@{/favicon.png}" />
 
     <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />

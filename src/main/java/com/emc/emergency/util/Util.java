@@ -46,7 +46,7 @@ public class Util {
 
 	// open FPT API key
 	public static final String OPEN_FPT_API_KEY = "b05ee21f52ec466eb4cf33e99553b219";
-	public static final String GOOGLE_MAP_API_KEY = "AIzaSyDqJt9RRQMiHoXqzbk6aIUJh_o78DviskU";
+	public static final String GOOGLE_MAP_API_KEY = "AIzaSyCh58JmhtRQEX4RkKjJjOcI1-AAgTix4Zs";
 
 	/**
 	 * Returns a random message id to uniquely identify a message

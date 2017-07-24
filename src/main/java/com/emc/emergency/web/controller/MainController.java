@@ -7,6 +7,7 @@ import com.emc.emergency.data.repository.accidentRepository;
 import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.data.repository.user_typeRepository;
 import com.emc.emergency.service.AccidentService;
+import com.emc.emergency.service.FCMService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
 import com.emc.emergency.xmpp.MessageSender;
@@ -37,7 +38,9 @@ import static com.emc.emergency.web.FlashMessage.Status.*;
 public class MainController {
     @Autowired
     HttpSession session ;
-
+    @Autowired
+    FCMService fcmService;
+     MessageSender messageSender = new MessageSender();
     // Home page - index of all GIFs
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
     @Autowired
@@ -150,6 +153,7 @@ public class MainController {
         User_Type volunteer = userTypeRepository.findOne(2l);
         user.setUser_type(volunteer);
         userRepository.save(user);
+        messageSender.SendNotiToOneUser(user,fcmService,"Bạn đã trở thành tình nguyện viên","Xin chúc mừng");
         List<User> users = userService.findAll();
         model.addAttribute("userlist",users);
         return "mainpage/user_index";
@@ -166,9 +170,19 @@ public class MainController {
         User_Type User = userTypeRepository.findOne(3l);
         user.setUser_type(User);
         userRepository.save(user);
+        messageSender.SendNotiToOneUser(user,fcmService,"Bạn đã trở thành user thông thường do vi phạm nguyên tắc của tổ chức","Xin lỗi");
+
         List<User> users = userService.findAll();
         model.addAttribute("userlist",users);
         return "mainpage/user_index";
     }
+    @RequestMapping("/icon_user")
+       public String icon_user() {
+           return "icon_user_sos";
+       }
 
+    @RequestMapping("/background")
+           public String background() {
+               return "background";
+           }
 }

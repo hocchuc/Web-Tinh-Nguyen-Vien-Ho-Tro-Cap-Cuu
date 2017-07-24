@@ -9,6 +9,7 @@ import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.FCMService;
 import com.emc.emergency.util.Util;
 import com.google.firebase.internal.Log;
+import java.util.List;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -61,9 +62,14 @@ public class MessageSender {
         }
     }
     public void sendAccident( Accident accident,Iterable<User> users, FCMService fcmService,String id_AC) {
+        int SoUserDaCall = 0;
+        // 1km = 100.000 cm
+        Double DefaultDistance = 1000000.0;
         String message = accident.getDescription_AC() + " ở " + accident.getAddress();
-       //  Log.d("OnAccidentCreated", message);
+
         Iterable<User> userList = users;
+        while (SoUserDaCall == 0 ) {
+
         for (User user : userList) {
             if (user.getLong_PI() != null && user.getLat_PI() != null && user.getToken() != null) {
                 if ((user.getId_user_type().getName_user_type().equals("volunteer") || (user.getId_user_type().getName_user_type().equals("admin")))) {
@@ -77,7 +83,8 @@ public class MessageSender {
                             accident.getLong_AC());
                     logger.log(Level.INFO,"distance :" + distance);
                     // 3km = 300.000 cm
-                    if (distance < 30000000.0) {
+                    if (distance <=  DefaultDistance) {
+                        SoUserDaCall++;
                         StateResponse stateresponse = new StateResponse();
                         try {
                             String messageId = Util.getUniqueMessageId();
@@ -114,6 +121,9 @@ public class MessageSender {
                             stateresponse.setMessage(Util.OK_MESSAGE);
                             logger.log(Level.INFO,Util.OK_LABEL + message);
                             Log.d(TAG,"response :"+stateresponse.toString());
+
+                            if(SoUserDaCall == 5)  break;
+
                         } catch (Exception e) {
                             stateresponse.setCode(Util.SERVER_ERROR_CODE);
                             stateresponse.setMessage(e.getMessage());
@@ -124,12 +134,20 @@ public class MessageSender {
                 }
             }
         }
+        }
     }
 
+    /**
+     * Gởi notification thông báo tai nạn đã xong cho user
+     *
+     * @param users user muốn gởi
+     * @param fcmService đã khởi tạo sẵn
+     * @param accident tai nạn cần gởi
+     */
     public void sendAccidentDone( Accident accident,Iterable<User> users, FCMService fcmService) {
         int SoUserDaCall = 0 ;
-        // 3km = 300.000 cm
-        Double DefaultDistance = 3000000.0;
+        // 1km = 100.000 cm
+        Double DefaultDistance = 1000000.0;
 
         String message = "Tai nạn ở " + accident.getAddress()+" đã xong";
         //  Log.d("OnAccidentCreated", message);
@@ -203,4 +221,97 @@ public class MessageSender {
 
 
     }
+
+    /**
+     *  Gởi notification cho user
+     * @param user user muốn gởi
+     * @param fcmService đã khởi tạo sẵn
+     * @param Message Tin nhắn
+     * @param Title Tiêu đề
+     */
+    public void SendNotiToOneUser(User user, FCMService fcmService, String Message, String Title) {
+        StateResponse stateresponse = new StateResponse();
+
+        try {
+            if(user.getToken()!=null) {
+                String messageId = Util.getUniqueMessageId();
+                Map<String, String> dataPayload = new HashMap<String, String>();
+                dataPayload.put("message", Message);
+                dataPayload.put("title", Title);
+                CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
+
+                Map<String, String> notiPayload = new HashMap<String, String>();
+                notiPayload.put("title", Title);
+                notiPayload.put("body", Message);
+
+                out.setNotificationPayload(notiPayload);
+
+                out.setPriority("High");
+                logger.log(Level.INFO, out.toString());
+
+                fcmService.sendMessage(out);
+
+                stateresponse.setCode(Util.OK_CODE);
+                stateresponse.setMessage(Util.OK_MESSAGE);
+                logger.log(Level.INFO, Util.OK_LABEL + Message);
+                Log.d(TAG, "response :" + stateresponse.toString());
+
+
+
+            }
+
+        } catch (Exception e) {
+            stateresponse.setCode(Util.SERVER_ERROR_CODE);
+            stateresponse.setMessage(e.getMessage());
+            logger.log(Level.WARNING, Util.ERROR_LABEL + Message);
+        }
+
+
+    }
+    /**
+         *  Gởi notification cho user
+         * @param users danh sách user muốn gởi
+         * @param fcmService đã khởi tạo sẵn
+         * @param Message Tin nhắn
+         * @param Title Tiêu đề
+         */
+    public void SendNotiToAllUser(List<User> users, FCMService fcmService, String Message, String Title) {
+        StateResponse stateresponse = new StateResponse();
+            for (User user : users)
+               try {
+                   if(user.getToken()!=null) {
+                       String messageId = Util.getUniqueMessageId();
+                       Map<String, String> dataPayload = new HashMap<String, String>();
+                       dataPayload.put("message", Message);
+                       dataPayload.put("title", Title);
+                       CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
+
+                       Map<String, String> notiPayload = new HashMap<String, String>();
+                       notiPayload.put("title", Title);
+                       notiPayload.put("body", Message);
+
+                       out.setNotificationPayload(notiPayload);
+
+                       out.setPriority("High");
+                       logger.log(Level.INFO, out.toString());
+
+                       fcmService.sendMessage(out);
+
+                       stateresponse.setCode(Util.OK_CODE);
+                       stateresponse.setMessage(Util.OK_MESSAGE);
+                       logger.log(Level.INFO, Util.OK_LABEL + Message);
+                       Log.d(TAG, "response :" + stateresponse.toString());
+
+
+
+                   }
+
+               } catch (Exception e) {
+                   stateresponse.setCode(Util.SERVER_ERROR_CODE);
+                   stateresponse.setMessage(e.getMessage());
+                   logger.log(Level.WARNING, Util.ERROR_LABEL + Message);
+               }
+
+
+       }
 }

@@ -61,7 +61,8 @@
                         </tfoot>
 
                         <tbody>
-                        <tr th:each="accident  : ${accidents}">
+                        <tr th:each="accident  : ${accidents}" style="cursor: pointer" 
+                        th:onclick="'javascript:rowClicked(\'' + ${accident.id_AC} + '\');'">
                             <td th:text="${accident.id_AC}">Tiger Nixon</td>
                             <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'" style="word-wrap: break-word">username</td>
                             <td th:text="${accident.description_AC}" style="word-wrap: break-word">online</td>
@@ -112,7 +113,11 @@
 
 </div>
 <!-- END MAIN -->
-
+    <script>
+    function rowClicked(value) {
+        location.href = "accident/" + value;
+    }
+  </script>
 </body>
     <div th:replace="layout :: scripts"></div>
     <!-- jQuery Library -->

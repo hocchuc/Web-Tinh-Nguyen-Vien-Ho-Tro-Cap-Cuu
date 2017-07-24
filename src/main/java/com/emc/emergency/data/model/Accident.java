@@ -76,8 +76,19 @@ public class Accident  {
 	@Column(name="request_AC")
 	private Boolean request_AC;
 
+	@Column(name="report_done")
+	private Boolean report_done;
+
 	@OneToMany(mappedBy="id_AC")
 	private List<Accident_Detail> accident_details;
+
+	public Boolean getReport_done() {
+		return report_done;
+	}
+
+	public void setReport_done(Boolean report_done) {
+		this.report_done = report_done;
+	}
 
 	public List<Accident_Detail> getAccident_details() {
 		return accident_details;
