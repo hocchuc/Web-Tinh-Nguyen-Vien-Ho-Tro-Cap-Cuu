@@ -81,10 +81,10 @@ public class User   {
     private String token;
 
 
-    @Column(name="long_PI", nullable=true)
+    @Column(name="long_user", nullable=true)
     private Double long_PI;
 
-    @Column(name="lat_PI", nullable=true)
+    @Column(name="lat_user", nullable=true)
     private Double lat_PI;
 
 

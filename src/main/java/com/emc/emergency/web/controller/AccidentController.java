@@ -77,7 +77,7 @@ public class AccidentController {
     ) { //Đổi thuộc tính active
         Long id_admin = (Long) session.getAttribute("id_admin");
         if(id_admin==null) return "mainpage/login";
-
+        // Gửi noti cho user
         accidentService.activate(Long.parseLong(id),id_admin);
         MessageSender messageSender = new MessageSender();
         messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService, id);

@@ -13,6 +13,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -20,7 +21,16 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
-
+war {
+    baseName = 'emergencysos'
+}
+repositories {
+    jcenter()
+    mavenCentral()
+    maven {
+        url 'https://maven-central.storage.googleapis.com'             // Google's mirror of Maven Central
+    }
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')

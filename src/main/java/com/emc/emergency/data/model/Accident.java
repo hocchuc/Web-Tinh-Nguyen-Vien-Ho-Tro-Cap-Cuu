@@ -18,7 +18,7 @@ public class Accident  {
 	public Accident() {
 	}
 
-	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC ,Double long_AC,  String status_AC,  String address, String FirebaseKey) {
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,  Double lat_AC ,Double long_AC,  String status_AC,  String address, String FirebaseKey, Boolean request_AC) {
 		this.id_AC = id_AC;
 		this.id_user = id_user;
 		this.description_AC = description_AC;
@@ -28,6 +28,7 @@ public class Accident  {
 		this.status_AC = status_AC;
 		this.address = address;
 		this.firebaseKey = FirebaseKey;
+		this.request_AC = request_AC;
 	}
 
 	@Column(name="id_AC", nullable=false, length=20)
@@ -72,6 +73,9 @@ public class Accident  {
 	@JoinColumn(name = "accidents_active")
 	private User id_admin_active;
 
+	@Column(name="request_AC")
+	private Boolean request_AC;
+
 	@OneToMany(mappedBy="id_AC")
 	private List<Accident_Detail> accident_details;
 
@@ -93,6 +97,14 @@ public class Accident  {
 
 	public void setIs_reported_fake(Boolean is_reported_fake) {
 		this.is_reported_fake = is_reported_fake;
+	}
+
+	public Boolean getRequest_AC() {
+		return request_AC;
+	}
+
+	public void setRequest_AC(Boolean request_AC) {
+		this.request_AC = request_AC;
 	}
 
 	public void setAccident_details(
@@ -173,9 +185,6 @@ public class Accident  {
 	public User getId_user() {
 		return id_user;
 	}
-
-
-
 
 	public String getAddress() {
 		return address;

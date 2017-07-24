@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by hocan on 23-May-17.
  */
-//@Component
+@Component
 public class DatabaseLoader implements ApplicationRunner {
 
     private final userRepository user;
@@ -61,13 +61,13 @@ public class DatabaseLoader implements ApplicationRunner {
         user.save(user5);
         user.save(user6);
 
-        Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.766622"),Double.parseDouble("106.642844"),"Pending","87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null);
+            Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),Double.parseDouble("10.766622"),Double.parseDouble("106.642844"),"Pending","87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null,true);
         accident.save(accident1);
 
-        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.781785"),Double.parseDouble("106.643036"),"Pending","541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null);
+        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.781785"),Double.parseDouble("106.643036"),"Pending","541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null,true);
         accident.save(accident2);
 
-        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.799555"),Double.parseDouble("106.637219"),"Pending","15-16 Âu Cơ, phường 14, Tân Phú, Hồ Chí Minh",null);
+        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.799555"),Double.parseDouble("106.637219"),"Pending","15-16 Âu Cơ, phường 14, Tân Phú, Hồ Chí Minh",null,true);
         accident.save(accident3);
 
         //Accident accident4 = new Accident(null,user.findOne(3l),"Té cầu thang",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.783994"),Double.parseDouble("106.636266"),"Pending",null,null,"763 Lũy Bán Bích Hoà Thạnh Tân Phú Hồ Chí Minh",null);
@@ -79,7 +79,7 @@ public class DatabaseLoader implements ApplicationRunner {
         //Accident accident6 = new Accident(null,user.findOne(2l),"Té xe",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7142"),Double.parseDouble("106.644"),"Pending",null,null,"Số 433 Âu Cơ Tân Binh Hồ Chí Minh",null);
         //accident.save(accident6);
 
-        Personal_Infomation p1 = new Personal_Infomation(null,null,"Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),"252956865l","Từ Dữ","0909999999","Phu Tho Hoa","chucanhhoc@gmail.com",user.findOne(1l));
+        Personal_Infomation p1 = new Personal_Infomation(null,null,"Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),"252956865l","Từ Dũ","0903562332","Phu Tho Hoa","chucanhhoc@gmail.com",user.findOne(1l));
         personal_infoRepository.save(p1);
 
         Personal_Infomation p2 = new Personal_Infomation(null,null,"Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),"252416865l","115","0909999119","Thach Lam","trancaotri@gmail.com",user.findOne(2l));
@@ -109,7 +109,7 @@ public class DatabaseLoader implements ApplicationRunner {
         medical_infoRepository.save(m2_2);
 
         Action_Type action_type1  =new Action_Type(null,"Join");
-        Action_Type action_type2  =new Action_Type(null,"SetDone");
+        Action_Type action_type2  =new Action_Type(null,"ReportDone");
         Action_Type action_type3  =new Action_Type(null,"ReportFake");
         Action_Type action_type4  =new Action_Type(null,"ReportTrue");
 
