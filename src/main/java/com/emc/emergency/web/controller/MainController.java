@@ -11,12 +11,17 @@ import com.emc.emergency.service.FCMService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
 import com.emc.emergency.xmpp.MessageSender;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -36,6 +41,8 @@ import static com.emc.emergency.web.FlashMessage.Status.*;
  */
 @Controller
 public class MainController {
+    @Autowired
+    ServletContext servletContext;
     @Autowired
     HttpSession session ;
     @Autowired
@@ -176,13 +183,17 @@ public class MainController {
         model.addAttribute("userlist",users);
         return "mainpage/user_index";
     }
-    @RequestMapping("/icon_user")
-       public String icon_user() {
-           return "icon_user_sos";
+    @ResponseBody
+    @RequestMapping(value = "resources/icon_user", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+       public byte[] icon_user() throws IOException {
+        InputStream in = servletContext.getResourceAsStream("/icon/icon_user_sos.png");
+            return IOUtils.toByteArray(in);
        }
+    @ResponseBody
+    @RequestMapping( value = "resources/background", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+           public byte[]  background() throws IOException {
+                InputStream in = servletContext.getResourceAsStream("resources/static/images/background.jpg");
 
-    @RequestMapping("/background")
-           public String background() {
-               return "background";
+                return IOUtils.toByteArray(in);
            }
 }

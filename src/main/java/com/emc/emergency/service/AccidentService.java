@@ -4,6 +4,10 @@ import com.emc.emergency.data.model.Accident;
 import com.emc.emergency.data.model.Accident_Detail;
 import com.emc.emergency.data.model.Action_Type;
 import com.emc.emergency.data.model.User;
+import com.emc.emergency.web.controller.AccidentController;
+import com.emc.emergency.xmpp.MessageSender;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.emc.emergency.data.repository.*;
@@ -17,6 +21,8 @@ import java.util.List;
  */
 @Service
 public class AccidentService {
+    private static final Logger logger = LoggerFactory.getLogger(AccidentService.class);
+
     @Autowired
     accidentRepository accidentRepository;
     @Autowired
@@ -26,6 +32,10 @@ public class AccidentService {
     accident_detailRepository accident_detailRepository;
     @Autowired
     action_typeRepository action_typeRepository;
+
+    @Autowired
+    FCMService fcmService;
+     MessageSender messageSender = new MessageSender();
 
     public boolean CreateAccident(Long id_AC, Long id_user, String description_AC, Date date_AC, Float long_AC, Float lat_AC, String status_AC) {
         User user = null;
@@ -73,7 +83,7 @@ public class AccidentService {
     }
 
     public boolean CreateAccidentDetail(Long id_user,Long id_AC,Long id_action_type, Date date){
-        Iterable<Accident_Detail> accidentDetails = accident_detailRepository.findAll() ;
+        List<Accident_Detail> accidentDetails = accident_detailRepository.findAll() ;
         Action_Type action_type = action_typeRepository.findOne(id_action_type);
         User user = userRepository.findOne(id_user);
         Accident accident = accidentRepository.findOne(id_AC);
@@ -96,23 +106,39 @@ public class AccidentService {
             return false;
         }
         else {
+               List<User> UserFilterd = new ArrayList<>();
+               for (Accident_Detail ad : accidentDetails) {
+                 if (ad.getId_AC().equals(accidentRepository.findOne((accident_detail.getId_AC().getId_AC())))) {    if(accident_detail.getId_user().getLat_PI()!=null&&accident_detail.getId_user().getLong_PI()!=null)
+                   UserFilterd.add(accident_detail.getId_user());
+                   logger.info(accident_detail.getId_user().toString());
+                 }
+               }
+
             if(accident_detail.getAction_type().getName_action().equals("Join")){
                 accident.setJoined(accident.getJoined() + 1);
                 accidentRepository.save(accident);
+                MessageSender messageSender = new MessageSender();
+                messageSender.SendNotiToOneUser(accident.getId_user(),fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã tham gia hỗ trợ bạn","Đang có người đến hỗ trợ bạn");
             }
             if (accident_detail.getAction_type().getName_action().equals("ReportFake")){
                 accident.setIs_reported_fake(true);
                 accidentRepository.save(accident);
+                MessageSender messageSender = new MessageSender();
+                 messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo "+accident.getAddress()+"  là tai nạn giả","Tai nạn giả");
 
             }
-            if (accident_detail.getAction_type().getName_action().equals("ReportTrue")){
-                accident.setIs_reported_fake(false);
+            if (accident_detail.getAction_type().getName_action().equals("ReportDone")){
+                accident.setIs_report_done(false);
                 accidentRepository.save(accident);
+                MessageSender messageSender = new MessageSender();
+                 messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo "+accident.getAddress()+"  kết thúc tai nạn","Tai nạn kết thúc");
 
             }
             if (accident_detail.getAction_type().getName_action().equals("SetDone")){
                 accident.setStatus_AC("Done");
                 accidentRepository.save(accident);
+                MessageSender messageSender = new MessageSender();
+                messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo kết thúc tai nạn "+accident.getAddress(),"Tai nạn kết thúc");
 
             }
 

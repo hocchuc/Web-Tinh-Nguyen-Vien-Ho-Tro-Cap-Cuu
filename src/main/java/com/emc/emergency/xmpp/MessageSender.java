@@ -243,6 +243,7 @@ public class MessageSender {
                 Map<String, String> notiPayload = new HashMap<String, String>();
                 notiPayload.put("title", Title);
                 notiPayload.put("body", Message);
+                notiPayload.put(Util.BACKEND_ACTION_MESSAGE, Message);
 
                 out.setNotificationPayload(notiPayload);
 
@@ -289,6 +290,7 @@ public class MessageSender {
                        Map<String, String> notiPayload = new HashMap<String, String>();
                        notiPayload.put("title", Title);
                        notiPayload.put("body", Message);
+                       notiPayload.put(Util.BACKEND_ACTION_MESSAGE, Message);
 
                        out.setNotificationPayload(notiPayload);
 

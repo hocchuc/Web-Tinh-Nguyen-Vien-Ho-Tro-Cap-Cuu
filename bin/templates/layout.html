@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(page_title)" lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" th:href="@{/favicon.png}" />
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.min.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-select.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-skin-border.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css}"/>
+
+    <link rel="stylesheet" th:href="@{/app.css}" />
+    <link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- Custome CSS-->
+    <link th:href="@{css/custom-style.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- CSS style Horizontal Nav (Layout 03)-->
+    <link th:href="@{css/style-horizontal.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+     <link th:href="@{css/prism.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+     <link th:href="@{js/plugins/perfect-scrollbar/perfect-scrollbar.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+     <link th:href="@{js/plugins/chartist-js/chartist.min.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <title th:text="'Admin | ' + ${page_title}">Emergency SOS</title>
+</head>
+
+<body>
+
+<div th:fragment="nav" class="navbar-fixed">
+    <nav>
+        <div class="container">
+            <a th:href="@{/}" class="brand-logo">Emergency<span>.</span>SOS</a>
+            <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/home') ? 'active' : ''}"><a th:href="@{/home}">Home</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/accounts') ? 'active' : ''}"><a th:href="@{/accounts}">Account</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/accidents') ? 'active' : ''}"><a th:href="@{/accidents}">Accidents</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/logout') ? 'active' : ''}"><a th:href="@{/}">Logout</a></li>
+            </ul>
+            <ul id="mobile-nav" class="side-nav">
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/home') ? 'active' : ''}"><a th:href="@{/home}">Home</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/accounts') ? 'active' : ''}"><a th:href="@{/accounts}">Account</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/accidents') ? 'active' : ''}"><a th:href="@{/accidents}">Accidents</a></li>
+                <li th:classappend="${#httpServletRequest.servletPath.equals('/logout') ? 'active' : ''}"><a th:href="@{/2}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="searchbar" class="search-bar container">
+    <div class="row">
+        <div class="col s12">
+            <form th:action="@{/search}" method="get">
+                <div class="input-field">
+                    <input name="q" type="search" placeholder="Search all accident nearby" required="required" autocomplete="off"/>
+                    <i class="material-icons">search</i>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="flash" th:if="${flash != null}" class="container">
+    <i class="right material-icons" data-close="">close</i>
+    <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
+</div>
+
+<div th:fragment="scripts">
+    <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
+    <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
+    <script th:src="@{/vendor/materialize/js/materialize.min.js}"></script>
+    <script th:src="@{/vendor/codrops/js/classie.js}"></script>
+    <script th:src="@{/vendor/codrops/js/selectFx.js}"></script>
+    <script th:src="@{/app.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js}"></script>
+      <script type="text/javascript" src="@{js/prism.js}"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" th:src="@{/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+    <!-- chartist -->
+    <script type="text/javascript" th:src="@{/js/plugins/chartist-js/chartist.min.js}"></script>   
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" th:src="@{/js/plugins.js}"></script>
+    <!-- data-tables -->
+    <script type="text/javascript" th:src="@{js/plugins/data-tables/js/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{js/plugins/data-tables/data-tables-script.js}"></script>
+</div>
+
+</body>
+</html>

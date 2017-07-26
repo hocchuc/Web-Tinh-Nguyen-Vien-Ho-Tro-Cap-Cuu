@@ -26,6 +26,7 @@
                         <tr>
                           <th>Username</th>
                           <th>Role</th>
+                          <th> Phone</th>
                           <th>Password</th>
                           <th>Position</th>
                           <th>Accident</th>
@@ -39,6 +40,7 @@
                         <tr>
                             <th>Username</th>
                             <th>Role</th>
+                          <th> Phone</th>
                             <th>Password</th>
                             <th>Position</th>
                             <th>Accident</th>
@@ -50,6 +52,7 @@
                         <tr th:each="user  : ${userlist}">
                             <td th:text="${user.username}">Tiger Nixon</td>
                             <td th:text="${user.user_type.name_user_type}">System Architect</td>
+                           <td th:text="${user.personal_infomation!=null} ?  ${user.user_type.name_user_type}">System Architect</td>
                             <td th:text="${user.password}">online</td>
                             <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
                           <td th:text="${user.accident!=null} ? ${#lists.size(user.accident)} : 'No'"></td>

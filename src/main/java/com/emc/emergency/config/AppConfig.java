@@ -9,6 +9,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,6 +18,10 @@ import com.google.gson.GsonBuilder;
 @EnableWebMvc
 public class AppConfig extends WebMvcConfigurerAdapter  {
     @Override
+       public void addResourceHandlers(ResourceHandlerRegistry registry) {
+           registry.addResourceHandler("/resources/**").addResourceLocations("/public-resources/");
+       }
+    @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 
         StringHttpMessageConverter stringConverter = new StringHttpMessageConverter(
@@ -24,7 +29,11 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
         stringConverter.setSupportedMediaTypes(Arrays.asList( //
             MediaType.TEXT_PLAIN, //
             MediaType.TEXT_HTML, //
-            MediaType.APPLICATION_JSON));
+            MediaType.APPLICATION_JSON,
+            MediaType.IMAGE_JPEG,
+            MediaType.IMAGE_PNG,
+            MediaType.APPLICATION_OCTET_STREAM
+         ));
         converters.add(stringConverter);
 
     	 GsonHttpMessageConverter msgConverter = new GsonHttpMessageConverter();

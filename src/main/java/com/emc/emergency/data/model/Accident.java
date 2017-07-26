@@ -64,7 +64,7 @@ public class Accident  {
 	private String firebaseKey;
 
 	@Column(name="is_reported_fake", nullable=true)
-	private Boolean is_reported_fake;
+	private Boolean is_reported_fake = false;
 
 	@Column(name="joined", nullable=true)
 	private int joined = 0;
@@ -76,18 +76,18 @@ public class Accident  {
 	@Column(name="request_AC")
 	private Boolean request_AC;
 
-	@Column(name="report_done")
-	private Boolean report_done;
+	@Column(name="is_report_done")
+	private Boolean is_reported_done;
 
 	@OneToMany(mappedBy="id_AC")
 	private List<Accident_Detail> accident_details;
 
-	public Boolean getReport_done() {
-		return report_done;
+	public Boolean getIs_report_done() {
+		return is_reported_done;
 	}
 
-	public void setReport_done(Boolean report_done) {
-		this.report_done = report_done;
+	public void setIs_report_done(Boolean is_reported_done) {
+		this.is_reported_done = is_reported_done;
 	}
 
 	public List<Accident_Detail> getAccident_details() {

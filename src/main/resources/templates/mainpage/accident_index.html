@@ -19,8 +19,8 @@
                 <div class="col s1 m1 l1"> </div>
             </div>
             <div class="row">
-                <div class="col s1 m0 l0"> </div>
-                <div class="col s10 m12 l12">
+                <div class="col s1 m1 l1"> </div>
+                <div class="col s10 m10 l10">
                     <table id="data-table-simple" class="responsive-table display highlight" cellspacing="0" style="table-layout: fixed; width: 100%">
                         <thead>
                         <tr>
@@ -33,7 +33,8 @@
                             <th>Position</th>
                             <th>Joined </th>
                             <th>Admin_Active </th>
-                            <th>Fake</th>
+                            <th>Report Fake</th>
+                            <th>Report Done</th>
                             <th>Delete</th>
                             <th>Activate</th>
                             <th>Set Done</th>
@@ -52,7 +53,8 @@
                             <th>Position</th>
                             <th>Joined </th>
                             <th>Admin_Active </th>
-                            <th>Fake</th>
+                            <th>Report Fake</th>
+                            <th>Report Done</th>
                             <th>Delete</th>
                             <th>Activate</th>
                             <th>Set Done</th>
@@ -61,7 +63,7 @@
                         </tfoot>
 
                         <tbody>
-                        <tr th:each="accident  : ${accidents}" style="cursor: pointer" 
+                        <tr th:each="accident  : ${accidents}" style="cursor: pointer"
                         th:onclick="'javascript:rowClicked(\'' + ${accident.id_AC} + '\');'">
                             <td th:text="${accident.id_AC}">Tiger Nixon</td>
                             <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'" style="word-wrap: break-word">username</td>
@@ -73,6 +75,7 @@
                             <td th:text=" ${accident.joined}"> 0</td>
                             <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">No</td>
                             <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
+                            <td th:text="${accident.Is_report_done} ? 'Yes' : 'No'">No</td>
                             <td>
                                 <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
                                 <form th:action="@{|/accident/remove/${accident.id_AC}|}" method="post">
@@ -98,10 +101,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col s1 m0 l0"> </div>
+                  <div class="col s1 m1 l1"> </div>
+
+               </div>
             </div>
         </div>
         <br/>
+
+
 
 
         <div class="divider"></div>
@@ -118,6 +125,7 @@
         location.href = "accident/" + value;
     }
   </script>
+  
 </body>
     <div th:replace="layout :: scripts"></div>
     <!-- jQuery Library -->
