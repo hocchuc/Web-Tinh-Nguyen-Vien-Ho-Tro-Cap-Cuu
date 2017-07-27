@@ -136,7 +136,7 @@ public class RestAccidentController {
            return json;
         }
 
-    @RequestMapping(value = "/api/accident/GetAllUser", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE,produces = "application/json")
+    @RequestMapping(value = "/api/accident/GetAllUser", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE, produces = "application/json")
         @ResponseBody
         @ResponseStatus(HttpStatus.OK)
         public String GetAllUser() throws ParseException,JsonParseException {

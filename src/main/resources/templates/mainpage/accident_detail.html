@@ -49,7 +49,7 @@
           <div class="row">
             <div class="col s1 m1 l1"></div>
             <div class="col s10 m10 l10">
-              <table id="data-table-simple" class="responsive-table display highlight" cellspacing="0">
+              <table id="data-table-simple" class="responsive-table display highlight centered" cellspacing="0">
                 <thead>
                 <tr>
                   <th>Username</th>
@@ -99,7 +99,7 @@
                     <div class="row">
                       <div class="col s1 m1 l1"></div>
                         <div class="col s11 m10 l10">
-                            <table id="data-table-simple2" class="responsive-table display highlight" >
+                            <table id="data-table-simple2" class="responsive-table display highlight centered" >
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -110,6 +110,7 @@
                                     <th>Status</th>
                                     <th>Position</th>
                                     <th>Joined </th>
+                                    <th>Reported Done </th>
                                     <th>Admin_Active </th>
                                     <th>Fake</th>
                                     <th>Delete</th>
@@ -128,6 +129,7 @@
                                     <td th:text="${accident.status_AC}">61</td>
                                     <td th:text="|${accident.lat_AC}, ${accident.long_AC}|">6</td>
                                     <td th:text=" ${accident.joined}"> 0</td>
+                                   <td th:text="${accident.Is_report_done} ? 'Yes' : 'No'">No</td>
                                     <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">No</td>
                                     <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
                                     <td>
