@@ -15,18 +15,7 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css}"/>
 
 
-       <script>
-         // Initialize Firebase
-         var config = {
-           apiKey: "AIzaSyDbfMgw_kqexY7Tb7zrnKkKa53-EC8j9vc",
-           authDomain: "fir-demo-chat-spring.firebaseapp.com",
-           databaseURL: "https://fir-demo-chat-spring.firebaseio.com",
-           projectId: "fir-demo-chat-spring",
-           storageBucket: "fir-demo-chat-spring.appspot.com",
-           messagingSenderId: "728085231482"
-         };
-         firebase.initializeApp(config);
-       </script>
+
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" th:href="@{/app.css}" />
     <link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -82,7 +71,28 @@
     <i class="right material-icons" data-close="">close</i>
     <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
 </div>
+        <div th:fragment="preloader"  class="container">
+        <div class="preloader-background">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
 
+
+<div class="main">
+	<h1>BLA</h1>
+</div>
 <div th:fragment="scripts">
 
     <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
@@ -102,6 +112,15 @@
     <!-- data-tables -->
     <script type="text/javascript" th:src="@{js/plugins/data-tables/js/jquery.dataTables.min.js}"></script>
     <script type="text/javascript" th:src="@{js/plugins/data-tables/data-tables-script.js}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+        	$('.preloader-background').delay(1000).fadeOut('slow');
+
+        	$('.preloader-wrapper')
+        		.delay(1700)
+        		.fadeOut();
+        });
+      </script>
 </div>
 
 </body>
