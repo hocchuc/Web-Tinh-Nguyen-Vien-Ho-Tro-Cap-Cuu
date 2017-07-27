@@ -10,7 +10,7 @@
     <div class="wrapper">
         <div th:replace="layout :: nav"></div>
         <div class="divider"></div>
-
+        <div th:replace="layout :: preloader"></div>
         <!--DataTables accident-->
         <div id="table-datatables">
             <div class="row">
@@ -66,12 +66,12 @@
                         <tr th:each="accident  : ${accidents}" style="cursor: pointer"
                         th:onclick="'javascript:rowClicked(\'' + ${accident.id_AC} + '\');'">
                             <td th:text="${accident.id_AC}">Tiger Nixon</td>
-                            <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'" style="word-wrap: break-word">username</td>
+                            <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'" style="word-wrap: break-word" >username</td>
                             <td th:text="${accident.description_AC}" style="word-wrap: break-word">online</td>
                             <td th:text="${accident.date_AC}">61</td>
-                            <td th:text="${accident.Address}" style="word-wrap: break-word">61</td>
+                            <td th:text="${accident.Address}" style="word-wrap: break-word" >61</td>
                             <td th:text="${accident.status_AC}">61</td>
-                            <td th:text="|${accident.lat_AC}, ${accident.long_AC}|">6</td>
+                            <td th:text="|${accident.lat_AC}, ${accident.long_AC}|" >6</td>
                             <td th:text=" ${accident.joined}"> 0</td>
                             <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">No</td>
                             <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
@@ -79,22 +79,25 @@
                             <td>
                                 <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
                                 <form th:action="@{|/accident/remove/${accident.id_AC}|}" method="post">
-                                    <button class="btn waves-effect waves-light" type="submit">
-                                        <i class="tiny material-icons">delete</i>Delete</button>
+                                    <button type="submit" class="btn-floating btn-large waves-effect waves-light tooltipped"
+                                            data-position="top" data-delay="50" data-tooltip="Delete Accident">
+                                        <i class="tiny material-icons">delete</i></button>
                                 </form>
                             </td>
                             <td>
                                 <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
                                 <form th:action="@{|/accident/activate/${accident.id_AC}|}" method="post">
-                                    <button type="submit" class="btn waves-effect waves-light">
+                                    <button type="submit" class="btn-floating btn-large waves-effect waves-light tooltipped"
+                                    data-position="top" data-delay="50" data-tooltip="Active Accident">
                                     <i class="tiny material-icons">done</i>Activate</button>
                                 </form>
                             </td>
                             <td>
                                 <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
                                 <form th:action="@{|/accident/setdone/${accident.id_AC}|}" method="post">
-                                    <button type="submit" class="btn waves-effect waves-light">
-                                        <i class="tiny material-icons">done_all</i>Done</button>
+                                    <button type="submit" class="btn-floating btn-large waves-effect waves-light tooltipped"
+                                         data-position="top" data-delay="50" data-tooltip="Set Done">
+                                        <i class="tiny material-icons">done_all</i></button>
                                 </form>
                             </td>
                         </tr>

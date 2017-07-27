@@ -4,6 +4,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
     <style type="text/css">
+    .preloader-background {
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	background-color: #eee;
+
+    	position: fixed;
+    	z-index: 100;
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    	bottom: 0;
+    }
 		#map {
 			height: 400px;
       width: 800px
@@ -34,6 +47,8 @@
       <div class="wrapper">
         <div th:replace="layout :: nav"></div>
         <div class="divider"></div>
+        <div th:replace="layout :: preloader"></div>
+
           <div class="row">
              <div class="col s1 m1 l1"></div>
             <div id="map"  class="col s10 m10 l10"></div>
@@ -60,19 +75,6 @@
                   <th>Phone</th>
                 </tr>
                 </thead>
-
-                <tfoot>
-                <tr>
-                  <th>Username</th>
-                  <th>Name</th>
-                  <th>Role</th>
-                  <th>Password</th>
-                  <th>Position</th>
-                  <th>Phone</th>
-
-                </tr>
-                </tfoot>
-
                 <tbody>
                 <tr th:each="user  : ${users_joined}">
                   <td th:text="${user.username}">Tiger Nixon</td>
@@ -81,8 +83,6 @@
                   <td th:text="${user.password}">online</td>
                   <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
                   <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.phone_PI}"></td>
-
-
                 </tr>
                 </tbody>
               </table>
@@ -121,15 +121,15 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td th:text="${accident.id_AC}">Tiger Nixon</td>
-                                    <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'" style="word-wrap: break-word" class="flow-text">username</td>
-                                    <td th:text="${accident.description_AC}" style="word-wrap: break-word" class="flow-text">online</td>
+                                    <td th:text="${accident.id_AC}">  Tiger Nixon</td>
+                                    <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'" >username</td>
+                                    <td th:text="${accident.description_AC}" style="word-wrap: break-word" >online</td>
                                     <td th:text="${accident.date_AC}">61</td>
-                                    <td th:text="${accident.Address}" style="word-wrap: break-word" class="flow-text">61</td>
+                                    <td th:text="${accident.Address}"  >61</td>
                                     <td th:text="${accident.status_AC}">61</td>
-                                    <td th:text="|${accident.lat_AC}, ${accident.long_AC}|">6</td>
+                                    <td th:text="|${accident.lat_AC} , ${accident.long_AC}|" >6</td>
                                     <td th:text=" ${accident.joined}"> 0</td>
-                                   <td th:text="${accident.Is_report_done} ? 'Yes' : 'No'">No</td>
+                                    <td th:text="${accident.Is_report_done} ? 'Yes' : 'No'">No</td>
                                     <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">No</td>
                                     <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
                                     <td>
@@ -178,7 +178,7 @@
        /*<![CDATA[*/  
        var markerLat = [
          /*[# th:each="user : ${users_joined}"]*/
-                     /*[[${user.lat_PI}] ] */,
+                     /*[[${user.lat_PI}]]*/,
             /*[/]*/];
         
        var markerLong = [
@@ -192,8 +192,19 @@
             /*[/]*/];
 
        var accident = new google.maps.LatLng(/*[[${accident.lat_AC}]]*/, /*[[${accident.long_AC}]]*/);
+       var accident_address =/*[[${accident.Address}]]*/ " TPHCM";
+       var accident_description = /*[[${accident.description_AC}]]*/ " TPHCM";
+
+            /*]]>*/
+
+        var contentString =
+            '<h2 id="firstHeading" class="firstHeading">'+accident_description+'</h2>'+
+            '<div id="bodyContent">'+
+            '<p><b>'+accident_address+'</b></p>'+
+            '</div>'
+
        var icon_user = "http://localhost:8080/icons/icon_user_sos.png"; // địa chỉ của icon
-          /*]]>*/
+
           
       function initialize() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -209,10 +220,10 @@
         });
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                     return function() {
-                        infowindow.setContent("tai nạn");
+                        infowindow.setContent(contentString );
                         infowindow.open(map, marker);
                            }
-                })(user, i));
+                })(marker, i));
          var  i;
          var user;
         for (i = 0; i < markerLat.length; i++) {
@@ -236,7 +247,15 @@
       google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-  
+    <script>
+         document.addEventListener("DOMContentLoaded", function(){
+         	$('.preloader-background').delay(1000).fadeOut('slow');
+
+         	$('.preloader-wrapper')
+         		.delay(1100)
+         		.fadeOut();
+         });
+       </script>
     </body>
   
 
