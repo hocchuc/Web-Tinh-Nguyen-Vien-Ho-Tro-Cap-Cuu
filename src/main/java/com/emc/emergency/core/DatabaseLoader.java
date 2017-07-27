@@ -79,22 +79,22 @@ public class DatabaseLoader implements ApplicationRunner {
         //Accident accident6 = new Accident(null,user.findOne(2l),"Té xe",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.7142"),Double.parseDouble("106.644"),"Pending",null,null,"Số 433 Âu Cơ Tân Binh Hồ Chí Minh",null);
         //accident.save(accident6);
 
-        Personal_Infomation p1 = new Personal_Infomation(null,null,"Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),"252956865l","Từ Dũ","0903562332","Phu Tho Hoa","chucanhhoc@gmail.com",user.findOne(1l));
+            Personal_Infomation p1 = new Personal_Infomation(null,"https://firebasestorage.googleapis.com/v0/b/fir-demo-chat-spring.appspot.com/o/images%2F1.PNG?alt=media&token=e485b8b4-3886-421d-90e8-ae461bcce17b","Chúc Anh Học",true,new SimpleDateFormat("dd/MM/yyyy").parse("10/09/1995"),"252956865l","Từ Dũ","0903562332","Phu Tho Hoa","chucanhhoc@gmail.com",user.findOne(1l));
         personal_infoRepository.save(p1);
 
-        Personal_Infomation p2 = new Personal_Infomation(null,null,"Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),"252416865l","115","0909999119","Thach Lam","trancaotri@gmail.com",user.findOne(2l));
+        Personal_Infomation p2 = new Personal_Infomation(null,"https://firebasestorage.googleapis.com/v0/b/fir-demo-chat-spring.appspot.com/o/images%2F2.jpg?alt=media&token=d9703039-e182-4cbc-91fc-90a069fd5b7c","Trần Cao Trí",true,new SimpleDateFormat("dd/MM/yyyy").parse("20/06/1995"),"252416865l","115","0909999119","Thach Lam","trancaotri@gmail.com",user.findOne(2l));
         personal_infoRepository.save(p2);
 
-        Personal_Infomation p3 = new Personal_Infomation(null,null,"Lê Diễm Hàng",false,new SimpleDateFormat("dd/MM/yyyy").parse("19/06/1995"),"2524456865l","Chương Dương","0909999113","HIền Vương","diemhang@gmail.com",user.findOne(3l));
+        Personal_Infomation p3 = new Personal_Infomation(null,"https://firebasestorage.googleapis.com/v0/b/fir-demo-chat-spring.appspot.com/o/images%2F3.png?alt=media&token=881a65e0-6e88-4b74-828d-f06372fc8705","Lê Diễm Hàng",false,new SimpleDateFormat("dd/MM/yyyy").parse("19/06/1995"),"2524456865l","Chương Dương","0909999113","HIền Vương","diemhang@gmail.com",user.findOne(3l));
         personal_infoRepository.save(p3);
 
-        Personal_Infomation p4 = new Personal_Infomation(null,null,"Trần Trung Dương",false,new SimpleDateFormat("dd/MM/yyyy").parse("20/16/1995"),"25244568756","Bệnh Viện Quận 6","0909999213","Cao Lỗ ","trantrungduong@gmail.com",user.findOne(4l));
+        Personal_Infomation p4 = new Personal_Infomation(null,"https://firebasestorage.googleapis.com/v0/b/fir-demo-chat-spring.appspot.com/o/images%2F4.jpg?alt=media&token=efb6679f-f8fa-4d34-918a-278fbd51d549","Trần Trung Dương",false,new SimpleDateFormat("dd/MM/yyyy").parse("20/16/1995"),"25244568756","Bệnh Viện Quận 6","0909999213","Cao Lỗ ","trantrungduong@gmail.com",user.findOne(4l));
         personal_infoRepository.save(p4);
 
-        Personal_Infomation p5 = new Personal_Infomation(null,null,"Trương Minh Hoàng",false,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/1995"),"25244568123","Công ty GPS","0909999222","Bình Long","truongminhhoang@gmail.com",user.findOne(5l));
+        Personal_Infomation p5 = new Personal_Infomation(null,"https://firebasestorage.googleapis.com/v0/b/fir-demo-chat-spring.appspot.com/o/images%2F5.jpg?alt=media&token=9c4ae55c-e74a-4eba-a856-254f9d922298","Trương Minh Hoàng",false,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/1995"),"25244568123","Công ty GPS","0909999222","Bình Long","truongminhhoang@gmail.com",user.findOne(5l));
         personal_infoRepository.save(p5);
 
-        Personal_Infomation p6 = new Personal_Infomation(null,null,"Huỳnh Thanh Trung",false,new SimpleDateFormat("dd/MM/yyyy").parse("20/8/1995"),"25244568333","Công ty Technik","0909999654","Long An","huynhthanhtrung@gmail.com",user.findOne(6l));
+        Personal_Infomation p6 = new Personal_Infomation(null,"https://firebasestorage.googleapis.com/v0/b/fir-demo-chat-spring.appspot.com/o/images%2F6.jpg?alt=media&token=af87f071-4e0c-447c-82fe-be840aea9098","Huỳnh Thanh Trung",false,new SimpleDateFormat("dd/MM/yyyy").parse("20/8/1995"),"25244568333","Công ty Technik","0909999654","Long An","huynhthanhtrung@gmail.com",user.findOne(6l));
         personal_infoRepository.save(p6);
 
         Medical_Info m1 = new Medical_Info(null,personal_infoRepository.findOne(0L),"panadol",1,"thuoc dau dau");

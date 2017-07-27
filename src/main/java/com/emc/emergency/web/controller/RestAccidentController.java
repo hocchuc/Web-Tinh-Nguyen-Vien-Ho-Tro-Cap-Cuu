@@ -5,6 +5,7 @@ import com.emc.emergency.data.model.Accident_Detail;
 import com.emc.emergency.data.model.User;
 import com.emc.emergency.data.repository.accidentRepository;
 import com.emc.emergency.data.repository.accident_detailRepository;
+import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.AccidentService;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
@@ -51,6 +52,8 @@ public class RestAccidentController {
 
     @Autowired accidentRepository accidentRepository;
     @Autowired accident_detailRepository accident_detailRepository;
+    @Autowired
+    userRepository userRepository;
 
     @RequestMapping(value = "/api/accident/create", method = RequestMethod.POST)
     @ResponseBody
@@ -110,25 +113,50 @@ public class RestAccidentController {
         return "Failure" ;
     }
 
-    @RequestMapping(value = "/api/accident/GetAllUserJoined/{id_AC}", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE,produces = "application/json")
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    public String GetAllUserJoined(@PathVariable("id_AC") String id_AC) throws ParseException,JsonParseException {
-        Accident accidents = accidentRepository.findOne(Long.parseLong(id_AC));
-        List<Accident_Detail> accidentDetails = accidents.getAccident_details();
-        String json = "";
-        JSONArray jsonArray = new JSONArray();
-        for(int i = 0; i<accidentDetails.size(); i++) {
-            if (accidentDetails.get(i).getAction_type().getName_action().equals("Join")) {
-                JSONObject jsonObject = new JSONObject().put("id_user",
-                    accidentDetails.get(i).getId_user().getId_user());
-                jsonObject.put("date", accidentDetails.get(i).getDate_create());
-                jsonArray.put(jsonObject);
+    @RequestMapping(value = "/api/accident/GetAllUserJoined/{id_AC}", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE,produces = "application/json")
+        @ResponseBody
+        @ResponseStatus(HttpStatus.OK)
+        public String GetAllUserJoined(@PathVariable("id_AC") String id_AC) throws ParseException,JsonParseException {
+            Accident accidents = accidentRepository.findOne(Long.parseLong(id_AC));
+            List<Accident_Detail> accidentDetails = accidents.getAccident_details();
+            String json = "";
+            JSONArray jsonArray = new JSONArray();
+            for(int i = 0; i<accidentDetails.size(); i++) {
+                if (accidentDetails.get(i).getAction_type().getName_action().equals("Join")) {
+                    JSONObject jsonObject = new JSONObject().put("id_user", accidentDetails.get(i).getId_user().getId_user());
+                    jsonObject.put("avatar", accidentDetails.get(i).getId_user().getPersonal_Infomation().getAvatar());
+                    jsonObject.put("lat", accidentDetails.get(i).getId_user().getLat_PI());
+                    jsonObject.put("long", accidentDetails.get(i).getId_user().getLong_PI());
+                    jsonObject.put("name", accidentDetails.get(i).getId_user().getPersonal_Infomation().getName_PI());
+                    jsonObject.put("date", accidentDetails.get(i).getDate_create());
+                    jsonArray.put(jsonObject);
+                }
             }
+            json = jsonArray.toString();
+           return json;
         }
-        json = jsonArray.toString();
-       return jsonArray.toString();
-    }
+
+    @RequestMapping(value = "/api/accident/GetAllUser", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE,produces = "application/json")
+        @ResponseBody
+        @ResponseStatus(HttpStatus.OK)
+        public String GetAllUser(@PathVariable("id_user") String id_user) throws ParseException,JsonParseException {
+            List<User> userList = userRepository.findAll();
+            String json = "";
+            JSONArray jsonArray = new JSONArray();
+            for(int i = 0; i<userList.size(); i++) {
+                    JSONObject jsonObject = new JSONObject().put("id_user", userList.get(i).getId_user());
+                    jsonObject.put("avatar", userList.get(i).getPersonal_Infomation().getAvatar());
+                    jsonObject.put("lat", userList.get(i).getLat_PI());
+                    jsonObject.put("long", userList.get(i).getLong_PI());
+                    jsonObject.put("name", userList.get(i).getPersonal_Infomation().getName_PI());
+                     jsonObject.put("name_user_type", userList.get(i).getId_user_type().getName_user_type());
+                     jsonObject.put("username", userList.get(i).getUsername());
+                    jsonArray.put(jsonObject);
+            }
+
+            json =  jsonArray.toString();
+           return json;
+        }
 
 
 }

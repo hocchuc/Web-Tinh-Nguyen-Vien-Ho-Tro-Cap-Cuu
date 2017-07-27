@@ -87,7 +87,24 @@ public class User   {
     @Column(name="lat_user", nullable=true)
     private Double lat_PI;
 
+    @Column(name="is_online", nullable=true)
+      private Boolean is_online;
 
+    public List<Accident> getAccidents_active() {
+        return accidents_active;
+    }
+
+    public void setAccidents_active(List<Accident> accidents_active) {
+        this.accidents_active = accidents_active;
+    }
+
+    public Boolean getIs_online() {
+        return is_online;
+    }
+
+    public void setIs_online(Boolean is_online) {
+        this.is_online = is_online;
+    }
 
     public boolean isIs_signup_volunteer() {
         return is_signup_volunteer;
