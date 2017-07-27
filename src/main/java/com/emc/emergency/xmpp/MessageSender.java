@@ -90,11 +90,14 @@ public class MessageSender {
                             String messageId = Util.getUniqueMessageId();
                             Map<String, String> dataPayload = new HashMap<String, String>();
                             dataPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
+                            dataPayload.put("title",accident.getDescription_AC()+"");
                             dataPayload.put("latitude",accident.getLat_AC()+"");
                             dataPayload.put("longtitude",accident.getLong_AC()+"");
                             dataPayload.put("address",accident.getAddress());
                             dataPayload.put("FirebaseKey",accident.getFirebaseKey());
                             dataPayload.put("id_AC",id_AC+"");
+                            dataPayload.put("id_victim",accident.getId_user().getId_user()+"");
+
                             logger.log(Level.INFO,accident.getId_AC()+"");
 
                             CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
@@ -108,6 +111,8 @@ public class MessageSender {
                             notiPayload.put("address",accident.getAddress());
                             notiPayload.put("FirebaseKey",accident.getFirebaseKey());
                             notiPayload.put("id_AC",id_AC+"");
+                            notiPayload.put("id_victim",accident.getId_user().getId_user()+"");
+
                             logger.log(Level.INFO,id_AC+"");
 
                             out.setNotificationPayload(notiPayload);
@@ -175,22 +180,24 @@ public class MessageSender {
                         try {
                             String messageId = Util.getUniqueMessageId();
                             Map<String, String> dataPayload = new HashMap<String, String>();
-                            dataPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
+                            dataPayload.put(Util.BACKEND_DONE_ACCIDENT, message);
                             dataPayload.put("latitude",accident.getLat_AC()+"");
                             dataPayload.put("longtitude",accident.getLong_AC()+"");
                             dataPayload.put("address",accident.getAddress());
                             dataPayload.put("FirebaseKey",accident.getFirebaseKey());
+                            dataPayload.put("title",accident.getDescription_AC()+"");
+
 
                             CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
 
                             Map<String, String> notiPayload = new HashMap<String, String>();
-                            notiPayload.put(Util.BACKEND_ACTION_ACCIDENT, message);
                             notiPayload.put("title","Tai nạn đã xong");
                             notiPayload.put("body",accident.getAddress()+"");
                             notiPayload.put("latitude",accident.getLat_AC()+"");
                             notiPayload.put("longtitude",accident.getLong_AC()+"");
                             notiPayload.put("address",accident.getAddress());
                             notiPayload.put("FirebaseKey",accident.getFirebaseKey());
+                            notiPayload.put(Util.BACKEND_DONE_ACCIDENT, message);
 
                             out.setNotificationPayload(notiPayload);
 
@@ -238,6 +245,8 @@ public class MessageSender {
                 Map<String, String> dataPayload = new HashMap<String, String>();
                 dataPayload.put("message", Message);
                 dataPayload.put("title", Title);
+                dataPayload.put(Util.BACKEND_ACTION_MESSAGE, Message);
+
                 CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
 
                 Map<String, String> notiPayload = new HashMap<String, String>();
@@ -285,6 +294,8 @@ public class MessageSender {
                        Map<String, String> dataPayload = new HashMap<String, String>();
                        dataPayload.put("message", Message);
                        dataPayload.put("title", Title);
+                       dataPayload.put(Util.BACKEND_ACTION_MESSAGE, Message);
+
                        CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
 
                        Map<String, String> notiPayload = new HashMap<String, String>();

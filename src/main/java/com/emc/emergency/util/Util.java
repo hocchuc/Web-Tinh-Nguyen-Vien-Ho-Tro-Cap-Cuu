@@ -33,7 +33,7 @@ public class Util {
 	public static final String PACKAGE = "com.emc.emergency";
 	public static final String BACKEND_ACTION_REGISTER = PACKAGE + ".REGISTER";
 	public static final String BACKEND_ACTION_ECHO = PACKAGE + ".ECHO";
-	public static final String BACKEND_ACTION_MESSAGE = PACKAGE + ".MESSAGE";
+	public static final String BACKEND_ACTION_MESSAGE = "MESSAGE";
 
 	// For the app common payload message attributes (android - xmpp server)
 	public static final String PAYLOAD_ATTRIBUTE_MESSAGE = "message";

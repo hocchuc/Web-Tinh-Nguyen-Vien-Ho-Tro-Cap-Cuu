@@ -90,7 +90,7 @@ public class RestAccidentController {
         if(jsonObject.has("id_user")) id_user = jsonObject.getString("id_user");
         if(jsonObject.has("id_AC")) id_AC = jsonObject.getString("id_AC");
         if(jsonObject.has("date")) date = formatter.parse(jsonObject.getString("date"));
-        if(accidentService.CreateAccidentDetail(Long.parseLong(id_user),Long.parseLong(id_AC),1l,date)) return "Success";
+            if(accidentService.CreateAccidentDetail(Long.parseLong(id_user),Long.parseLong(id_AC),1l,date)) return "Success";
         return "Failure" ;
     }
 
@@ -136,27 +136,37 @@ public class RestAccidentController {
            return json;
         }
 
-    @RequestMapping(value = "/api/accident/GetAllUser", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE, produces = "application/json")
-        @ResponseBody
-        @ResponseStatus(HttpStatus.OK)
-        public String GetAllUser() throws ParseException,JsonParseException {
-            List<User> userList = userRepository.findAll();
-            String json = "";
-            JSONArray jsonArray = new JSONArray();
-            for(int i = 0; i<userList.size(); i++) {
-                    JSONObject jsonObject = new JSONObject().put("id_user", userList.get(i).getId_user());
-                    jsonObject.put("avatar", userList.get(i).getPersonal_Infomation().getAvatar());
-                    jsonObject.put("lat", userList.get(i).getLat_PI());
-                    jsonObject.put("long", userList.get(i).getLong_PI());
-                    jsonObject.put("name", userList.get(i).getPersonal_Infomation().getName_PI());
-                     jsonObject.put("name_user_type", userList.get(i).getId_user_type().getName_user_type());
-                     jsonObject.put("username", userList.get(i).getUsername());
-                    jsonArray.put(jsonObject);
-            }
 
-            json =  jsonArray.toString();
-           return json;
-        }
+
+        @RequestMapping(value = "/api/accident/GetAllAccident", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE, produces = "application/json")
+            @ResponseBody
+            @ResponseStatus(HttpStatus.OK)
+            public String GetAllAccident() throws ParseException,JsonParseException {
+                List<Accident>  accidentList = accidentRepository.findAll();
+                String json = "";
+                JSONArray jsonArray = new JSONArray();
+                for(int i = 0; i<accidentList.size(); i++) {
+                        JSONObject jsonObject = new JSONObject().put("id_victim", accidentList.get(i).getId_user().getId_user());
+                        jsonObject.put("id_AC", accidentList.get(i).getId_AC());
+                        jsonObject.put("lat_AC", accidentList.get(i).getLat_AC());
+                        jsonObject.put("long_AC", accidentList.get(i).getLong_AC());
+                        jsonObject.put("description_AC", accidentList.get(i).getDescription_AC());
+                        SimpleDateFormat date_out = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                        SimpleDateFormat date_in = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        Date d = date_in.parse(accidentList.get(i).getDate_AC().toString());
+
+                         String formattedTime = date_out.format(d);
+
+                         jsonObject.put("date_AC", formattedTime);
+                         jsonObject.put("status_AC", accidentList.get(i).getStatus_AC());
+                         jsonObject.put("address", accidentList.get(i).getAddress());
+                         jsonObject.put("firebaseKey", accidentList.get(i).getFirebaseKey());
+                        jsonArray.put(jsonObject);
+                }
+
+                json =  jsonArray.toString();
+               return json;
+            }
 
 
 }

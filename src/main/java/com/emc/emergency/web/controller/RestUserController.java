@@ -4,6 +4,10 @@ import com.emc.emergency.data.model.User;
 import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.UserService;
 import com.emc.emergency.web.FlashMessage;
+import java.text.ParseException;
+import org.codehaus.jackson.JsonParseException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -93,6 +97,27 @@ public class RestUserController {
         return flashMessage;
     }
 
+            @RequestMapping(value = "/api/GetAllUser", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE, produces = "application/json")
+            @ResponseBody
+            @ResponseStatus(HttpStatus.OK)
+            public String GetAllUser() throws ParseException,JsonParseException {
+                List<User> userList = userRepository.findAll();
+                String json = "";
+                JSONArray jsonArray = new JSONArray();
+                for(int i = 0; i<userList.size(); i++) {
+                        JSONObject jsonObject = new JSONObject().put("id_user", userList.get(i).getId_user());
+                        jsonObject.put("avatar", userList.get(i).getPersonal_Infomation().getAvatar());
+                        jsonObject.put("lat", userList.get(i).getLat_PI());
+                        jsonObject.put("long", userList.get(i).getLong_PI());
+                        jsonObject.put("name", userList.get(i).getPersonal_Infomation().getName_PI());
+                         jsonObject.put("name_user_type", userList.get(i).getId_user_type().getName_user_type());
+                         jsonObject.put("username", userList.get(i).getUsername());
+                        jsonArray.put(jsonObject);
+                }
+
+                json =  jsonArray.toString();
+               return json;
+            }
 
 
 

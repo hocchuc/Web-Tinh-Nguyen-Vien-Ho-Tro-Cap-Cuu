@@ -128,7 +128,7 @@ public class AccidentService {
 
             }
             if (accident_detail.getAction_type().getName_action().equals("ReportDone")){
-                accident.setIs_report_done(false);
+                accident.setIs_report_done(true);
                 accidentRepository.save(accident);
                 MessageSender messageSender = new MessageSender();
                  messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo "+accident.getAddress()+"  kết thúc tai nạn","Tai nạn kết thúc");
