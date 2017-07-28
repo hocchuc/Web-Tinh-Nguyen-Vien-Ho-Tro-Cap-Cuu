@@ -198,21 +198,15 @@ public class MessageSender {
                             notiPayload.put("address",accident.getAddress());
                             notiPayload.put("FirebaseKey",accident.getFirebaseKey());
                             notiPayload.put(Util.BACKEND_DONE_ACCIDENT, message);
-
                             out.setNotificationPayload(notiPayload);
-
                             out.setPriority("High");
                             logger.log(Level.INFO,out.toString());
-
                             fcmService.sendMessage(out);
-
                             stateresponse.setCode(Util.OK_CODE);
                             stateresponse.setMessage(Util.OK_MESSAGE);
                             logger.log(Level.INFO,Util.OK_LABEL + message);
                             Log.d(TAG,"response :"+stateresponse.toString());
-
                             if(SoUserDaCall == 5)  break;
-
                         } catch (Exception e) {
                             stateresponse.setCode(Util.SERVER_ERROR_CODE);
                             stateresponse.setMessage(e.getMessage());
