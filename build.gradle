@@ -15,7 +15,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'war'
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -23,9 +22,7 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
-war {
-    baseName = 'emergencysos'
-}
+
 repositories {
     jcenter()
     mavenCentral()
@@ -44,8 +41,8 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 	compile ("io.github.jpenren:thymeleaf-spring-data-dialect:3.1.1")
 	compile('org.springframework.boot:spring-boot-starter-web')
-// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
-compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '1.5.4.RELEASE'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+	compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '1.5.4.RELEASE'
 
 	compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
 
@@ -93,3 +90,4 @@ compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version
 
 
 }
+
