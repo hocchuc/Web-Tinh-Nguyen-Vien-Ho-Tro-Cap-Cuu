@@ -168,5 +168,34 @@ public class RestAccidentController {
                return json;
             }
 
+    @RequestMapping(value = "/api/accident/GetAcciden/{id_AC}", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE, produces = "application/json")
+                @ResponseBody
+                @ResponseStatus(HttpStatus.OK)
+                public String GetAcciden(@PathVariable("id_AC") String id_AC) throws ParseException,JsonParseException {
+                    Accident accident = accidentRepository.findOne(Long.parseLong(id_AC));
+                    String json = "";
+                    JSONArray jsonArray = new JSONArray();
+                    JSONObject jsonObject = new JSONObject()
+                        .put("id_victim", accident.getId_user().getId_user());
+                    jsonObject.put("id_AC", accident.getId_AC());
+                    jsonObject.put("lat_AC", accident.getLat_AC());
+                    jsonObject.put("long_AC", accident.getLong_AC());
+                    jsonObject.put("description_AC", accident.getDescription_AC());
+                    SimpleDateFormat date_out = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                    SimpleDateFormat date_in = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Date d = date_in.parse(accident.getDate_AC().toString());
+
+                    String formattedTime = date_out.format(d);
+
+                    jsonObject.put("date_AC", formattedTime);
+                    jsonObject.put("status_AC", accident.getStatus_AC());
+                    jsonObject.put("address", accident.getAddress());
+                    jsonObject.put("firebaseKey", accident.getFirebaseKey());
+                    jsonArray.put(jsonObject);
+
+                    json = jsonArray.toString();
+                    return json;
+                }
+
 
 }
