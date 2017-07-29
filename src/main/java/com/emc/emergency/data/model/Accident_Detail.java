@@ -46,6 +46,15 @@ public class Accident_Detail {
   public Accident_Detail() {
   }
 
+  public Accident_Detail(Long id_AC_detail, User id_user, Accident id_AC,
+      Action_Type action_type, Date date_create) {
+    this.id_AC_detail = id_AC_detail;
+    this.id_user = id_user;
+    this.id_AC = id_AC;
+    this.action_type = action_type;
+    this.date_create = date_create;
+  }
+
   public Accident_Detail(Long id_AC_detail, Date date_create) {
     this.id_AC_detail = id_AC_detail;
     this.date_create = date_create;

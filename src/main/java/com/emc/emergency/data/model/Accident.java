@@ -31,6 +31,28 @@ public class Accident  {
 		this.request_AC = request_AC;
 	}
 
+	public Accident(Long id_AC, User id_user, String description_AC, Date date_AC,
+			Double long_AC, Double lat_AC, String status_AC, String address, String firebaseKey,
+			Boolean is_reported_fake, int joined, User id_admin_active, Boolean request_AC,
+			Boolean is_reported_done,
+			List<Accident_Detail> accident_details) {
+		this.id_AC = id_AC;
+		this.id_user = id_user;
+		this.description_AC = description_AC;
+		this.date_AC = date_AC;
+		this.long_AC = long_AC;
+		this.lat_AC = lat_AC;
+		this.status_AC = status_AC;
+		this.address = address;
+		this.firebaseKey = firebaseKey;
+		this.is_reported_fake = is_reported_fake;
+		this.joined = joined;
+		this.id_admin_active = id_admin_active;
+		this.request_AC = request_AC;
+		this.is_reported_done = is_reported_done;
+		this.accident_details = accident_details;
+	}
+
 	@Column(name="id_AC", nullable=false, length=20)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
