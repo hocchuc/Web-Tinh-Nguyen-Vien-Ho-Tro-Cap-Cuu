@@ -51,3 +51,22 @@ $(function(){
         });
     })();
 });
+
+    // Socket to notice admin
+
+    var stompClient = null;
+    function connect() {
+        var socket = new SockJS('/websocket-notice');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/notices', function (notice) {
+                showNotice(JSON.parse(notice.body).content);
+            });
+        });
+    }
+    function showNotice(message) {
+        Materialize.toast(message, 10000);
+    }
+
+   connect();

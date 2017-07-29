@@ -8,8 +8,11 @@ import com.emc.emergency.data.repository.accidentRepository;
 import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.FCMService;
 import com.emc.emergency.util.Util;
+import com.emc.emergency.web.controller.NoticeController;
 import com.google.firebase.internal.Log;
+import java.util.Iterator;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -17,7 +20,9 @@ import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -33,9 +38,17 @@ import java.util.logging.Logger;
 /**
  * Created by hocan on 02-Jul-17.
  */
-
+@Component
 public class MessageSender {
     String TAG = "MessageSender";
+    private static MessageSender instance;
+    @PostConstruct
+       void init() {
+           instance = this;
+       }
+
+    @Autowired
+    private static ApplicationContext appContext;
 
     @Autowired
     accidentRepository accidentRepository;
@@ -43,11 +56,14 @@ public class MessageSender {
     @Autowired
     userRepository userRepository;
 
-
+    public void setApplicationContext(ApplicationContext context) throws BeansException {
+        appContext = context;
+     }
+    public static Object getBean(String beanName) {
+       return appContext.getBean(beanName);
+     }
     private static final Logger logger = Logger.getLogger(MessageSender.class.getName());
-
     public MessageSender() {
-
         CcsClient ccsClient = CcsClient.prepareClient("728085231482", "AAAAqYVC93o:APA91bH_L5bG6M_OINOatTEfUZ4YpW5Lec7CeG8C33oXkdxtS2Pga61LN2S4fwh9OF7VW3T-1CJtca7wz-bunK4MAvul4A_cf4vdPCFcNWvx-NzOtSvHs6Qls9VYq4vn6G4FWDlJIyKT", true);
         try {
             ccsClient.connect();
@@ -61,16 +77,17 @@ public class MessageSender {
             e.printStackTrace();
         }
     }
-    public void sendAccident( Accident accident,Iterable<User> users, FCMService fcmService,String id_AC) {
+    public void sendAccident( Accident accident,List<User> users, FCMService fcmService,String id_AC ,NoticeController noticeController) {
         int SoUserDaCall = 0;
         // 1km = 100.000 cm
         Double DefaultDistance = 1000000.0;
         String message = accident.getDescription_AC() + " ở " + accident.getAddress();
 
-        Iterable<User> userList = users;
-        while (SoUserDaCall == 0 ) {
+        List<User> userList = users;
+        while (SoUserDaCall == 0 && DefaultDistance<=7000000.0) {
 
-        for (User user : userList) {
+            for (Iterator<User> it = userList.iterator(); it.hasNext();) {
+                    User user = it.next();
             if (user.getLong_PI() != null && user.getLat_PI() != null && user.getToken() != null) {
                 if ((user.getId_user_type().getName_user_type().equals("volunteer") || (user.getId_user_type().getName_user_type().equals("admin")))) {
 
@@ -115,13 +132,15 @@ public class MessageSender {
 
                             logger.log(Level.INFO,id_AC+"");
 
+                            /** Gửi tin nhắn*/
                             out.setNotificationPayload(notiPayload);
+                            /** Xóa  khỏi danh sách sẽ gửi**/
+                            it.remove();
 
                             out.setPriority("High");
                             logger.log(Level.INFO,out.toString());
 
                             fcmService.sendMessage(out);
-
                             stateresponse.setCode(Util.OK_CODE);
                             stateresponse.setMessage(Util.OK_MESSAGE);
                             logger.log(Level.INFO,Util.OK_LABEL + message);
@@ -135,11 +154,20 @@ public class MessageSender {
                             logger.log(Level.WARNING, Util.ERROR_LABEL + message);
                         }
 
+
                     }
                 }
             }
         }
+            DefaultDistance = DefaultDistance+1000000.0;
+
         }
+        noticeController.sendNotice("Đã gửi cho :"+ SoUserDaCall +" user");
+       if(SoUserDaCall==0)    {
+           noticeController.sendNotice("Cảnh báo tai nạn "+accident.getId_AC()+" không gọi được thông báo cho tnv nào cả");
+           noticeController.sendNotice("Vui lòng thông báo cho bệnh viện gần tai nạn nhất");
+
+       }
     }
 
     /**
@@ -149,18 +177,19 @@ public class MessageSender {
      * @param fcmService đã khởi tạo sẵn
      * @param accident tai nạn cần gởi
      */
-    public void sendAccidentDone( Accident accident,Iterable<User> users, FCMService fcmService) {
+    public void sendAccidentDone( Accident accident,List<User> users, FCMService fcmService ,NoticeController noticeController) {
         int SoUserDaCall = 0 ;
         // 1km = 100.000 cm
         Double DefaultDistance = 1000000.0;
 
         String message = "Tai nạn ở " + accident.getAddress()+" đã xong";
         //  Log.d("OnAccidentCreated", message);
-        Iterable<User> userList = users;
+        List<User> userList = users;
 
-        while (SoUserDaCall == 0 ) {
+        while (SoUserDaCall == 0 && DefaultDistance<=7000000.0 ) {
             DefaultDistance = DefaultDistance + 100000.0;
-            for (User user : userList) {
+            for (Iterator<User> it = userList.iterator(); it.hasNext();) {
+                User user = it.next();
             // chọn danh sách user có tọa độ và token
             if (user.getLong_PI() != null && user.getLat_PI() != null && user.getToken() != null) {
                 if ((user.getId_user_type().getName_user_type().equals("volunteer") || (user.getId_user_type().getName_user_type().equals("admin")))) {
@@ -171,7 +200,7 @@ public class MessageSender {
                         Double.valueOf(decimalFormat.format(user.getLong_PI())),
                         accident.getLat_AC(),
                         accident.getLong_AC());
-                    logger.log(Level.INFO,"distance :" + distance);
+                        logger.log(Level.INFO,"distance :" + distance);
 
                     if (distance <=  DefaultDistance) {
                         SoUserDaCall++;
@@ -201,7 +230,13 @@ public class MessageSender {
                             out.setNotificationPayload(notiPayload);
                             out.setPriority("High");
                             logger.log(Level.INFO,out.toString());
-                            fcmService.sendMessage(out);
+
+                            /** Gửi tin nhắn*/
+                          out.setNotificationPayload(notiPayload);
+
+                            /** Xóa  khỏi danh sách sẽ gửi**/
+                            it.remove();
+
                             stateresponse.setCode(Util.OK_CODE);
                             stateresponse.setMessage(Util.OK_MESSAGE);
                             logger.log(Level.INFO,Util.OK_LABEL + message);
@@ -216,11 +251,19 @@ public class MessageSender {
                     }
                 }
             }
-        }
 
         }
+            DefaultDistance += 1000000.0;
 
 
+        }
+
+        noticeController.sendNotice("Đã gửi cho :"+ SoUserDaCall +" user");
+        if(SoUserDaCall==0)    {
+                   noticeController.sendNotice("Cảnh báo tai nạn "+accident.getId_AC()+" không gọi được thông báo cho tnv nào cả");
+                   noticeController.sendNotice("Vui lòng thông báo cho bệnh viện gần tai nạn nhất");
+
+               }
     }
 
     /**
@@ -230,7 +273,7 @@ public class MessageSender {
      * @param Message Tin nhắn
      * @param Title Tiêu đề
      */
-    public void SendNotiToOneUser(User user, FCMService fcmService, String Message, String Title) {
+    public void SendNotiToOneUser(User user, FCMService fcmService, String Message, String Title ,NoticeController noticeController) {
         StateResponse stateresponse = new StateResponse();
 
         try {
@@ -260,6 +303,7 @@ public class MessageSender {
                 logger.log(Level.INFO, Util.OK_LABEL + Message);
                 Log.d(TAG, "response :" + stateresponse.toString());
 
+                noticeController.sendNotice("Đã gửi cho thông báo cho: "+ user.getPersonal_Infomation().getName_PI());
 
 
             }
@@ -279,7 +323,7 @@ public class MessageSender {
          * @param Message Tin nhắn
          * @param Title Tiêu đề
          */
-    public void SendNotiToAllUser(List<User> users, FCMService fcmService, String Message, String Title) {
+    public void SendNotiToAllUser(List<User> users, FCMService fcmService, String Message, String Title ,NoticeController noticeController) {
         StateResponse stateresponse = new StateResponse();
             for (User user : users)
                try {
@@ -318,6 +362,7 @@ public class MessageSender {
                    stateresponse.setMessage(e.getMessage());
                    logger.log(Level.WARNING, Util.ERROR_LABEL + Message);
                }
+              noticeController.sendNotice("Đã gửi cho thông báo cho tất cả mọi người");
 
 
        }

@@ -27,6 +27,9 @@
      <link th:href="@{css/prism.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
      <link th:href="@{js/plugins/perfect-scrollbar/perfect-scrollbar.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
      <link th:href="@{js/plugins/chartist-js/chartist.min.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
     <title th:text="'Admin | ' + ${page_title}">Emergency SOS</title>
 </head>
 
@@ -102,11 +105,10 @@
     <script th:src="@{/vendor/codrops/js/selectFx.js}"></script>
     <script th:src="@{/app.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js}"></script>
-      <script type="text/javascript" src="@{js/prism.js}"></script>
     <!--scrollbar-->
     <script type="text/javascript" th:src="@{/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
     <!-- chartist -->
-    <script type="text/javascript" th:src="@{/js/plugins/chartist-js/chartist.min.js}"></script>   
+    <!--<script type="text/javascript" th:src="@{/js/plugins/chartist-js/chartist.min.js}"></script>   -->
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
     <script type="text/javascript" th:src="@{/js/plugins.js}"></script>
     <!-- data-tables -->
