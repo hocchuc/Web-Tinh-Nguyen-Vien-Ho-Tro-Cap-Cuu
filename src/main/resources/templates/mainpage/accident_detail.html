@@ -84,12 +84,12 @@
             </thead>
             <tbody>
             <tr th:each="user  : ${users_joined}">
-              <td th:text="${user.username}">Tiger Nixon</td>
-              <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.name_PI}"></td>
-              <td th:text="${user.user_type.name_user_type}">System Architect</td>
-              <td th:text="${user.password}">online</td>
-              <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
-              <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.phone_PI}"></td>
+              <td th:text="${user.username}">abc@gmail.com</td>
+              <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.name_PI}">Trần Văn A</td>
+              <td th:text="${user.user_type.name_user_type}">User</td>
+              <td th:text="${user.password}">123456</td>
+              <td th:text="${user.lat_PI + ',' +user.long_PI}">1.223, 2.123</td>
+              <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.phone_PI}">09012345678</td>
             </tr>
             </tbody>
           </table>
