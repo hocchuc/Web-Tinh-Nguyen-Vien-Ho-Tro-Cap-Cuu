@@ -104,7 +104,7 @@ public class AccidentEventHandler {
 
                 accidentRepository.save(accident);
 
-                noticeController.sendNotice("Có tai nạn " +accident.getDescription_AC()+" ở " + accident.getAddress()+" có id: "+ accident.getId_AC());
+                noticeController.NewAccident("Có tai nạn " +accident.getDescription_AC()+" ở " + accident.getAddress()+" có id: "+ accident.getId_AC());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (Exception e) {

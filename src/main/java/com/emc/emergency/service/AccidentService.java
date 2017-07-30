@@ -158,6 +158,15 @@ public class AccidentService {
         return true;
     }
 
+    public List<Accident_Detail> GetAccidentDetailByAccidentID(Long ID) {
+            List<Accident_Detail> accidents =  accident_detailRepository.findAll();
+              List<Accident_Detail> accident_detailList = new ArrayList<>();
+              for(Accident_Detail accident_detail : accidents)
+                  if(accident_detail.getId_AC().equals(accidentRepository.findOne(ID)))
+                      accident_detailList.add(accident_detail);
+            return accident_detailList;
+        }
+
 
 
 }

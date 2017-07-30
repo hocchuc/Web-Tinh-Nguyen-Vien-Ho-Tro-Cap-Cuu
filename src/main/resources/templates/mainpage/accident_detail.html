@@ -1,9 +1,9 @@
-    <!doctype html>
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta description="viewport" content="width=device-width, initial-scale=1"/>
-    <style type="text/css">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta description="viewport" content="width=device-width, initial-scale=1"/>
+  <style type="text/css">
     .preloader-background {
     	display: flex;
     	align-items: center;
@@ -28,153 +28,190 @@
 		    line-height: 12px;
 		    padding: 0 0.5rem;
 		}
-    	</style>
-      <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-    <link rel="icon" th:href="@{/favicon.png}" />
-    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
-    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.min.css}" />
-    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-select.css}" />
-    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-skin-border.css}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css}"/>
-    <link rel="stylesheet" th:href="@{/app.css}" />
-    <title>Admin | Accident Detail</title>
-   
-    </head>
-    <body>
-    <!-- START MAIN -->
-    <div id="main">
-      <!-- START WRAPPER -->
-      <div class="wrapper">
-        <div th:replace="layout :: nav"></div>
-        <div class="divider"></div>
-        <div th:replace="layout :: preloader"></div>
 
-          <div class="row">
-             <div class="col s1 m1 l1"></div>
-            <div id="map"  class="col s10 m10 l10"></div>
-            <div class="col s1 m1 l1"></div>
-          </div>
-        <!--DataTables users-->
-          <div id="table-datatables">
-              <div class="row">
-                <div class="col s1 m2 l2"></div>
-                <div class="col s8 m8 l8"><h4 class="header">User Management</h4></div>
-                <div class="col s1 m2 l2"></div>
-            </div>
-          <div class="row">
-            <div class="col s1 m1 l1"></div>
-            <div class="col s10 m10 l10">
-              <table id="data-table-simple" class="responsive-table display highlight centered" cellspacing="0">
-                <thead>
-                <tr>
-                  <th>Username</th>
-                   <th>Name</th>
-                  <th>Role</th>
-                  <th>Password</th>
-                  <th>Position</th>
-                  <th>Phone</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="user  : ${users_joined}">
-                  <td th:text="${user.username}">Tiger Nixon</td>
-                  <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.name_PI}"></td>
-                  <td th:text="${user.user_type.name_user_type}">System Architect</td>
-                  <td th:text="${user.password}">online</td>
-                  <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
-                  <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.phone_PI}"></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="col s1 m1 l1"></div>
-        </div>
-        <div id="table-datatables2">
-                    <div class="row">
-                      <div class="col s1 m2 l2"></div>
-                      <div class="col s10 m8 l8"><h4 class="header">Accident Management</h4></div>
-                      <div class="col s1 m2 l2"></div>
-                    </div>
-                    <div class="row">
-                      <div class="col s1 m1 l1"></div>
-                        <div class="col s11 m10 l10">
-                            <table id="data-table-simple2" class="responsive-table display highlight centered" >
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Description</th>
-                                    <th>Time</th>
-                                    <th>Address</th>
-                                    <th>Status</th>
-                                    <th>Position</th>
-                                    <th>Joined </th>
-                                    <th>Reported Done </th>
-                                    <th>Admin_Active </th>
-                                    <th>Fake</th>
-                                    <th>Delete</th>
-                                    <th>Activate</th>
-                                    <th>Set Done</th>
+  </style>
+  <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+  <link rel="icon" th:href="@{/favicon.png}"/>
+  <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}"/>
+  <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.min.css}"/>
+  <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-select.css}"/>
+  <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-skin-border.css}"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <link rel="stylesheet"
+        th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css}"/>
+  <link rel="stylesheet" th:href="@{/app.css}"/>
+  <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td th:text="${accident.id_AC}">  Tiger Nixon</td>
-                                    <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'" >username</td>
-                                    <td th:text="${accident.description_AC}" style="word-wrap: break-word" >online</td>
-                                    <td th:text="${accident.date_AC}">61</td>
-                                    <td th:text="${accident.Address}"  >61</td>
-                                    <td th:text="${accident.status_AC}">61</td>
-                                    <td th:text="|${accident.lat_AC} , ${accident.long_AC}|" >6</td>
-                                    <td th:text=" ${accident.joined}"> 0</td>
-                                    <td th:text="${accident.Is_report_done} ? 'Yes' : 'No'">No</td>
-                                    <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">No</td>
-                                    <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
-                                    <td>
-                                        <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
-                                        <form th:action="@{|/accident/remove/${accident.id_AC}|}" method="post">
-                                            <button class="btn waves-effect waves-light btn-small" type="submit" >
-                                                <i class="tiny material-icons">delete</i>Delete</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
-                                        <form th:action="@{|/accident/activate/${accident.id_AC}|}" method="post">
-                                            <button type="submit" class="btn waves-effect waves-light btn-small">
-                                            <i class="tiny material-icons">done</i>Activate</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <input hidden="hidden" name="id" th:value="${accident.id_AC}" />
-                                        <form th:action="@{|/accident/setdone/${accident.id_AC}|}" method="post">
-                                            <button type="submit" class="btn waves-effect waves-light btn-small">
-                                                <i class="tiny material-icons">done_all</i>Done</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col s1 m1 l1"> </div>
-                    </div>
-                </div>
-        <br/>
-        <div class="divider">
-        </div>
+  <title>Admin | Accident Detail</title>
 
+</head>
+<body>
+<!-- START MAIN -->
+<div id="main">
+  <!-- START WRAPPER -->
+  <div class="wrapper">
+    <div th:replace="layout :: nav"></div>
+    <div class="divider"></div>
+    <div th:replace="layout :: preloader"></div>
+
+    <div class="row">
+      <div class="col s1 m1 l1"></div>
+      <div id="map" class="col s10 m10 l10"></div>
+      <div class="col s1 m1 l1"></div>
+    </div>
+    <!--DataTables users-->
+    <div id="table-datatables">
+      <div class="row">
+        <div class="col s1 m1 l1"></div>
+        <div class="col s10 m10 l10"><h4 class="header">User Management</h4></div>
+        <div class="col s1 m1 l1"></div>
       </div>
-      <!-- END WRAPPER -->
+      <div class="row">
+        <div class="col s1 m1 l1"></div>
+        <div class="col s10 m10 l10">
+          <table id="data-table-simple" class="responsive-table display highlight centered"
+                 cellspacing="0">
+            <thead>
+            <tr>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Password</th>
+              <th>Position</th>
+              <th>Phone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user  : ${users_joined}">
+              <td th:text="${user.username}">Tiger Nixon</td>
+              <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.name_PI}"></td>
+              <td th:text="${user.user_type.name_user_type}">System Architect</td>
+              <td th:text="${user.password}">online</td>
+              <td th:text="${user.lat_PI + ',' +user.long_PI}">61</td>
+              <td th:text="${user.personal_Infomation!=null} ? ${user.personal_Infomation.phone_PI}"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col s1 m1 l1"></div>
+    </div>
+    <div class="divider"></div>
+
+    <div id="table-datatables2">
+      <div class="row">
+        <div class="col s1 m1 l1"></div>
+        <div class="col s11 m10 l10"><h4 class="header">Accident Management</h4></div>
+        <div class="col s1 m1 l1"></div>
+      </div>
+      <div class="row">
+        <div class="col s1 m1 l1"></div>
+        <div class="col s11 m10 l10">
+          <table id="data-table-simple2" class="responsive-table display highlight centered">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>Description</th>
+              <th>Time</th>
+              <th>Address</th>
+              <th>Status</th>
+              <th>Position</th>
+              <th>Joined</th>
+              <th>Reported Done</th>
+              <th>Request AC</th>
+              <th>Admin_Active</th>
+              <th>Fake</th>
+              <th>Delete</th>
+              <th>Activate</th>
+              <th>Set Done</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td th:text="${accident.id_AC}"> Tiger Nixon</td>
+              <td th:text="${accident.id_user!=null} ? ${accident.id_user.username} : 'Null'">
+                username
+              </td>
+              <td th:text="${accident.description_AC}" style="word-wrap: break-word">online</td>
+              <td th:text="${accident.date_AC}">61</td>
+              <td th:text="${accident.Address}">61</td>
+              <td th:text="${accident.status_AC}">61</td>
+              <td th:text="|${accident.lat_AC} , ${accident.long_AC}|">6</td>
+              <td th:text=" ${accident.joined}"> 0</td>
+              <td th:text="${accident.Is_report_done} ? 'Yes' : 'No'">No</td>
+              <td th:text="${accident.request_AC} ? 'Yes' : 'No'">No</td>
+              <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">
+                No
+              </td>
+              <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
+              <td>
+                <input hidden="hidden" name="id" th:value="${accident.id_AC}"/>
+                <form th:action="@{|/accident/remove/${accident.id_AC}|}" method="post">
+                  <button class="btn waves-effect waves-light btn-small" type="submit">
+                    <i class="tiny material-icons">delete</i>Delete
+                  </button>
+                </form>
+              </td>
+              <td>
+                <input hidden="hidden" name="id" th:value="${accident.id_AC}"/>
+                <form th:action="@{|/accident/activate/${accident.id_AC}|}" method="post">
+                  <button type="submit" class="btn waves-effect waves-light btn-small">
+                    <i class="tiny material-icons">done</i>Activate
+                  </button>
+                </form>
+              </td>
+              <td>
+                <input hidden="hidden" name="id" th:value="${accident.id_AC}"/>
+                <form th:action="@{|/accident/setdone/${accident.id_AC}|}" method="post">
+                  <button type="submit" class="btn waves-effect waves-light btn-small">
+                    <i class="tiny material-icons">done_all</i>Done
+                  </button>
+                </form>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col s1 m1 l1"></div>
+      </div>
+      <div class="divider"></div>
+    </div>
+        <div id="table-datatables3">
+          <div class="row">
+            <div class="col s1 m1 l1"></div>
+            <div class="col s10 m10 l10"><h4 class="header">Các hành động đã xảy ra</h4></div>
+            <div class="col s1 m1 l1"></div>
+          </div>
+          <div class="row">
+            <div class="col s1 m1 l1"></div>
+            <div class="col s11 m10 l10">
+              <ul  th:each="accident_detail  : ${accident_details}" class="collection">
+                  <div th:switch="${accident_detail.action_type.id_action}">
+                    <li  th:case="1" class="collection-item left-align"  th:text="${accident_detail.id_user.personal_Infomation.name_PI}+' đã tham gia lúc '+ ${#dates.format(accident_detail.date_create, 'dd/MMM/yyyy HH:mm')}" > some other thing</li>
+                    <li th:case="2" class="collection-itemleft-align"  th:text="${accident_detail.id_user.personal_Infomation.name_PI}+' đã báo tai nạn kết thúc lúc '+${#dates.format(accident_detail.date_create, 'dd/MMM/yyyy HH:mm')}" > some other thing</li>
+                    <li th:case="3" class="collection-item left-align"  th:text="${accident_detail.id_user.personal_Infomation.name_PI}+' đã báo tai nạn giả lúc '+${#dates.format(accident_detail.date_create, 'dd/MMM/yyyy HH:mm')}" > some other thing</li>
+                  </div>
+                 </ul>
+            </div>
+          <div class="col s1 m1 l1"></div>
+          </div>
+        </div>
+      <br/>
+      <div class="divider"></div>
 
     </div>
-    <!-- END MAIN -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <div th:inline="text" ></div>
-    <script type="text/javascript" th:src="@{https://maps.googleapis.com/maps/api/js(key=${googleMapsAPIKey})}"></script>
-    <script th:inline="javascript">
+    <!-- END WRAPPER -->
+
+  </div>
+  <!-- END MAIN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <div th:inline="text"></div>
+  <script type="text/javascript"
+          th:src="@{https://maps.googleapis.com/maps/api/js(key=${googleMapsAPIKey})}"></script>
+  <script th:inline="javascript">
         var markerLat, markerLong, username;
 
        /*<![CDATA[*/  
@@ -248,8 +285,9 @@
       }
       google.maps.event.addDomListener(window, 'load', initialize);
 
-    </script>
-    <script>
+
+  </script>
+  <script>
          document.addEventListener("DOMContentLoaded", function(){
          	$('.preloader-background').delay(1000).fadeOut('slow');
 
@@ -257,10 +295,9 @@
          		.delay(1100)
          		.fadeOut();
          });
-       </script>
-    </body>
-  
+
+  </script>
+</body>
 
 
-   
-    </html>
+</html>
