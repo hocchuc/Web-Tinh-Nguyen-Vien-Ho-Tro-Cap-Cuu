@@ -138,6 +138,7 @@ public class AccidentController {
     }
     logger.info(accidentRepo.findOne(Long.parseLong(id)).toString());
     model.addAttribute("accident",accidentRepo.findOne(Long.parseLong(id)));
+    model.addAttribute("accident_details",accidentService.GetAccidentDetailByAccidentID(Long.parseLong(id)));
       logger.info(UserFilterd.size()+"");
 
     model.addAttribute("users_joined",UserFilterd);

@@ -37,4 +37,18 @@ public class NoticeController {
         System.out.println("notice");
         this.template.convertAndSend("/topic/notices", new Notice(message));
     }
+
+  @RequestMapping(path="/NewAccidents", method=POST)
+    public void NewAccident(String message) {
+          logger.info("Notice from NewAccident:"+ message);
+
+          System.out.println("NewAccident");
+          this.template.convertAndSend("/topic/accidents", new Notice(message));
+      }
+  @RequestMapping(path="/alerts", method=POST)
+      public void SendAlert(String message) {
+            logger.info("Notice from SendAlert:"+ message);
+            System.out.println("SendAlert");
+            this.template.convertAndSend("/topic/alerts", new Notice(message));
+        }
 }

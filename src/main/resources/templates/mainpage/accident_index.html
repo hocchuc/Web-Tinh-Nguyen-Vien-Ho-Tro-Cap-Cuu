@@ -53,6 +53,7 @@
                             <th>Position</th>
                             <th>Joined </th>
                             <th>Admin</th>
+                            <th>Request_AC</th>
                             <th>Fake</th>
                             <th>Report Done</th>
                             <th>Delete</th>
@@ -74,6 +75,7 @@
                             <td th:text="|${accident.lat_AC}, ${accident.long_AC}|" >6</td>
                             <td th:text=" ${accident.joined}"> 0</td>
                             <td th:text="${accident.id_admin_active!=null} ? ${accident.id_admin_active.id_user} : 'No'">No</td>
+                            <td th:text="${accident.request_AC} ? 'Yes' : 'No'">No</td>
                             <td th:text="${accident.is_reported_fake} ? 'Yes' : 'No'">No</td>
                             <td th:text="${accident.Is_report_done} ? 'Yes' : 'No'">No</td>
                             <td>

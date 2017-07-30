@@ -118,9 +118,9 @@ public class DatabaseLoader implements ApplicationRunner {
         action_typeRepository.save(action_type3);
         action_typeRepository.save(action_type4);
 
-        Accident_Detail accident_detail1 = new Accident_Detail(null,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/1995"),user.findOne(1L),accident.findOne(1L),action_typeRepository.findOne(1L));
+        Accident_Detail accident_detail1 = new Accident_Detail(null,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/2017"),user.findOne(1L),accident.findOne(1L),action_typeRepository.findOne(1L));
 
-        Accident_Detail accident_detail2 = new Accident_Detail(null,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/1995"),user.findOne(2L),accident.findOne(1L),action_typeRepository.findOne(1L));
+        Accident_Detail accident_detail2 = new Accident_Detail(null,new SimpleDateFormat("dd/MM/yyyy").parse("30/08/2017"),user.findOne(2L),accident.findOne(1L),action_typeRepository.findOne(1L));
         accident_detailRepository.save(accident_detail1);
         accident_detailRepository.save(accident_detail2);
 

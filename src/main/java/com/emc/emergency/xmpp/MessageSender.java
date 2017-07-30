@@ -162,12 +162,11 @@ public class MessageSender {
             DefaultDistance = DefaultDistance+1000000.0;
 
         }
-        noticeController.sendNotice("Đã gửi cho :"+ SoUserDaCall +" user");
-       if(SoUserDaCall==0)    {
-           noticeController.sendNotice("Cảnh báo tai nạn "+accident.getId_AC()+" không gọi được thông báo cho tnv nào cả");
-           noticeController.sendNotice("Vui lòng thông báo cho bệnh viện gần tai nạn nhất");
 
-       }
+       if(SoUserDaCall==0)    {
+           noticeController.SendAlert("Cảnh báo tai nạn "+accident.getId_AC()+" không gọi được thông báo cho tnv nào cả. Vui lòng thông báo cho bệnh viện gần tai nạn nhất");
+
+       } else noticeController.SendAlert("Đã gửi cho :"+ SoUserDaCall +" user");
     }
 
     /**
@@ -258,12 +257,8 @@ public class MessageSender {
 
         }
 
-        noticeController.sendNotice("Đã gửi cho :"+ SoUserDaCall +" user");
-        if(SoUserDaCall==0)    {
-                   noticeController.sendNotice("Cảnh báo tai nạn "+accident.getId_AC()+" không gọi được thông báo cho tnv nào cả");
-                   noticeController.sendNotice("Vui lòng thông báo cho bệnh viện gần tai nạn nhất");
+        noticeController.SendAlert("Đã gửi cho :"+ SoUserDaCall +" user");
 
-               }
     }
 
     /**
