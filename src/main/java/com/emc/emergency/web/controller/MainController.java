@@ -42,13 +42,15 @@ import static com.emc.emergency.web.FlashMessage.Status.*;
 @Controller
 public class MainController {
     @Autowired
+    NoticeController noticeController;
+
+    @Autowired
     ServletContext servletContext;
     @Autowired
     HttpSession session ;
     @Autowired
     FCMService fcmService;
      MessageSender messageSender = new MessageSender();
-    // Home page - index of all GIFs
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
     @Autowired
     user_typeRepository userTypeRepository;
@@ -160,7 +162,7 @@ public class MainController {
         User_Type volunteer = userTypeRepository.findOne(2l);
         user.setUser_type(volunteer);
         userRepository.save(user);
-        messageSender.SendNotiToOneUser(user,fcmService,"Bạn đã trở thành tình nguyện viên","Xin chúc mừng");
+        messageSender.SendNotiToOneUser(user,fcmService,"Bạn đã trở thành tình nguyện viên","Xin chúc mừng",noticeController);
         List<User> users = userService.findAll();
         model.addAttribute("userlist",users);
         return "mainpage/user_index";
@@ -177,7 +179,7 @@ public class MainController {
         User_Type User = userTypeRepository.findOne(3l);
         user.setUser_type(User);
         userRepository.save(user);
-        messageSender.SendNotiToOneUser(user,fcmService,"Bạn đã trở thành user thông thường do vi phạm nguyên tắc của tổ chức","Xin lỗi");
+        messageSender.SendNotiToOneUser(user,fcmService,"Bạn đã trở thành user thông thường do vi phạm nguyên tắc của tổ chức","Xin lỗi",noticeController);
 
         List<User> users = userService.findAll();
         model.addAttribute("userlist",users);

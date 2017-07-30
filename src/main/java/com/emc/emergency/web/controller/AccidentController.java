@@ -35,6 +35,8 @@ import java.util.List;
 public class AccidentController {
     private static final Logger logger = LoggerFactory.getLogger(AccidentController.class);
     @Autowired
+    NoticeController noticeController;
+    @Autowired
     HttpSession session;
     @Autowired
     UserService userService;
@@ -90,7 +92,7 @@ public class AccidentController {
         // Gửi noti cho user
         accidentService.activate(Long.parseLong(id),id_admin);
         MessageSender messageSender = new MessageSender();
-        messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService, id);
+        messageSender.sendAccident(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService, id,noticeController);
 
         //Chuẩn bị đối tượng cho Spring MVC
         List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
@@ -111,7 +113,7 @@ public class AccidentController {
         accidentService.setdone(Long.parseLong(id));
 
         MessageSender messageSender = new MessageSender();
-        messageSender.sendAccidentDone(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService);
+        messageSender.sendAccidentDone(accidentRepo.findOne(Long.parseLong(id)),userService.findAll(),fcmService,noticeController);
         //Chuẩn bị đối tượng cho Spring MVC
         List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
         List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");

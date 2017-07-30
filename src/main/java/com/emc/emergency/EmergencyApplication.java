@@ -1,9 +1,6 @@
 package com.emc.emergency;
 
-import com.emc.emergency.data.bean.CcsOutMessage;
-import com.emc.emergency.util.Util;
-import com.emc.emergency.xmpp.CcsClient;
-import com.emc.emergency.xmpp.MessageHelper;
+
 import java.util.TimeZone;
 import javax.annotation.PostConstruct;
 import org.jivesoftware.smack.SmackException;
@@ -14,10 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import java.util.logging.Level;
+
 import java.util.logging.Logger;
 
 @SpringBootApplication
@@ -27,7 +21,9 @@ public class EmergencyApplication {
 	public static final Logger logger = Logger.getLogger(EmergencyApplication.class.getName());
 		@PostConstruct
 			void started() {
-				TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+
+			TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+
 			}
 	public static void main(String[] args)throws SmackException, IOException  {
 		SpringApplication.run(EmergencyApplication.class, args);

@@ -32,17 +32,24 @@ public class User   {
         this.lat_PI = lat_PI;
     }
 
-//    public User(Long id_user, String username, String avatar, String token, User_Type user_type, Personal_Infomation personal_Infomation, String password, Double long_PI, Double lat_PI) {
-//        this.id_user = id_user;
-//        this.username = username;
-//        Avatar = avatar;
-//        this.token = token;
-//        this.user_type = user_type;
-//        this.personal_Infomation = personal_Infomation;
-//        this.password = password;
-//        this.long_PI = long_PI;
-//        this.lat_PI = lat_PI;
-//    }
+    public User(Long id_user, String username, User_Type user_type,
+        List<Accident> accident, List<Accident> accidents_active,
+        Personal_Infomation personal_Infomation,
+        List<Accident_Detail> accident_details, boolean is_signup_volunteer, String password,
+        String token, Double long_PI, Double lat_PI) {
+        this.id_user = id_user;
+        this.username = username;
+        this.user_type = user_type;
+        this.accident = accident;
+        this.accidents_active = accidents_active;
+        this.personal_Infomation = personal_Infomation;
+        this.accident_details = accident_details;
+        this.is_signup_volunteer = is_signup_volunteer;
+        this.password = password;
+        this.token = token;
+        this.long_PI = long_PI;
+        this.lat_PI = lat_PI;
+    }
 
     @Column(name="id_user", nullable=false, length=20)
     @Id
@@ -87,8 +94,7 @@ public class User   {
     @Column(name="lat_user", nullable=true)
     private Double lat_PI;
 
-    @Column(name="is_online", nullable=true)
-      private Boolean is_online;
+
 
     public List<Accident> getAccidents_active() {
         return accidents_active;
@@ -98,13 +104,7 @@ public class User   {
         this.accidents_active = accidents_active;
     }
 
-    public Boolean getIs_online() {
-        return is_online;
-    }
 
-    public void setIs_online(Boolean is_online) {
-        this.is_online = is_online;
-    }
 
     public boolean isIs_signup_volunteer() {
         return is_signup_volunteer;

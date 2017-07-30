@@ -39,6 +39,24 @@ public class Personal_Infomation implements Serializable  {
 		this.id_user = id_user;
 	}
 
+	public Personal_Infomation(Long id_PI, String avatar, String name_PI, Boolean sex__PI,
+			Date birthday, String personal_id, String work_location, String phone_PI,
+			String address_PI, String email_PI, User id_user,
+			List<Medical_Info> medical_Info) {
+		this.id_PI = id_PI;
+		Avatar = avatar;
+		this.name_PI = name_PI;
+		this.sex__PI = sex__PI;
+		this.birthday = birthday;
+		this.personal_id = personal_id;
+		this.work_location = work_location;
+		this.phone_PI = phone_PI;
+		this.address_PI = address_PI;
+		this.email_PI = email_PI;
+		this.id_user = id_user;
+		this.medical_Info = medical_Info;
+	}
+
 	public Personal_Infomation(Long id_PI, String name_PI, String email_PI, User id_user) {
 		this.id_PI = id_PI;
 		this.name_PI = name_PI;

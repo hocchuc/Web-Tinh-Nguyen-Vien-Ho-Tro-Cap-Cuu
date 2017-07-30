@@ -5,6 +5,7 @@ import com.emc.emergency.data.model.Accident_Detail;
 import com.emc.emergency.data.model.Action_Type;
 import com.emc.emergency.data.model.User;
 import com.emc.emergency.web.controller.AccidentController;
+import com.emc.emergency.web.controller.NoticeController;
 import com.emc.emergency.xmpp.MessageSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,9 @@ import java.util.List;
 public class AccidentService {
     private static final Logger logger = LoggerFactory.getLogger(AccidentService.class);
 
+
+    @Autowired
+        NoticeController noticeController;
     @Autowired
     accidentRepository accidentRepository;
     @Autowired
@@ -118,27 +122,31 @@ public class AccidentService {
                 accident.setJoined(accident.getJoined() + 1);
                 accidentRepository.save(accident);
                 MessageSender messageSender = new MessageSender();
-                messageSender.SendNotiToOneUser(accident.getId_user(),fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã tham gia hỗ trợ bạn","Đang có người đến hỗ trợ bạn");
+                noticeController.sendNotice("Tình nguyện viên" +accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã đến hỗ trợ tai nạn, id: "+accident.getId_AC()+" địa chỉ :"+ accident.getAddress());
+                messageSender.SendNotiToOneUser(accident.getId_user(),fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã tham gia hỗ trợ bạn","Đang có người đến hỗ trợ bạn",noticeController);
             }
             if (accident_detail.getAction_type().getName_action().equals("ReportFake")){
                 accident.setIs_reported_fake(true);
                 accidentRepository.save(accident);
                 MessageSender messageSender = new MessageSender();
-                 messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo "+accident.getAddress()+"  là tai nạn giả","Tai nạn giả");
+                noticeController.sendNotice("Tình nguyện viên" +accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo tai nạn giả, id: "+accident.getId_AC());
+                 messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo "+accident.getAddress()+"  là tai nạn giả","Tai nạn giả",noticeController);
 
             }
             if (accident_detail.getAction_type().getName_action().equals("ReportDone")){
                 accident.setIs_report_done(true);
                 accidentRepository.save(accident);
                 MessageSender messageSender = new MessageSender();
-                 messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo "+accident.getAddress()+"  kết thúc tai nạn","Tai nạn kết thúc");
+                noticeController.sendNotice("Tình nguyện viên" +accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo tai nạn kết thúc, id: "+accident.getId_AC());
+                 messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo "+accident.getAddress()+"  kết thúc tai nạn","Tai nạn kết thúc",noticeController);
 
             }
             if (accident_detail.getAction_type().getName_action().equals("SetDone")){
                 accident.setStatus_AC("Done");
                 accidentRepository.save(accident);
                 MessageSender messageSender = new MessageSender();
-                messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo kết thúc tai nạn "+accident.getAddress(),"Tai nạn kết thúc");
+                messageSender.SendNotiToAllUser(UserFilterd,fcmService,accident_detail.getId_user().getPersonal_Infomation().getName_PI()+" đã báo kết thúc tai nạn "+accident.getAddress(),"Tai nạn kết thúc",noticeController);
+                noticeController.sendNotice("Tai nạn kết thúc, id: "+accident.getId_AC());
 
             }
 

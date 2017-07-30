@@ -1,6 +1,7 @@
 package com.emc.emergency.data.EventListener;
 
 import com.emc.emergency.data.bean.CcsOutMessage;
+import com.emc.emergency.data.bean.NoticeMessage;
 import com.emc.emergency.data.bean.StateResponse;
 import com.emc.emergency.data.model.Accident;
 import com.emc.emergency.data.model.User;
@@ -8,6 +9,7 @@ import com.emc.emergency.data.repository.accidentRepository;
 import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.FCMService;
 import com.emc.emergency.util.Util;
+import com.emc.emergency.web.controller.NoticeController;
 import com.emc.emergency.xmpp.CcsClient;
 import com.google.firebase.internal.Log;
 import okhttp3.OkHttpClient;
@@ -35,7 +37,8 @@ import java.util.logging.Logger;
 @RepositoryEventHandler(Accident.class)
 public class AccidentEventHandler {
     String TAG = "AccidentEventHandler";
-
+    @Autowired
+        NoticeController noticeController;
     @Autowired
     accidentRepository accidentRepository;
 
@@ -100,7 +103,11 @@ public class AccidentEventHandler {
                 logger.log(Level.INFO,accident.toString());
 
                 accidentRepository.save(accident);
+
+                noticeController.sendNotice("Có tai nạn " +accident.getDescription_AC()+" ở " + accident.getAddress()+" có id: "+ accident.getId_AC());
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

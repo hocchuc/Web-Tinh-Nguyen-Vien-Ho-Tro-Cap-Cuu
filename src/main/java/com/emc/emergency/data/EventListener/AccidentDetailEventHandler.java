@@ -10,6 +10,7 @@ import com.emc.emergency.data.repository.accident_detailRepository;
 import com.emc.emergency.data.repository.userRepository;
 import com.emc.emergency.service.FCMService;
 import com.emc.emergency.util.Util;
+import com.emc.emergency.web.controller.NoticeController;
 import com.emc.emergency.xmpp.CcsClient;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -40,6 +41,7 @@ public class AccidentDetailEventHandler {
 
   @Autowired
   accident_detailRepository accident_detailRepository;
+
 
   @Autowired
   private FCMService fcmService;
