@@ -361,4 +361,56 @@ public class MessageSender {
 
 
        }
+
+
+
+    /**
+     *  Gởi notification cho user
+     * @param user user muốn gởi
+     * @param fcmService đã khởi tạo sẵn
+     * @param Message Tin nhắn
+     * @param Title Tiêu đề
+     */
+    public void SendLockToOneUser(User user, FCMService fcmService, String Message, String Title ,NoticeController noticeController) {
+        StateResponse stateresponse = new StateResponse();
+
+        try {
+            if(user.getToken()!=null) {
+                String messageId = Util.getUniqueMessageId();
+                Map<String, String> dataPayload = new HashMap<String, String>();
+                dataPayload.put("message", Message);
+                dataPayload.put("title", Title);
+                dataPayload.put(Util.BACKEND_ACTION_LOCK_USER, Message);
+
+                CcsOutMessage out = new CcsOutMessage(user.getToken(), messageId, dataPayload);
+
+                Map<String, String> notiPayload = new HashMap<String, String>();
+                notiPayload.put("title", Title);
+                notiPayload.put("body", Message);
+                dataPayload.put(Util.BACKEND_ACTION_LOCK_USER, Message);
+
+                out.setNotificationPayload(notiPayload);
+
+                out.setPriority("High");
+                logger.log(Level.INFO, out.toString());
+
+                fcmService.sendMessage(out);
+
+                stateresponse.setCode(Util.OK_CODE);
+                stateresponse.setMessage(Util.OK_MESSAGE);
+                logger.log(Level.INFO, Util.OK_LABEL + Message);
+                Log.d(TAG, "response :" + stateresponse.toString());
+
+
+
+            }
+
+        } catch (Exception e) {
+            stateresponse.setCode(Util.SERVER_ERROR_CODE);
+            stateresponse.setMessage(e.getMessage());
+            logger.log(Level.WARNING, Util.ERROR_LABEL + Message);
+        }
+
+
+    }
 }

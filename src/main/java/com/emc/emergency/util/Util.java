@@ -43,6 +43,7 @@ public class Util {
 	public static final String BACKEND_ACTION_ACCIDENT = "new_accident";
 	public static final String BACKEND_FAKE_ACCIDENT = "fake_accident";
 	public static final String BACKEND_DONE_ACCIDENT = "done_accident";
+	public static final String BACKEND_ACTION_LOCK_USER = "lock_user";
 
 	// open FPT API key
 	public static final String OPEN_FPT_API_KEY = "b05ee21f52ec466eb4cf33e99553b219";

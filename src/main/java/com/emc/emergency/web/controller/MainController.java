@@ -185,6 +185,23 @@ public class MainController {
         model.addAttribute("userlist",users);
         return "mainpage/user_index";
     }
+    @RequestMapping(value="account/lockUser/{userID}", method= RequestMethod.POST)
+        public String lockUser(
+            @PathVariable("userID") String id, Model model
+        ) {
+            Long id_admin = (Long) session.getAttribute("id_admin");
+            if(id_admin==null) return "mainpage/login";
+
+            User user = userRepository.findOne(Long.parseLong(id));
+            User_Type User = userTypeRepository.findOne(3l);
+            user.setIs_lock(true);
+            userRepository.save(user);
+            messageSender.SendLockToOneUser(user,fcmService,"Bạn đã bị khóa do vi phạm nguyên tắc của tổ chức","Xin lỗi",noticeController);
+
+            List<User> users = userService.findAll();
+            model.addAttribute("userlist",users);
+            return "mainpage/user_index";
+        }
     @ResponseBody
     @RequestMapping(value = "resources/icon_user", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
        public byte[] icon_user() throws IOException {
