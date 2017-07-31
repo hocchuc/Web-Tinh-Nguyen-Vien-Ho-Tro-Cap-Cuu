@@ -387,7 +387,7 @@ public class MessageSender {
                 Map<String, String> notiPayload = new HashMap<String, String>();
                 notiPayload.put("title", Title);
                 notiPayload.put("body", Message);
-                dataPayload.put(Util.BACKEND_ACTION_LOCK_USER, Message);
+                notiPayload.put(Util.BACKEND_ACTION_LOCK_USER, Message);
 
                 out.setNotificationPayload(notiPayload);
 
