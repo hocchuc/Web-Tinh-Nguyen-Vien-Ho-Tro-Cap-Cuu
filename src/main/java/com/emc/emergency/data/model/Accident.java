@@ -98,6 +98,8 @@ public class Accident  {
 	@Column(name="request_AC")
 	private Boolean request_AC;
 
+
+
 	@Column(name="is_report_done")
 	private Boolean is_reported_done;
 

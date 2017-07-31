@@ -33,17 +33,11 @@ public class User   {
     }
 
     public User(Long id_user, String username, User_Type user_type,
-        List<Accident> accident, List<Accident> accidents_active,
-        Personal_Infomation personal_Infomation,
-        List<Accident_Detail> accident_details, boolean is_signup_volunteer, String password,
+         boolean is_signup_volunteer, String password,
         String token, Double long_PI, Double lat_PI) {
         this.id_user = id_user;
         this.username = username;
         this.user_type = user_type;
-        this.accident = accident;
-        this.accidents_active = accidents_active;
-        this.personal_Infomation = personal_Infomation;
-        this.accident_details = accident_details;
         this.is_signup_volunteer = is_signup_volunteer;
         this.password = password;
         this.token = token;
@@ -94,7 +88,16 @@ public class User   {
     @Column(name="lat_user", nullable=true)
     private Double lat_PI;
 
+    @Column(name="is_lock", nullable=true)
+    private Boolean is_lock;
 
+    public Boolean getIs_lock() {
+        return is_lock;
+    }
+
+    public void setIs_lock(Boolean is_lock) {
+        this.is_lock = is_lock;
+    }
 
     public List<Accident> getAccidents_active() {
         return accidents_active;
