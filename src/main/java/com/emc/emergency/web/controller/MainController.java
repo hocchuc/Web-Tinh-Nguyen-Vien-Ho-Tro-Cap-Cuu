@@ -116,6 +116,8 @@ public class MainController {
 
     @RequestMapping(value = "/accounts")
     public String UserIndex(Model model ) {
+        Long id_admin = (Long) session.getAttribute("id_admin");
+               if(id_admin==null) return "mainpage/login";
         List<User> users = userService.findAll();
         model.addAttribute("userlist",users);
         return "mainpage/user_index";
@@ -194,7 +196,7 @@ public class MainController {
 
             User user = userRepository.findOne(Long.parseLong(id));
             User_Type User = userTypeRepository.findOne(3l);
-            user.setIs_lock(true);
+            user.setIs_lock(!user.getIs_lock());
             userRepository.save(user);
             messageSender.SendLockToOneUser(user,fcmService,"Bạn đã bị khóa do vi phạm nguyên tắc của tổ chức","Xin lỗi",noticeController);
 
