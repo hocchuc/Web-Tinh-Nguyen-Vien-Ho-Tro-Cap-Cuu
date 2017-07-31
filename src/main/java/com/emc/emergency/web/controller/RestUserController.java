@@ -112,6 +112,7 @@ public class RestUserController {
                         jsonObject.put("name", userList.get(i).getPersonal_Infomation().getName_PI());
                          jsonObject.put("name_user_type", userList.get(i).getId_user_type().getName_user_type());
                          jsonObject.put("username", userList.get(i).getUsername());
+                         jsonObject.put("token", userList.get(i).getToken());
                         jsonArray.put(jsonObject);
                 }
 
