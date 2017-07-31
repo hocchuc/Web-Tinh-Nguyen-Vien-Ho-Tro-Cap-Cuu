@@ -70,13 +70,13 @@ public class DatabaseLoader implements ApplicationRunner {
         user.save(user6);
         user.save(user7);
 
-            Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),10.737994,106.679003,"Pending","87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null,true);
+            Accident accident1 = new Accident(null,user.findOne(1l),"Gãy lưng",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("10/06/2017 at 10:10:15 AM"),10.737994,106.679003,"Pending","87 Ông Ích Khiêm, phường 10, Quận 11, Hồ Chí Minh, Việt Nam",null,false);
         accident.save(accident1);
 
-        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),10.781785,106.643036,"Pending","541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null,true);
+        Accident accident2 = new Accident(null,user.findOne(1l),"Té xe ",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),10.781785,106.643036,"Pending","541 Âu Cơ, Phú Trung, Tân Phú, Hồ Chí Minh",null,false);
         accident.save(accident2);
 
-        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),10.799555,106.637219,"Pending","15-16 Âu Cơ, phường 14, Tân Phú, Hồ Chí Minh",null,true);
+        Accident accident3 = new Accident(null,user.findOne(3l),"Chó cắn",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),10.799555,106.637219,"Pending","15-16 Âu Cơ, phường 14, Tân Phú, Hồ Chí Minh",null,false);
         accident.save(accident3);
 
         //Accident accident4 = new Accident(null,user.findOne(3l),"Té cầu thang",new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss a").parse("11/06/2017 at 02:10:15 PM"),Double.parseDouble("10.783994"),Double.parseDouble("106.636266"),"Pending",null,null,"763 Lũy Bán Bích Hoà Thạnh Tân Phú Hồ Chí Minh",null);
