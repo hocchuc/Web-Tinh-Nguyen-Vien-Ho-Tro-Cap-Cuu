@@ -152,6 +152,7 @@ public class RestAccidentController {
                         jsonObject.put("long_AC", accidentList.get(i).getLong_AC());
                         jsonObject.put("description_AC", accidentList.get(i).getDescription_AC());
                          jsonObject.put("request_AC", accidentList.get(i).getRequest_AC());
+                         jsonObject.put("firebasekey", accidentList.get(i).getFirebaseKey());
                         SimpleDateFormat date_out = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
                         SimpleDateFormat date_in = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         Date d = date_in.parse(accidentList.get(i).getDate_AC().toString());
