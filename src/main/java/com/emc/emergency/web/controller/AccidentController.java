@@ -73,7 +73,10 @@ public class AccidentController {
     ) {
         Long id_admin = (Long) session.getAttribute("id_admin");
         if(id_admin==null) return "mainpage/login";
-
+        List<Accident_Detail> accidentDetails = accident_detailRepository.findAll();
+        for(Accident_Detail accident_detail : accidentDetails) {
+          if(accident_detail.getId_AC().getId_AC()==Long.parseLong(id))accident_detailRepository.delete(accident_detail.getId_AC_detail());
+        }
         accidentService.removeOne((Long.parseLong(id)));
         List<Accident> accidents = accidentService.GetAccidentWithStatus("Active");
         List<Accident> accidents2 = accidentService.GetAccidentWithStatus("Pending");

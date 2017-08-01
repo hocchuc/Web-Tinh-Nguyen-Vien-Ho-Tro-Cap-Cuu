@@ -36,7 +36,7 @@ public class UserService {
         List<User> userList= userRepository.findByUsernameAndPassword(username,password);
         if(userList.isEmpty()) return false;
         if(userList.get(0).getIs_lock()==null) return true;
-        if(!userList.get(0).getIs_lock()) return false;
+        if(userList.get(0).getIs_lock()) return false;
         return true;
     }
     public User getUserByUsername(String username ) {

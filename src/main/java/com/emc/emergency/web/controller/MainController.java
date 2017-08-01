@@ -196,7 +196,8 @@ public class MainController {
 
             User user = userRepository.findOne(Long.parseLong(id));
             User_Type User = userTypeRepository.findOne(3l);
-            user.setIs_lock(!user.getIs_lock());
+            if(user.getIs_lock()!=null)            user.setIs_lock(!user.getIs_lock());
+            else   user.setIs_lock(true);
             userRepository.save(user);
             messageSender.SendLockToOneUser(user,fcmService,"Bạn đã bị khóa do vi phạm nguyên tắc của tổ chức","Xin lỗi",noticeController);
 
