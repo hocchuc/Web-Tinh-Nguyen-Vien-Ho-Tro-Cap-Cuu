@@ -15,8 +15,13 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
 
-version = '0.0.1-SNAPSHOT'
+war {
+    baseName = 'WebEmergencySOS'
+    version =  '1.0'
+}
+version = "1.0"
 sourceCompatibility = 1.8
 
 repositories {

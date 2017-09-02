@@ -98,7 +98,7 @@ $(function(){
    function notifyMe(title, messagem) {
        Push.create(title, {
         body: messagem,
-        icon: 'http://192.168.1.110:8080/icons/ic_alert.png',
+        icon: 'http://192.168.1.106:8080/icons/ic_alert.png',
         timeout: 4000,               // Timeout before notification closes automatically.
         vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
         onClick: function() {
