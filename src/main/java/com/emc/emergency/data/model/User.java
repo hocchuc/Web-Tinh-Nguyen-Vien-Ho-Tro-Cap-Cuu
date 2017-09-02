@@ -61,9 +61,7 @@ public class User   {
     @OneToMany(mappedBy="id_user")
     private List<Accident> accident = new ArrayList<>();
 
-
-
-    @OneToMany(mappedBy = "id_admin_active")
+   // @OneToMany(mappedBy = "id_admin_active")
     private List<Accident> accidents_active;
 
     @OneToOne(mappedBy="id_user")

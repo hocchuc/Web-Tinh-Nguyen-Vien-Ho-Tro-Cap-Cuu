@@ -91,8 +91,8 @@ public class Accident  {
 	@Column(name="joined", nullable=true)
 	private int joined = 0;
 
-	@ManyToOne
-	@JoinColumn(name = "accidents_active")
+//	@ManyToOne
+//	@JoinColumn(name = "accidents_active")
 	private User id_admin_active;
 
 	@Column(name="request_AC")
