@@ -63,7 +63,7 @@ $(function(){
             stompClient.subscribe('/topic/notices', function (notice) {
                 showNotice(JSON.parse(notice.body).content);
             });
-
+            
             stompClient.subscribe('/topic/accidents', function (notice) {
                   notifyMe("Khẩn Cấp : Tai nạn mới",JSON.parse(notice.body).content)
                   showNotice(JSON.parse(notice.body).content);
