@@ -13,6 +13,9 @@ Database MySQL
 Sử dụng API theo hướng dẫn ví dụ ở đây:
 http://www.baeldung.com/spring-data-rest-relationships
 
+Demo
+https://www.youtube.com/watch?v=es8e8Wr3TJM
+
 Trang truy cập API
 localhost:8080/api
 
