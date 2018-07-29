@@ -3,8 +3,6 @@ package com.emc.emergency;
 
 import java.util.TimeZone;
 import javax.annotation.PostConstruct;
-import org.jivesoftware.smack.SmackException;
-import org.jivesoftware.smack.XMPPException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,7 +23,7 @@ public class EmergencyApplication {
 			TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 
 			}
-	public static void main(String[] args)throws SmackException, IOException  {
+	public static void main(String[] args)throws IOException  {
 		SpringApplication.run(EmergencyApplication.class, args);
 
 	}
