@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD build/libs/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu-1.0.jar Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu-1.0.jar
+ADD build/libs/emergency.jar emergency.jar
 EXPOSE 8086
-ENTRYPOINT ["java", "-jar", "Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "emergency.jar"]
