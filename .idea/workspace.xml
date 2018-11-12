@@ -2,605 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a116713d-217d-47ae-a09d-58654a941762" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/file-changes/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/fileContent/annotation-processors.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/taskHistory/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/taskHistory/fileSnapshots.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/taskHistory/jvmClassSignatures.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/taskHistory/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.4.1/taskHistory/taskHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu_main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/EmergencyApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/config/AppConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/config/CustomRestMvcConfiguration$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/config/CustomRestMvcConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/config/ServerConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/config/SpringApplicationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/config/TemplateConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/config/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/core/DatabaseLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/EventListener/AccidentDetailEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/EventListener/AccidentEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/bean/CcsInMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/bean/CcsOutMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/bean/Notice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/bean/NoticeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/bean/StateResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/model/Accident.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/model/Accident_Detail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/model/Action_Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/model/Medical_Info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/model/Personal_Infomation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/model/User_Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/repository/accidentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/repository/accident_detailRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/repository/action_typeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/repository/medical_infoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/repository/personal_infoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/repository/userRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/data/repository/user_typeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/AccidentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/FCMService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/Medical_InfoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/PayloadProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/User_TypeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/impl/EchoProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/impl/FCMServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/impl/MessageProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/service/impl/RegisterProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/util/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/FlashMessage$Status.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/FlashMessage$Type_Mess.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/FlashMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/controller/AccidentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/controller/FCMController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/controller/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/controller/NoticeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/controller/RestAccidentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/controller/RestChatAccident.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/web/controller/RestUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/CcsClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/CcsClient$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/CcsClient$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/CcsClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/GcmPacketExtension.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/MessageHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/MessageSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/emc/emergency/xmpp/ProcessorFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/test/com/emc/emergency/EmergencyApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.emc.emergency.EmergencyApplicationTests.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.emc.emergency.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/angular-material/angular-material.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/angular-material/angular-material.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/custom-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/custom/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/custom/custom.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/layouts/layout-2.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/layouts/layout-3.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/layouts/page-center.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/layouts/style-fullscreen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/layouts/style-horizontal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/login_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/css/materialize_OLD.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/material-design-icons/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/material-design-icons/Material-Design-Icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/material-design-icons/Material-Design-Icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/material-design-icons/Material-Design-Icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/material-design-icons/Material-Design-Icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/material-design-icons/Material-Design-Icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Bold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Light.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Light.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Medium.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Medium.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Thin.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Thin.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/font/roboto/Roboto-Thin.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/v3.1/js/plugins/chartist-js/chartist.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/v3.1/js/plugins/jquery.nestable/nestable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/v3.1/js/plugins/perfect-scrollbar/perfect-scrollbar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/materialize/v3.1/js/plugins/prism/prism.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/media-hover-effects.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/page-center.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/plugins/media-hover-effects.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/prism.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/style-horizontal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/style.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/material-design-icons/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/material-design-icons/Material-Design-Icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/material-design-icons/Material-Design-Icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/material-design-icons/Material-Design-Icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/material-design-icons/Material-Design-Icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/material-design-icons/Material-Design-Icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Light.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Medium.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Thin.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/font/roboto/Roboto-Thin.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/accident9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/ic_accident_marker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/ic_alert.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/ic_marker_end.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/ic_marker_start.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/icon_sos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/icons/icon_user_sos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/amazon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/amazon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/avatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/favicon/apple-touch-icon-152x152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/favicon/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/favicon/mstile-144x144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/flag-icons/China.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/flag-icons/France.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/flag-icons/Germany.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/flag-icons/United-States.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/23.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/25.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/26.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/28.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/29.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/30.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/31.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/32.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/33.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/gallary/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/generic-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/home_mockups_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/icon_user_sos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/img8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/login-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/map-marker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/materialize-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/me.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/office.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/sample-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/signature-scan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/style_typography_roboto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/user-bg-simple.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/user-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/user-profile-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/jquery-1.11.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/custom-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/jquery-1.11.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/animation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/buttons.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/cards.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/character_counter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/chips.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/collapsible.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/date_picker/picker.date.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/date_picker/picker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/dropdown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/forms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/global.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/hammer.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/jquery.easing.1.3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/jquery.hammer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/jquery.timeago.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/leanModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/materialbox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/materialize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/parallax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/prism.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/pushpin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/scrollFire.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/scrollspy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/sideNav.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/tabs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/toasts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/tooltip.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/transitions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/velocity.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize-plugins/waves.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/materialize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/angular-materialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/angular.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/animate-css/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/chartist-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/chartist.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/chartist.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/chartist.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/chartist.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/scss/chartist.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartist-js/scss/settings/_chartist-settings.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartjs/chart-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartjs/chart.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/chartjs/chartjs-sample-chart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/d3/d3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/d3/d3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/css/jquery.dataTables.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/css/jquery.dataTables.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/css/jquery.dataTables_themeroller.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/data-tables-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/images/Sorting icons.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/images/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/images/sort_asc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/images/sort_asc_disabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/images/sort_both.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/images/sort_desc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/images/sort_desc_disabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/js/jquery.dataTables.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/js/jquery.dataTables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/data-tables/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/css/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/css/dropify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/css/dropify.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/fonts/dropify.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/fonts/dropify.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/fonts/dropify.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/fonts/dropify.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/js/dropify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dropify/js/dropify.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/jquery.dynatree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin-vista/icons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin-vista/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin-vista/ui.dynatree.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin/icons-rtl.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin/icons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin/ui.dynatree.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin/vline-rtl.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/dynatree/skin/vline.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/editable-table/mindmup-editabletable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/editable-table/numeric-input-example.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/floatThead/jquery.floatThead-slim.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/floatThead/jquery.floatThead-slim.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/floatThead/jquery.floatThead.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/floatThead/jquery.floatThead.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/excanvas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/excanvas.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/flot-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.colorhelpers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.colorhelpers.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.canvas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.canvas.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.categories.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.categories.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.crosshair.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.crosshair.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.errorbars.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.errorbars.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.fillbetween.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.fillbetween.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.image.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.image.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.navigate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.navigate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.pie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.pie.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.resize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.resize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.selection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.selection.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.stack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.stack.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.symbol.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.symbol.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.threshold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.threshold.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.time.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/flot-chart/jquery.flot.time.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/formatter/formatter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/formatter/formatter.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/formatter/jquery.formatter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/formatter/jquery.formatter.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/formatter/scale.fix.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/css/fullcalendar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/css/fullcalendar.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/css/fullcalendar.print.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/fullcalendar-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/js/fullcalendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/js/fullcalendar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/js/gcal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/js/lang-all.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lang/es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lang/pt-br.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/animated-overlay.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_flat_15_cd0a0a_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_glass_100_e4f1fb_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_glass_50_3baae3_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_glass_80_d7ebf9_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_highlight-hard_70_000000_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_highlight-soft_100_deedf7_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-icons_2694e8_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-icons_3d80b3_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-icons_72a7cf_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/cupertino/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/jquery-ui.custom.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/fullcalendar/lib/moment.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/google-map/google-map-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/imagesloaded.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/intro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/introjs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/minified/intro.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/minified/introjs-rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/minified/introjs.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/themes/introjs-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/themes/introjs-nassim.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/themes/introjs-nazanin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/introjs/themes/introjs-royal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/ionRangeSlider/css/ion.rangeSlider.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/ionRangeSlider/css/ion.rangeSlider.skinFlat.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/ionRangeSlider/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/ionRangeSlider/js/ion.rangeSlider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jQuery-ui-Slider-Pips/jquery-ui-slider-pips.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jQuery-ui-Slider-Pips/jquery-ui-slider-pips.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jQuery-ui-Slider-Pips/jquery-ui-slider-pips.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-1.11.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-cookies/jquery.cookies.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-sortable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-ui.custom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/localization/messages_pt_BR.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/localization/messages_pt_BR.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/localization/methods_es_CL.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery-validation/localization/methods_es_CL.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery.nestable/jquery.nestable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jquery.nestable/nestable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/css/jsgrid-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/css/jsgrid-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/css/jsgrid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/css/jsgrid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/js/db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/js/jsgrid-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/js/jsgrid.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jsgrid/js/jsgrid.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jvectormap/jquery-jvectormap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/jvectormap/vectormap-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/magnific-popup/jquery.magnific-popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/magnific-popup/jquery.magnific-popup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/magnific-popup/magnific-popup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/masonry.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/morris-chart/morris-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/morris-chart/morris.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/morris-chart/morris.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/perfect-scrollbar/perfect-scrollbar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/prism/prism.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/prism/prism.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/raphael-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/raphael/raphael-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sparkline/jquery.sparkline.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sparkline/sparkline-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/sweetalert-dev.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/sweetalert.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/sweetalert.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/themes/facebook/facebook.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/themes/facebook/facebook.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/themes/google/google.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/themes/google/google.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/themes/twitter/twitter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/sweetalert/themes/twitter/twitter.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/translator/jqueryTranslator.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/translator/translate-ch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/translator/translate-en.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/translator/translate-es.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/translator/translate-fr.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/translator/translation-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/xcharts/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/xcharts/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/xcharts/xcharts-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/xcharts/xcharts.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/xcharts/xcharts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/xcharts/xcharts.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/plugins/xcharts/xcharts.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/prism.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/raphael-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/css/cs-select.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/css/cs-skin-border.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/codropsicons/codropsicons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/codropsicons/codropsicons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/codropsicons/codropsicons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/codropsicons/codropsicons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/codropsicons/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/icomoon/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/icomoon/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/icomoon/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/fonts/icomoon/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/js/classie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/codrops/js/selectFx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/jquery/jquery-1.11.3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/css/materialize.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/css/materialize.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/material-design-icons/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/material-design-icons/Material-Design-Icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/material-design-icons/Material-Design-Icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/material-design-icons/Material-Design-Icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/material-design-icons/Material-Design-Icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/material-design-icons/Material-Design-Icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Light.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Medium.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Thin.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/font/roboto/Roboto-Thin.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/js/materialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor/materialize/js/materialize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/error.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/accident_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/accident_index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/forgot-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/helicopter-615168_1280.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/icon_user_sos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mainpage/user_index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.emc.emergency.EmergencyApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/EmergencyApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/config/AppConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/config/CustomRestMvcConfiguration$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/config/CustomRestMvcConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/config/ServerConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/config/SpringApplicationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/config/TemplateConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/config/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/core/DatabaseLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/EventListener/AccidentDetailEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/EventListener/AccidentEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/bean/CcsInMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/bean/CcsOutMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/bean/Notice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/bean/NoticeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/bean/StateResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/model/Accident.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/model/Accident_Detail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/model/Action_Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/model/Medical_Info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/model/Personal_Infomation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/model/User_Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/repository/accidentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/repository/accident_detailRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/repository/action_typeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/repository/medical_infoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/repository/personal_infoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/repository/userRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/data/repository/user_typeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/AccidentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/FCMService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/Medical_InfoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/PayloadProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/User_TypeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/impl/EchoProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/impl/FCMServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/impl/MessageProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/service/impl/RegisterProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/util/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/FlashMessage$Status.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/FlashMessage$Type_Mess.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/FlashMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/controller/AccidentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/controller/FCMController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/controller/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/controller/NoticeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/controller/RestAccidentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/controller/RestChatAccident.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/web/controller/RestUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/CcsClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/CcsClient$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/CcsClient$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/CcsClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/GcmPacketExtension.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/MessageHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/MessageSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/emc/emergency/xmpp/ProcessorFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/emc/emergency/EmergencyApplicationTests.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -696,19 +99,22 @@
     <session id="-979295668">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.12" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="gitignore" value="6" />
           <entry key="gradle" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Git file" value="6" />
           <entry key="Groovy" value="27" />
         </counts>
       </usages-collector>
@@ -719,11 +125,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Git file" value="1" />
           <entry key="JAVA" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="gitignore" value="1" />
           <entry key="java" value="4" />
         </counts>
       </usages-collector>
@@ -731,15 +139,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/emc/emergency/data/model/Personal_Infomation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/emc/emergency/data/repository/accident_detailRepository.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -757,17 +156,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1499">
-              <caret line="102" column="70" selection-start-line="102" selection-start-column="61" selection-end-line="102" selection-end-column="70" />
+            <state relative-caret-position="218">
+              <caret line="103" column="45" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+            <state relative-caret-position="45">
+              <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -775,8 +174,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="81">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -799,14 +198,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/emc/emergency/web/controller/NoticeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            <state relative-caret-position="285">
+              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -821,6 +229,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Docker</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -1064,9 +477,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4625802194000" />
+        <entry key="$PROJECT_DIR$" value="4625805587000" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="445674678" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="2478090161" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="212106163" />
       </map>
     </option>
@@ -1257,13 +670,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/emc/emergency/EmergencyApplication.java" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="36" />
+    <option name="y" value="63" />
     <option name="width" value="1280" />
     <option name="height" value="720" />
   </component>
@@ -1272,6 +687,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1284,12 +700,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="plugin&#9;ACTION&#9;WelcomeScreen.Plugins" />
+    <property name="SearchEverywhereHistoryKey" value="Docke&#9;FILE&#9;file:///Volumes/Workspaces/Private/spring/Web-Tinh-Nguyen-Vien-Ho-Tro-Cap-Cuu/Dockerfile&#10;plugin&#9;ACTION&#9;WelcomeScreen.Plugins" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532886692530" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -1450,9 +865,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="720" extended-state="0" />
+    <frame x="1" y="23" width="1280" height="720" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28432956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29321486" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1466,7 +882,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.4264463" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.4264463" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50031906" side_tool="true" weight="0.40238613" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289256" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.32561985" />
@@ -1477,7 +893,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Gradle" order="5" visible="true" weight="0.31340873" />
+      <window_info anchor="right" id="Gradle" order="5" weight="0.31340873" />
       <window_info anchor="right" id="Flutter Inspector" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Flutter Outline" order="8" />
@@ -1631,36 +1047,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1499">
-          <caret line="102" column="70" selection-start-line="102" selection-start-column="61" selection-end-line="102" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/emc/emergency/EmergencyApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/emc/emergency/data/repository/userRepository.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1678,11 +1066,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/emc/emergency/web/controller/NoticeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        <state relative-caret-position="285">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/emc/emergency/EmergencyApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="103" column="45" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
         </state>
       </provider>
     </entry>
