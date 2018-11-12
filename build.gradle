@@ -19,6 +19,11 @@ apply plugin: 'org.springframework.boot'
 
 
 jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.emc.emergency.EmergencyApplication'
+        )
+    }
     baseName = 'emergency'
 }
 
